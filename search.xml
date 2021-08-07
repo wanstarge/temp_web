@@ -4,6 +4,13 @@
     <title>hexo参数介绍</title>
     <url>/2021/08/06/17-53-07/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>配置环境</category>
+        <category>框架</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>mathtype与word快捷键冲突</title>
@@ -19,6 +26,53 @@
       </categories>
       <tags>
         <tag>answer</tag>
+        <tag>word</tag>
+        <tag>mathtype</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sublime-linux python</title>
+    <url>/2021/08/05/09-01-34/</url>
+    <content><![CDATA[<p><strong>sublime在linux上调用python执行代码时会报错，找不到python选项，而linux上python2命名为python，而python3则就需要直接写成python3，解决方法</strong></p>
+<span id="more"></span>
+<h3 id="一-直接用命令创建软链接"><a href="#一-直接用命令创建软链接" class="headerlink" title="一. 直接用命令创建软链接"></a>一. 直接用命令创建软链接</h3><p>将python指向python3，同时将pip指向pip3</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /usr/bin/python3 /usr/bin/python</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/pip /usr/<span class="built_in">local</span>/bin/pip3</span><br></pre></td></tr></table></figure>
+
+<p>对了改动应该会需要超级用户权限，在前面加个sudo就行，记得空格</p>
+<h3 id="二-改动sublime的源文件"><a href="#二-改动sublime的源文件" class="headerlink" title="二. 改动sublime的源文件"></a>二. 改动sublime的源文件</h3><p>就是这个**<u>Main.sublime-menu</u>**,上sublime对应的根目录里去搜就行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="string">&quot;id&quot;</span>: <span class="string">&quot;tools&quot;</span>,</span><br><span class="line">        <span class="string">&quot;children&quot;</span>:</span><br><span class="line">        [&#123;</span><br><span class="line">            <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;SublimeREPL&quot;</span>,</span><br><span class="line">            <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;r&quot;</span>,</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;SublimeREPL&quot;</span>,</span><br><span class="line">            <span class="string">&quot;children&quot;</span>:</span><br><span class="line">            [</span><br><span class="line">                &#123;<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line">                <span class="string">&quot;id&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line"> </span><br><span class="line">                 <span class="string">&quot;children&quot;</span>:[</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;p&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;-u&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;python_virtualenv_repl&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;python_virtualenv_repl&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - virtualenv&quot;</span>&#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - PDB current file&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_pdb&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;d&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-m&quot;</span>, <span class="string">&quot;pdb&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;d&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - IPython&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_ipython&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;p&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;autocomplete_server&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: &#123;</span><br><span class="line">                            <span class="string">&quot;osx&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>],</span><br><span class="line">                            <span class="string">&quot;linux&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>],</span><br><span class="line">                            <span class="string">&quot;windows&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>]</span><br><span class="line">                        &#125;,</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;</span><br><span class="line">                            <span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;SUBLIMEREPL_EDITOR&quot;</span>: <span class="string">&quot;<span class="variable">$editor</span>&quot;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]&#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>ps: 欢迎提出更多实用的方法，一起讨论，共同提升</strong></p>
+]]></content>
+      <categories>
+        <category>配置环境</category>
+        <category>软件</category>
+        <category>sublime</category>
+      </categories>
+      <tags>
+        <tag>answer</tag>
+        <tag>sublime</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信道基础</title>
+    <url>/2021/08/06/22-26-08/</url>
+    <content><![CDATA[<h1 id="一-无线通信系统"><a href="#一-无线通信系统" class="headerlink" title="一. 无线通信系统"></a>一. 无线通信系统</h1><p>首先看一张图也是无线系统框图</p>
+<p>！<a href="/images/%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%A1%86%E5%9B%BE.jpg">无线通信系统框图</a></p>
+<h1 id="二-复杂信道"><a href="#二-复杂信道" class="headerlink" title="二. 复杂信道"></a>二. 复杂信道</h1><h2 id="1-加性高斯白噪声（AWGN）信道"><a href="#1-加性高斯白噪声（AWGN）信道" class="headerlink" title="(1) 加性高斯白噪声（AWGN）信道"></a>(1) 加性高斯白噪声（AWGN）信道</h2><p><strong>信道特性</strong></p>
+<p>加性高斯白噪声（Additive White Gaussian Noise， AWGN）是最基本的<br>噪声模型</p>
+<p>加性噪声：叠加在信号上的一种噪声，通常记为 n(t)，而且无论有无信<br>号，噪声 n(t)都是始终存在的。因此通常称它为加性噪声或者加性干扰</p>
+<p>白噪声：噪声的功率谱密度在所有的频率上均为一常数，则称这样的噪<br>声为白噪声。如果白噪声取值的概率分布服从高斯分布(又称正态分布)，<br>则称这样的噪声为高斯白噪声</p>
+<p>信噪比（Signal to Noise Ratio， SNR）是 AWGN 信道性能的关键指标。<br>AWGN 信道中的许多不同性能指标是 SNR 的函数，包括误码率和信道容量。<br>定义为 SNR = E<sub>x</sub> / N<sub>0</sub></p>
+<h2 id="2-卫星信道"><a href="#2-卫星信道" class="headerlink" title="(2) 卫星信道"></a>(2) 卫星信道</h2><p>卫星信道充足的带宽允许通信系统以较低的码速率传输数据，数据间的<br>符号间干扰可以忽略，信道引入的加性噪声和干扰可以用高速白噪声来建模，<br>并且这种噪声在符号间是相互独立的，因此，卫星信道是一种典型的 AWGN<br>信道</p>
+<p>卫星信道传输距离远，由于衰减和噪声干扰的影响， 信道在传输过程中<br>将产生畸变，如果要保证通信质量，就需要提高信噪比，但通常卫星通信系<br>统是非实时的、功率受限的，所以必须使用相应的信道编码技术进行检错和<br>纠错。在卫星通信系统中应用差错控制编码，不仅可以给系统提供高的可靠<br>性和传输稳定性，同于由于编码增益的增加，系统传输信息所需的能量<br>可大为降低，这对于功率受限的卫星信道具有重要的意义</p>
+]]></content>
+      <categories>
+        <category>大学</category>
+      </categories>
+      <tags>
+        <tag>通信</tag>
       </tags>
   </entry>
   <entry>
@@ -46,26 +100,14 @@
 <h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><p><strong>在python.sublime-build文件中改为</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python&quot;</span>,<span class="string">&quot;-u&quot;</span>,<span class="string">&quot;<span class="variable">$file</span>&quot;</span>],</span><br><span class="line"><span class="string">&quot;file_regex&quot;</span>: <span class="string">&quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>,</span><br><span class="line"><span class="string">&quot;selector&quot;</span>: <span class="string">&quot;source.python&quot;</span>,</span><br><span class="line"><span class="string">&quot;shell&quot;</span>:<span class="string">&quot;true&quot;</span>,</span><br><span class="line"><span class="string">&quot;encoding&quot;</span>:<span class="string">&quot;cp936&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>配置环境</category>
+        <category>软件</category>
+        <category>sublime</category>
+      </categories>
       <tags>
-        <tag>配置环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sublime-linux python</title>
-    <url>/2021/08/05/09-01-34/</url>
-    <content><![CDATA[<p><strong>sublime在linux上调用python执行代码时会报错，找不到python选项，而linux上python2命名为python，而python3则就需要直接写成python3，解决方法</strong></p>
-<span id="more"></span>
-<h3 id="一-直接用命令创建软链接"><a href="#一-直接用命令创建软链接" class="headerlink" title="一. 直接用命令创建软链接"></a>一. 直接用命令创建软链接</h3><p>将python指向python3，同时将pip指向pip3</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /usr/bin/python3 /usr/bin/python</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/pip /usr/<span class="built_in">local</span>/bin/pip3</span><br></pre></td></tr></table></figure>
-
-<p>对了改动应该会需要超级用户权限，在前面加个sudo就行，记得空格</p>
-<h3 id="二-改动sublime的源文件"><a href="#二-改动sublime的源文件" class="headerlink" title="二. 改动sublime的源文件"></a>二. 改动sublime的源文件</h3><p>就是这个**<u>Main.sublime-menu</u>**,上sublime对应的根目录里去搜就行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="string">&quot;id&quot;</span>: <span class="string">&quot;tools&quot;</span>,</span><br><span class="line">        <span class="string">&quot;children&quot;</span>:</span><br><span class="line">        [&#123;</span><br><span class="line">            <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;SublimeREPL&quot;</span>,</span><br><span class="line">            <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;r&quot;</span>,</span><br><span class="line">            <span class="string">&quot;id&quot;</span>: <span class="string">&quot;SublimeREPL&quot;</span>,</span><br><span class="line">            <span class="string">&quot;children&quot;</span>:</span><br><span class="line">            [</span><br><span class="line">                &#123;<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line">                <span class="string">&quot;id&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line"> </span><br><span class="line">                 <span class="string">&quot;children&quot;</span>:[</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;p&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;-u&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;python_virtualenv_repl&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;python_virtualenv_repl&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - virtualenv&quot;</span>&#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - PDB current file&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_pdb&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;d&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-i&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;-m&quot;</span>, <span class="string">&quot;pdb&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - RUN current file&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_run&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;d&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$file_basename</span>&quot;</span>],</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;<span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;<span class="string">&quot;command&quot;</span>: <span class="string">&quot;repl_open&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;caption&quot;</span>: <span class="string">&quot;Python - IPython&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;id&quot;</span>: <span class="string">&quot;repl_python_ipython&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;mnemonic&quot;</span>: <span class="string">&quot;p&quot;</span>,</span><br><span class="line">                     <span class="string">&quot;args&quot;</span>: &#123;</span><br><span class="line">                        <span class="string">&quot;type&quot;</span>: <span class="string">&quot;subprocess&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;encoding&quot;</span>: <span class="string">&quot;utf8&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;autocomplete_server&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                        <span class="string">&quot;cmd&quot;</span>: &#123;</span><br><span class="line">                            <span class="string">&quot;osx&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>],</span><br><span class="line">                            <span class="string">&quot;linux&quot;</span>: [<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>],</span><br><span class="line">                            <span class="string">&quot;windows&quot;</span>: [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;<span class="variable">$&#123;packages&#125;</span>/SublimeREPL/config/Python/ipy_repl.py&quot;</span>]</span><br><span class="line">                        &#125;,</span><br><span class="line">                        <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;<span class="variable">$file_path</span>&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;syntax&quot;</span>: <span class="string">&quot;Packages/Python/Python.tmLanguage&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;external_id&quot;</span>: <span class="string">&quot;python&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;extend_env&quot;</span>: &#123;</span><br><span class="line">                            <span class="string">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;SUBLIMEREPL_EDITOR&quot;</span>: <span class="string">&quot;<span class="variable">$editor</span>&quot;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]&#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p><strong>ps: 欢迎提出更多实用的方法，一起讨论，共同提升</strong></p>
-]]></content>
-      <tags>
-        <tag>配置环境</tag>
+        <tag>sublime</tag>
+        <tag>bash</tag>
       </tags>
   </entry>
   <entry>
@@ -115,7 +157,7 @@
 <h2 id="高级链接技巧"><a href="#高级链接技巧" class="headerlink" title="高级链接技巧"></a>高级链接技巧</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个链接用 first 作为网址变量 [myself][first]</span><br><span class="line">这个链接用 yahoo 作为网址变量 [Yahoo!][yahoo]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line">[first]:https://wanstarge.github.io</span><br><span class="line">[yahoo]:http://www.yahoo.com/</span><br></pre></td></tr></table></figure>
 
 <p><strong>ps: 由于目前发现只有markdown-here支持这种操作，就不再演示了</strong></p>
-<h1 id="五-列表"><a href="#五-列表" class="headerlink" title="五. 列表"></a>五. 列表</h1><h2 id="普通有序列表"><a href="#普通有序列表" class="headerlink" title="普通有序列表"></a>普通有序列表</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- 列表文本前使用 [减号+空格]</span><br><span class="line">+ 列表文本前使用 [加号+空格]</span><br><span class="line">* 列表文本前使用 [星号+空格]</span><br></pre></td></tr></table></figure>
+<h1 id="五-列表"><a href="#五-列表" class="headerlink" title="五. 列表"></a>五. 列表</h1><h2 id="普通无序列表"><a href="#普通无序列表" class="headerlink" title="普通无序列表"></a>普通无序列表</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- 列表文本前使用 [减号+空格]</span><br><span class="line">+ 列表文本前使用 [加号+空格]</span><br><span class="line">* 列表文本前使用 [星号+空格]</span><br></pre></td></tr></table></figure>
 
 <p><strong>ps:示例如下</strong></p>
 <ul>
@@ -127,7 +169,7 @@
 <ul>
 <li>列表文本前使用 [星号+空格]</li>
 </ul>
-<h2 id="普通有序列表-1"><a href="#普通有序列表-1" class="headerlink" title="普通有序列表"></a>普通有序列表</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 列表前使用 [数字+空格]</span><br><span class="line">2. 我们会自动帮你添加数字</span><br><span class="line">7. 不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3</span><br></pre></td></tr></table></figure>
+<h2 id="普通有序列表"><a href="#普通有序列表" class="headerlink" title="普通有序列表"></a>普通有序列表</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 列表前使用 [数字+空格]</span><br><span class="line">2. 我们会自动帮你添加数字</span><br><span class="line">7. 不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3</span><br></pre></td></tr></table></figure>
 
 <p><strong>ps:示例如下</strong></p>
 <ol>
@@ -223,8 +265,61 @@ RewriteRule . index.php [NC,L]
 <pre><code>
 </code></pre>
 ]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
       <tags>
         <tag>基础语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑综合记录</title>
+    <url>/2021/08/06/22-31-10/</url>
+    <content><![CDATA[<p>Windows里面有好多东西想自己定制，为此不免要涉及到好多系统对应的<br>源文件，在这里稍微整理一下，欢迎讨论补充</p>
+<span id="more"></span>
+
+<h1 id="一-注册表"><a href="#一-注册表" class="headerlink" title="一.注册表"></a>一.注册表</h1><h2 id="1-桌面右键新建"><a href="#1-桌面右键新建" class="headerlink" title="1. 桌面右键新建"></a>1. 桌面右键新建</h2><p>添加鼠标右键新建项：对应单击桌面空白处，新建菜单中的项目对应注册表<br>中的位置 ：</p>
+<p>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion<br>Explorer\Discardable\PostSetup\ShellNew</p>
+<h2 id="2-桌面右键菜单"><a href="#2-桌面右键菜单" class="headerlink" title="2. 桌面右键菜单"></a>2. 桌面右键菜单</h2><p>鼠标单击桌面：桌面空白处点击右键菜单对应注册表位置：</p>
+<p>HKEY_CLASSES_ROOT\Directory\Background\shellex<br>ContextMenuHandlers</p>
+<h2 id="3-文件右键菜单"><a href="#3-文件右键菜单" class="headerlink" title="3. 文件右键菜单"></a>3. 文件右键菜单</h2><p>右键单击文件：鼠标右键文件，弹出的菜单项对应注册表中的位置：</p>
+<p>HKEY_CLASSES_ROOT*\shellex\ContextMenuHandlers</p>
+<h2 id="4-文件夹右键菜单"><a href="#4-文件夹右键菜单" class="headerlink" title="4. 文件夹右键菜单"></a>4. 文件夹右键菜单</h2><p>单击文件夹：鼠标右键文件夹，弹出的菜单项对应注册表中的位置：</p>
+<p>HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers</p>
+<h2 id="5-IE浏览器右键"><a href="#5-IE浏览器右键" class="headerlink" title="5. IE浏览器右键"></a>5. IE浏览器右键</h2><p>鼠标单击ie浏览器里：鼠标右键在IE浏览器里，弹出的菜单明细对应注册<br>表中的位置：</p>
+<p>HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer<br>MenuExt</p>
+<h1 id="全局快捷键"><a href="#全局快捷键" class="headerlink" title="全局快捷键"></a>全局快捷键</h1><p>顾名思义就是无论你在那个应用程序里面正在干着什么事(除了关机)，都能<br>通过快捷键进行调用</p>
+<p>主要步骤如下</p>
+<ol>
+<li>首先win+r打开运行，在里面输入control打开控制面板</li>
+<li>搜索并打开管理工具，这时会打开一个文件夹，先放在这别关</li>
+<li>在桌面右键新建一个快捷方式，指向你希望快捷键打开的程序</li>
+<li>然后对该快捷方式右键属性，点中快捷键框，在键盘上按下<br> 你想定义的快捷键，这时基本上就算成功了，之前没要管理员程序<br> 所以还有第五步，如果要了第五步就可以省了，自己找个文件夹藏着<br> 还有记得不要与系统快捷键冲突</li>
+<li>然后将该快捷方式拖入你第二步打开的那个文件夹里，大功告成</li>
+</ol>
+<h1 id="特殊文件夹"><a href="#特殊文件夹" class="headerlink" title="特殊文件夹"></a>特殊文件夹</h1><p><strong>windows里有一些不为人知的文件夹，命名的名字为它时能触发菜单哟</strong></p>
+<ol>
+<li>上帝模式，命名为这个时可以管控电脑上几乎所有设置如下：<br> <strong>.{ED7BA470-8E54-465E-825C-99712043E01C}</strong><br> 自己新建一个文件夹命名为它试试看</li>
+</ol>
+<h1 id="电池计划"><a href="#电池计划" class="headerlink" title="电池计划"></a>电池计划</h1><p><strong>其实电池除了开发商提供的最佳性能外，<br>微软本身也提供了高级电池选项，下面是卓越模式的开启方法</strong></p>
+<ol>
+<li>win+r 输入powershell</li>
+<li>在powershell里面输入<br> <strong>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</strong><br> 以打开卓越模式</li>
+</ol>
+<h1 id="转换分区引导"><a href="#转换分区引导" class="headerlink" title="转换分区引导"></a>转换分区引导</h1><ol>
+<li>legacy引导对应MBR分区的磁盘（性能较差）</li>
+<li>UEFI引导对应GPT分区的磁盘（性能较好）</li>
+<li>需要开机进入某个模式(应该是高级bios)后shift+F10打开cmd<br> 后依次输入<br> a. Diskpart<br> b. lisk disk<br> c. select disk 0(选中所要改变格式的磁盘)<br> d. clean(清空磁盘全部分区)<br> e. convert GPT    </li>
+</ol>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>regedit</tag>
+        <tag>folder</tag>
+        <tag>run</tag>
       </tags>
   </entry>
 </search>
