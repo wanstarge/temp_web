@@ -19,32 +19,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="mathtype和word都有ctrl+c复制键，但两者的估计是哪里的信号冲突，安装了mathtype后在word里面的ctrl+c组合键就会失效，一般的话按照默认路径是不会出事的">
+<meta name="description" content="基本书写规则 SQL 语句要以分号;结尾 SQL 语句不区分大小写 常数的书写方式是固定的 SQL 语句中含有字符串的时候，需要使用英文单引号&#39;将字符串括起来 SQL 语句中含有日期的时候 建议使用’2020-01-26’ 这种&#39;年-月-日&#39; 在 SQL 语句中书写数字的时候，不需要使用任何符号标识，直接写成 1000 这样的数字即可   单词需要用半角空格或者换行来分隔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mathtype与word快捷键冲突">
-<meta property="og:url" content="https://wanstarge.github.io/2021/08/05/09-00-07/index.html">
+<meta property="og:title" content="mysql基本语法">
+<meta property="og:url" content="https://wanstarge.github.io/2021/08/07/23-00-34/index.html">
 <meta property="og:site_name" content="万星阁">
-<meta property="og:description" content="mathtype和word都有ctrl+c复制键，但两者的估计是哪里的信号冲突，安装了mathtype后在word里面的ctrl+c组合键就会失效，一般的话按照默认路径是不会出事的">
+<meta property="og:description" content="基本书写规则 SQL 语句要以分号;结尾 SQL 语句不区分大小写 常数的书写方式是固定的 SQL 语句中含有字符串的时候，需要使用英文单引号&#39;将字符串括起来 SQL 语句中含有日期的时候 建议使用’2020-01-26’ 这种&#39;年-月-日&#39; 在 SQL 语句中书写数字的时候，不需要使用任何符号标识，直接写成 1000 这样的数字即可   单词需要用半角空格或者换行来分隔">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wanstarge.github.io/images/mathtype.png">
-<meta property="article:published_time" content="2021-08-05T01:00:07.000Z">
-<meta property="article:modified_time" content="2021-08-06T14:19:46.606Z">
+<meta property="article:published_time" content="2021-08-07T15:00:34.000Z">
+<meta property="article:modified_time" content="2021-08-09T05:55:51.070Z">
 <meta property="article:author" content="Ivan">
-<meta property="article:tag" content="answer">
-<meta property="article:tag" content="word">
-<meta property="article:tag" content="mathtype">
+<meta property="article:tag" content="基础语法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wanstarge.github.io/images/mathtype.png">
 
 
-<link rel="canonical" href="https://wanstarge.github.io/2021/08/05/09-00-07/">
+<link rel="canonical" href="https://wanstarge.github.io/2021/08/07/23-00-34/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/05/09-00-07/","path":"2021/08/05/09-00-07/","title":"mathtype与word快捷键冲突"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/07/23-00-34/","path":"2021/08/07/23-00-34/","title":"mysql基本语法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>mathtype与word快捷键冲突 | 万星阁</title>
+<title>mysql基本语法 | 万星阁</title>
   
 
 
@@ -138,7 +134,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -151,6 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%B9%A6%E5%86%99%E8%A7%84%E5%88%99"><span class="nav-text">基本书写规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="nav-text">注意事项：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">一. 查看数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">1. 查看特定数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">2. 查看所有数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E7%89%B9%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">3. 查看特定数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">二. 创建数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">三. 更改数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">四. 删除数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A-1"><span class="nav-text">注意事项：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">五. 选择数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B3%A8%E9%87%8A"><span class="nav-text">六. 数据库注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="nav-text">1.单行注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="nav-text">2.多行注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83-%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="nav-text">七. 帮助命令</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +247,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/05/09-00-07/">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/07/23-00-34/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -263,7 +260,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mathtype与word快捷键冲突
+          mysql基本语法
         </h1>
 
         <div class="post-meta-container">
@@ -274,14 +271,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-08-05 09:00:07" itemprop="dateCreated datePublished" datetime="2021-08-05T09:00:07+08:00">2021-08-05</time>
+      <time title="创建时间：2021-08-07 23:00:34" itemprop="dateCreated datePublished" datetime="2021-08-07T23:00:34+08:00">2021-08-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-06 22:19:46" itemprop="dateModified" datetime="2021-08-06T22:19:46+08:00">2021-08-06</time>
+        <time title="修改时间：2021-08-09 13:55:51" itemprop="dateModified" datetime="2021-08-09T13:55:51+08:00">2021-08-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,7 +286,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+          <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
         </span>
     </span>
 
@@ -310,8 +307,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/08/05/09-00-07/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/05/09-00-07/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/08/07/23-00-34/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/07/23-00-34/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -323,14 +320,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>151</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -341,11 +338,58 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><strong>mathtype和word都有ctrl+c复制键，但两者的估计是哪里的信号冲突，安装了mathtype后在word里面的ctrl+c组合键就会失效，一般的话按照默认路径是不会出事的</strong></p>
+        <h1 id="基本书写规则"><a href="#基本书写规则" class="headerlink" title="基本书写规则"></a>基本书写规则</h1><ol>
+<li>SQL 语句要以分号<code>;</code>结尾</li>
+<li>SQL 语句不区分大小写</li>
+<li>常数的书写方式是固定的<ol>
+<li>SQL 语句中含有字符串的时候，需要使用英文单引号<code>&#39;</code>将字符串括起来</li>
+<li>SQL 语句中含有日期的时候 建议使用’2020-01-26’ 这种<code>&#39;年-月-日&#39;</code></li>
+<li>在 SQL 语句中书写数字的时候，不需要使用任何符号标识，直接写成 1000 这样的数字即可</li>
+</ol>
+</li>
+<li>单词需要用半角空格或者换行来分隔</li>
+</ol>
 <span id="more"></span>
 
-<p><strong>但如果你改动了路径，而且不巧遇到了冲突的情况，那就只按照这个教程来试试，说不定可以哈哈，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39004111/article/details/106322554">原文链接</a>在这，怕作者删了，就留一份</strong></p>
-<p><img src="/images/mathtype.png" alt="mathtype与word快捷键冲突"></p>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p>表名、字段名必须使用小写字母或数字，禁止出现数字开头，禁止两个下划线中间只出现数字。数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑。</p>
+<p>通俗的说就是，MySQL 在 Windows 系统下不区分大小写，但在 Linux 系统下默认区分大小写。因此，数据库名、表名和字段名，都不允许出现任何大写字母，避免节外生枝。</p>
+<h1 id="一-查看数据库"><a href="#一-查看数据库" class="headerlink" title="一. 查看数据库"></a>一. 查看数据库</h1><h2 id="1-查看特定数据库"><a href="#1-查看特定数据库" class="headerlink" title="1. 查看特定数据库"></a>1. 查看特定数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES [LIKE &#x27;数据库名&#x27;];</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看所有数据库"><a href="#2-查看所有数据库" class="headerlink" title="2. 查看所有数据库"></a>2. 查看所有数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看特定数据库"><a href="#3-查看特定数据库" class="headerlink" title="3. 查看特定数据库"></a>3. 查看特定数据库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES LIKE &#x27;test_db&#x27;;  # 查找特定数据库</span><br><span class="line">SHOW DATABASES LIKE &#x27;%test%&#x27;;   # 查询名字中包含test的数据库</span><br><span class="line">SHOW DATABASES LIKE &#x27;db%&#x27;;      # 查询以db开头的数据库</span><br><span class="line">SHOW DATABASES LIKE &#x27;%db&#x27;;      # 查询以db结尾的数据库</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-创建数据库"><a href="#二-创建数据库" class="headerlink" title="二. 创建数据库"></a>二. 创建数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE [IF NOT EXISTS] &lt;数据库名&gt;  # 中括号表示可有可无的意思</span><br><span class="line">[[DEFAULT] CHARACTER SET &lt;字符集名&gt;] </span><br><span class="line">[[DEFAULT] COLLATE &lt;校对规则名&gt;];</span><br></pre></td></tr></table></figure>
+
+<p>示例：使用 MySQL 命令行工具创建一个测试数据库，命名为 test_db_char，指定其默认字符集为 utf8，默认校对规则为 utf8_chinese_ci（简体中文，不区分大小写），输入的 SQL 语句与执行结果如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE DATABASE IF NOT EXISTS test_db_char</span><br><span class="line">    -&gt; DEFAULT CHARACTER SET utf8</span><br><span class="line">    -&gt; DEFAULT COLLATE utf8_chinese_ci;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-更改数据库"><a href="#三-更改数据库" class="headerlink" title="三. 更改数据库"></a>三. 更改数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER DATABASE [数据库名] &#123; </span><br><span class="line">[ DEFAULT ] CHARACTER SET &lt;字符集名&gt; |</span><br><span class="line">[ DEFAULT ] COLLATE &lt;校对规则名&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用命令行工具将数据库 test_db 的指定字符集修改为 gb2312，默认校对规则修改为 gb2312_unicode_ci，输入 SQL 语句与执行结果如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER DATABASE test_db</span><br><span class="line">    -&gt; DEFAULT CHARACTER SET gb2312</span><br><span class="line">    -&gt; DEFAULT COLLATE gb2312_chinese_ci;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-删除数据库"><a href="#四-删除数据库" class="headerlink" title="四. 删除数据库"></a>四. 删除数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE [ IF EXISTS ] &lt;数据库名&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项：-1"><a href="#注意事项：-1" class="headerlink" title="注意事项："></a>注意事项：</h2><ol>
+<li>DROP DATABASE：删除数据库中的所有表格并同时删除数据库。使用此语句时要非常小心，以免错误删除。如果要使用 DROP DATABASE，需要获得数据库 DROP 权限。</li>
+<li>MySQL 安装后，系统会自动创建名为 information_schema 和 mysql 的两个系统数据库，系统数据库存放一些和数据库相关的信息，如果删除了这两个数据库，MySQL 将不能正常工作。</li>
+</ol>
+<h1 id="五-选择数据库"><a href="#五-选择数据库" class="headerlink" title="五. 选择数据库"></a>五. 选择数据库</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE &lt;数据库名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>选择当前要使用的数据库</p>
+<h1 id="六-数据库注释"><a href="#六-数据库注释" class="headerlink" title="六. 数据库注释"></a>六. 数据库注释</h1><h2 id="1-单行注释"><a href="#1-单行注释" class="headerlink" title="1.单行注释"></a>1.单行注释</h2><ul>
+<li><code>#</code>注释符后直接加注释内容</li>
+<li><code>--</code>注释符后需要加一个空格再加注释内容</li>
+</ul>
+<h2 id="2-多行注释"><a href="#2-多行注释" class="headerlink" title="2.多行注释"></a>2.多行注释</h2><ul>
+<li>多行注释使用<code>/* */</code>注释符注释内容写在<code>/*</code>和<code>*/</code>之间，可以跨多行。</li>
+</ul>
+<h1 id="七-帮助命令"><a href="#七-帮助命令" class="headerlink" title="七. 帮助命令"></a>七. 帮助命令</h1><ol>
+<li>HELP contents 命令查看帮助文档的目录列表</li>
+<li><code>HELP Data Types;</code> 命令查看所支持的数据类型</li>
+<li><code>HELP CREATE TABLE</code> 命令查询创建数据表的语法</li>
+</ol>
 
     </div>
 
@@ -381,7 +425,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://wanstarge.github.io/2021/08/05/09-00-07/" title="mathtype与word快捷键冲突">https://wanstarge.github.io/2021/08/05/09-00-07/</a>
+      <a href="https://wanstarge.github.io/2021/08/07/23-00-34/" title="mysql基本语法">https://wanstarge.github.io/2021/08/07/23-00-34/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章，均在可信时间戳认证机构完成确权，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！商业性使用请联系主理人购买授权许可。
@@ -417,22 +461,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/answer/" rel="tag"># answer</a>
-              <a href="/tags/word/" rel="tag"># word</a>
-              <a href="/tags/mathtype/" rel="tag"># mathtype</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag"># 基础语法</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/05/07-28-06/" rel="prev" title="sublime环境搭建">
-                  <i class="fa fa-chevron-left"></i> sublime环境搭建
+                <a href="/2021/08/06/22-31-10/" rel="prev" title="电脑综合记录">
+                  <i class="fa fa-chevron-left"></i> 电脑综合记录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/05/09-01-34/" rel="next" title="sublime-linux python">
-                  sublime-linux python <i class="fa fa-chevron-right"></i>
+                <a href="/2021/08/08/09-32-51/" rel="next" title="mysql配置环境">
+                  mysql配置环境 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
