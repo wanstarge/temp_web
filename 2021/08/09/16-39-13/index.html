@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性）约束的过程。接下来我们介绍一下创建数据表的语法形式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据表">
+<meta property="og:url" content="https://wanstarge.github.io/2021/08/09/16-39-13/index.html">
+<meta property="og:site_name" content="万星阁">
+<meta property="og:description" content="创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性）约束的过程。接下来我们介绍一下创建数据表的语法形式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-09T08:39:13.000Z">
+<meta property="article:modified_time" content="2021-08-09T09:39:44.253Z">
+<meta property="article:author" content="Ivan">
+<meta property="article:tag" content="基础语法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wanstarge.github.io/2021/08/09/16-39-13/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/09/16-39-13/","path":"2021/08/09/16-39-13/","title":"mysql数据表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>mysql数据表 | 万星阁</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">万星阁</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">是非在己 毁誉由人 得失不论</p>
+      <img class="custom-logo-image" src="/images/custom-logo.jpg" alt="万星阁">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">创建数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">修改数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="nav-text">修改表名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-1"><span class="nav-text">例 1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">修改表字符集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-text">例 2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-text">修改|删除字段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E5%90%8D%E7%A7%B0"><span class="nav-text">修改字段名称</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-text">例 1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E6%AE%B5%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">修改字段数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-text">例 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-text">删除字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-3"><span class="nav-text">例 3</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">删除数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="nav-text">删除表的实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%85%B3%E8%81%94%E4%B8%BB%E8%A1%A8"><span class="nav-text">删除关联主表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84%E5%91%BD%E4%BB%A4"><span class="nav-text">查看表结构命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DESCRIBE%EF%BC%9A%E4%BB%A5%E8%A1%A8%E6%A0%BC%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%B1%95%E7%A4%BA%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-text">DESCRIBE：以表格的形式展示表结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHOW-CREATE-TABLE%EF%BC%9A%E4%BB%A5SQL%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%B1%95%E7%A4%BA%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-text">SHOW CREATE TABLE：以SQL语句的形式展示表结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-text">添加字段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-text">在末尾添加字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B1"><span class="nav-text">实例1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%BC%80%E5%A4%B4%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-text">在开头添加字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B2"><span class="nav-text">实例2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%B8%AD%E9%97%B4%E4%BD%8D%E7%BD%AE%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-text">在中间位置添加字段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B3"><span class="nav-text">实例3</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ivan"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ivan</p>
+  <div class="site-description" itemprop="description">一起分享交流，互相学习</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wanstarge" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wanstarge" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wanstarge@gmail.com" title="E-Mail → mailto:wanstarge@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/15556956" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;15556956" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/7426687127" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7426687127" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/136fabde72a8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;136fabde72a8" rel="noopener" target="_blank">简书</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      宝藏站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://t13mk.github.io/" title="https:&#x2F;&#x2F;t13mk.github.io" rel="noopener" target="_blank">t13mk</a>
+        </li>
+    </ul>
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/wanstarge" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/09/16-39-13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mysql数据表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-09 16:39:13 / 修改时间：17:39:44" itemprop="dateCreated datePublished" datetime="2021-08-09T16:39:13+08:00">2021-08-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/08/09/16-39-13/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/09/16-39-13/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性）约束的过程。接下来我们介绍一下创建数据表的语法形式。</p>
+<span id="more"></span>
+
+<h1 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h1><p>在 MySQL 中，可以使用 <strong>CREATE TABLE</strong> 语句创建表。其语法格式为：</p>
+<p>CREATE TABLE &lt;表名&gt; ([表定义选项])[表选项][分区选项];</p>
+<p>其中，<code>[表定义选项]</code>的格式为：</p>
+<p>&lt;列名1&gt; &lt;类型1&gt; [,…] &lt;列名n&gt; &lt;类型n&gt;</p>
+<p>CREATE TABLE 命令语法比较多，其主要是由表创建定义（create-definition）、表选项（table-options）和分区选项（partition-options）所组成的。</p>
+<p>这里首先描述一个简单的新建表的例子，然后重点介绍 CREATE TABLE 命令中的一些主要的语法知识点。</p>
+<p>CREATE TABLE 语句的主要语法及使用说明如下：</p>
+<ul>
+<li>CREATE TABLE：用于创建给定名称的表，必须拥有表CREATE的权限。</li>
+<li>&lt;表名&gt;：指定要创建表的名称，在 CREATE TABLE 之后给出，必须符合标识符命名规则。表名称被指定为 db_name.tbl_name，以便在特定的数据库中创建表。无论是否有当前数据库，都可以通过这种方式创建。在当前数据库中创建表时，可以省略 db-name。如果使用加引号的识别名，则应对数据库和表名称分别加引号。例如，’mydb’.’mytbl’ 是合法的，但 ‘mydb.mytbl’ 不合法。</li>
+<li>&lt;表定义选项&gt;：表创建定义，由列名（col_name）、列的定义（column_definition）以及可能的空值说明、完整性约束或表索引组成。</li>
+<li>默认的情况是，表被创建到当前的数据库中。若表已存在、没有当前数据库或者数据库不存在，则会出现错误。</li>
+</ul>
+<blockquote>
+<p>提示：使用 CREATE TABLE 创建表时，必须指定以下信息：</p>
+<ul>
+<li>要创建的表的名称不区分大小写，不能使用SQL语言中的关键字，如DROP、ALTER、INSERT等。</li>
+<li>数据表中每个列（字段）的名称和数据类型，如果创建多个列，要用逗号隔开。</li>
+</ul>
+</blockquote>
+<p><strong>创建约束表格</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table pages (id bigint(7) not null auto_increment, title varchar(200), content varchar(10000), created timestamp default current_timestamp, primary key(id));</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建连接表</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table `wikipedia`.`pages`(`id` int not null auto_increment,`url` varchar(255) not null,`created` timestamp not null default current_timestamp,primary key (`id`));</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>数据表属于数据库，在创建数据表之前，应使用语句“USE&lt;数据库&gt;”指定操作在哪个数据库中进行，如果没有选择数据库，就会抛出 No database selected 的错误。</p>
+<h1 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h1><p>在 MySQL 中可以使用 <strong>ALTER TABLE</strong> 语句来改变原有表的结构，例如增加或删减列、更改原有列类型、重新命名列或表等。</p>
+<p>其语法格式如下：</p>
+<p>ALTER TABLE &lt;表名&gt; [修改选项]</p>
+<p>修改选项的语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; ADD COLUMN &lt;列名&gt; &lt;类型&gt;</span><br><span class="line">| CHANGE COLUMN &lt;旧列名&gt; &lt;新列名&gt; &lt;新列类型&gt;</span><br><span class="line">| ALTER COLUMN &lt;列名&gt; &#123; SET DEFAULT &lt;默认值&gt; | DROP DEFAULT &#125;</span><br><span class="line">| MODIFY COLUMN &lt;列名&gt; &lt;类型&gt;</span><br><span class="line">| DROP COLUMN &lt;列名&gt;</span><br><span class="line">| RENAME TO &lt;新表名&gt;</span><br><span class="line">| CHARACTER SET &lt;字符集名&gt;</span><br><span class="line">| COLLATE &lt;校对规则名&gt; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h2><p>MySQL 通过 ALTER TABLE 语句来实现表名的修改，语法规则如下：</p>
+<p>ALTER TABLE &lt;旧表名&gt; RENAME [TO] &lt;新表名&gt;；</p>
+<p>其中，TO 为可选参数，使用与否均不影响结果。</p>
+<h4 id="例-1"><a href="#例-1" class="headerlink" title="例 1"></a>例 1</h4><p>使用 ALTER TABLE 将数据表 student 改名为 tb_students_info，SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE student RENAME TO tb_students_info;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW TABLES;</span><br><span class="line">+------------------+</span><br><span class="line">| Tables_in_test   |</span><br><span class="line">+------------------+</span><br><span class="line">| tb_students_info |</span><br><span class="line">+------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：修改表名并不修改表的结构，因此修改名称后的表和修改名称前的表的结构是相同的。用户可以使用 DESC 命令查看修改后的表结构，</p>
+</blockquote>
+<h2 id="修改表字符集"><a href="#修改表字符集" class="headerlink" title="修改表字符集"></a>修改表字符集</h2><p>MySQL 通过 ALTER TABLE 语句来实现表字符集的修改，语法规则如下：</p>
+<p>ALTER TABLE 表名 [DEFAULT] CHARACTER SET &lt;字符集名&gt; [DEFAULT] COLLATE &lt;校对规则名&gt;;</p>
+<p>其中，DEFAULT 为可选参数，使用与否均不影响结果。</p>
+<h4 id="例-2"><a href="#例-2" class="headerlink" title="例 2"></a>例 2</h4><p>使用 ALTER TABLE 将数据表 tb_students_info 的字符集修改为 gb2312，校对规则修改为 gb2312_chinese_ci。SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE tb_students_info CHARACTER SET gb2312  DEFAULT COLLATE gb2312_chinese_ci;</span><br><span class="line">Query OK, 0 rows affected (0.08 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW CREATE TABLE tb_students_info \G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">       Table: tb_students_info</span><br><span class="line">Create Table: CREATE TABLE `tb_students_info` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=gb2312</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改-删除字段"><a href="#修改-删除字段" class="headerlink" title="修改|删除字段"></a>修改|删除字段</h1><h2 id="修改字段名称"><a href="#修改字段名称" class="headerlink" title="修改字段名称"></a>修改字段名称</h2><p>MySQL 中修改表字段名的语法规则如下：</p>
+<p>ALTER TABLE &lt;表名&gt; CHANGE &lt;旧字段名&gt; &lt;新字段名&gt; &lt;新数据类型&gt;；</p>
+<p>其中：</p>
+<ul>
+<li>旧字段名：指修改前的字段名；</li>
+<li>新字段名：指修改后的字段名；</li>
+<li>新数据类型：指修改后的数据类型，如果不需要修改字段的数据类型，可以将新数据类型设置成与原来一样，但数据类型不能为空。</li>
+</ul>
+<h4 id="例-1-1"><a href="#例-1-1" class="headerlink" title="例 1"></a>例 1</h4><p>使用 ALTER TABLE 修改表 tb_emp1 的结构，将 col1 字段名称改为 col3，同时将数据类型变为 CHAR(30)，SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE tb_emp1</span><br><span class="line">    -&gt; CHANGE col1 col3 CHAR(30);</span><br><span class="line">Query OK, 0 rows affected (0.76 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line">mysql&gt; DESC tb_emp1;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| col3   | char(30)    | YES  |     | NULL    |       |</span><br><span class="line">| id     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| name   | varchar(30) | YES  |     | NULL    |       |</span><br><span class="line">| deptId | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| salary | float        | YES  |     | NULL    |       |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p>CHANGE 也可以只修改数据类型，实现和 MODIFY 同样的效果，方法是将 SQL 语句中的“新字段名”和“旧字段名”设置为相同的名称，只改变“数据类型”。</p>
+<blockquote>
+<p>提示：由于不同类型的数据在机器中的存储方式及长度并不相同，修改数据类型可能会影响数据表中已有的数据记录，因此，当数据表中已经有数据时，不要轻易修改数据类型。</p>
+</blockquote>
+<h2 id="修改字段数据类型"><a href="#修改字段数据类型" class="headerlink" title="修改字段数据类型"></a>修改字段数据类型</h2><p>修改字段的数据类型就是把字段的数据类型转换成另一种数据类型。在 MySQL 中修改字段数据类型的语法规则如下：</p>
+<p>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;</p>
+<p>其中：</p>
+<ul>
+<li>表名：指要修改数据类型的字段所在表的名称；</li>
+<li>字段名：指需要修改的字段；</li>
+<li>数据类型：指修改后字段的新数据类型。</li>
+</ul>
+<h4 id="例-2-1"><a href="#例-2-1" class="headerlink" title="例 2"></a>例 2</h4><p>使用 ALTER TABLE 修改表 tb_emp1 的结构，将 name 字段的数据类型由 VARCHAR(22) 修改成 VARCHAR(30)，SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE tb_emp1</span><br><span class="line">    -&gt; MODIFY name VARCHAR(30);</span><br><span class="line">Query OK, 0 rows affected (0.15 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line">mysql&gt; DESC tb_emp1;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| col1   | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| id     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| name   | varchar(30) | YES  |     | NULL    |       |</span><br><span class="line">| col2   | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| deptId | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| salary | float        | YES  |     | NULL    |       |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>语句执行后，发现表 tb_emp1 中 name 字段的数据类型已经修改成 VARCHAR(30)，修改成功。</p>
+<h2 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h2><p>删除字段是将数据表中的某个字段从表中移除，语法格式如下：</p>
+<p>ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;；</p>
+<p>其中，“字段名”指需要从表中删除的字段的名称。</p>
+<h4 id="例-3"><a href="#例-3" class="headerlink" title="例 3"></a>例 3</h4><p>使用 ALTER TABLE 修改表 tb_emp1 的结构，删除 col2 字段，SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE tb_emp1</span><br><span class="line">    -&gt; DROP col2;</span><br><span class="line">Query OK, 0 rows affected (0.53 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; DESC tb_emp1;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| col1   | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| id     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| name   | varchar(30) | YES  |     | NULL    |       |</span><br><span class="line">| deptId | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| salary | float        | YES  |     | NULL    |       |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h1><p>在 <a target="_blank" rel="noopener" href="http://c.biancheng.net/mysql/">MySQL</a> 数据库中，对于不再需要的数据表，我们可以将其从数据库中删除。</p>
+<p>在删除表的同时，表的结构和表中所有的数据都会被删除，因此在删除数据表之前最好先备份，以免造成无法挽回的损失。</p>
+<p>下面我们来了解一下 MySQL 数据库中数据表的删除方法。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>使用 <strong>DROP TABLE</strong> 语句可以删除一个或多个数据表，语法格式如下：</p>
+<p>DROP TABLE [IF EXISTS] 表名1 [ ,表名2, 表名3 …]</p>
+<p>对语法格式的说明如下：</p>
+<ul>
+<li><code>表名1, 表名2, 表名3 ...</code>表示要被删除的数据表的名称。DROP TABLE 可以同时删除多个表，只要将表名依次写在后面，相互之间用逗号隔开即可。</li>
+<li>IF EXISTS 用于在删除数据表之前判断该表是否存在。如果不加 IF EXISTS，当数据表不存在时 MySQL 将提示错误，中断 SQL 语句的执行；加上 IF EXISTS 后，当数据表不存在时 SQL 语句可以顺利执行，但是会发出警告（warning）。</li>
+</ul>
+<p>两点注意：</p>
+<ul>
+<li>用户必须拥有执行 DROP TABLE 命令的权限，否则数据表不会被删除。</li>
+<li>表被删除时，用户在该表上的权限不会自动删除。</li>
+</ul>
+<h2 id="删除表的实例"><a href="#删除表的实例" class="headerlink" title="删除表的实例"></a>删除表的实例</h2><p>选择数据库 test_db，创建 tb_emp3 数据表，输入的 SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE test_db;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; CREATE TABLE tb_emp3</span><br><span class="line">    -&gt; (</span><br><span class="line">    -&gt; id INT(11),</span><br><span class="line">    -&gt; name VARCHAR(25),</span><br><span class="line">    -&gt; deptId INT(11),</span><br><span class="line">    -&gt; salary FLOAT</span><br><span class="line">    -&gt; );</span><br><span class="line">Query OK, 0 rows affected (0.27 sec)</span><br><span class="line">mysql&gt; SHOW TABLES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Tables_in_test_db  |</span><br><span class="line">+--------------------+</span><br><span class="line">| tb_emp2            |</span><br><span class="line">| tb_emp3            |</span><br><span class="line">+--------------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看出，test_tb 数据库中有 tb_emp2 和 tb_emp3 两张数据表。</p>
+<p>我们来删除数据表 tb_emp3，输入的 SQL 语句和运行结果如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DROP TABLE tb_emp3;</span><br><span class="line">Query OK, 0 rows affected (0.22 sec)</span><br><span class="line">mysql&gt; SHOW TABLES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Tables_in_test_db  |</span><br><span class="line">+--------------------+</span><br><span class="line">| tb_emp2            |</span><br><span class="line">+--------------------+</span><br><span class="line">1 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>执行结果可以看到，test_db 数据库的数据表列表中已经不存在名称为 tb_emp3 的表，删除操作成功。</p>
+<h1 id="删除关联主表"><a href="#删除关联主表" class="headerlink" title="删除关联主表"></a>删除关联主表</h1><p>数据表之间经常存在外键关联的情况，这时如果直接删除父表，会破坏数据表的完整性，也会删除失败。</p>
+<p>删除父表有以下两种方法：</p>
+<ul>
+<li>先删除与它关联的子表，再删除父表；但是这样会同时删除两个表中的数据。</li>
+<li>将关联表的外键约束取消，再删除父表；适用于需要保留子表的数据，只删除父表的情况。</li>
+</ul>
+<p>下面介绍了如何取消关联表的外键约束并删除主表，也就是上面所说的删除父表的第二种方法。</p>
+<p>在数据库中创建两个关联表。创建表 tb_emp4 的 SQL 语句如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp4</span><br><span class="line">(</span><br><span class="line">id INT(11) PRIMARY KEY,</span><br><span class="line">name VARCHAR(22),</span><br><span class="line">location VARCHAR (50)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>接下来创建表 tb_emp5，SQL 语句如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb_emp5</span><br><span class="line">(</span><br><span class="line">id INT(11) PRIMARY KEY,</span><br><span class="line">name VARCHAR(25),</span><br><span class="line">deptId INT(11),</span><br><span class="line">salary FLOAT,</span><br><span class="line">CONSTRAINT fk_emp4_emp5 FOREIGN KEY (deptId) REFERENCES tb_emp4(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+<p>使用 SHOW CREATE TABLE 命令查看表 tb_ emp5 的外键约束，SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE TABLE tb_emp5\G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">       Table: tb_emp5</span><br><span class="line">Create Table: CREATE TABLE `tb_emp5` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `name` varchar(25) DEFAULT NULL,</span><br><span class="line">  `deptId` int(11) DEFAULT NULL,</span><br><span class="line">  `salary` float DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (`id`),</span><br><span class="line">  KEY `fk_emp4_emp5` (`deptId`),</span><br><span class="line">  CONSTRAINT `fk_emp4_emp5` FOREIGN KEY (`deptId`) REFERENCES `tb_emp4` (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=latin1</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看出，tb_emp5 表为子表，具有名称为 fk_emp4_emp5 的外键约束；tb_emp4 为父表，其主键 id 被子表 tb_ emp5 所关联。</p>
+<p>删除被数据表 tb_emp5 关联的数据表 tb_emp4，SQL 语句如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DROP TABLE tb_emp4;</span><br><span class="line">ERROR 1217 (23000): Cannot delete or update a parent row: a foreign key constraint fails</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看出，当主表在存在外键约束时，不能被直接删除。<br>下面解除子表 tb_emp5 的外键约束，SQL语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE tb_emp5 DROP FOREIGN KEY fk_emp4_emp5;</span><br><span class="line">Query OK, 0 rows affected (0.03 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br></pre></td></tr></table></figure>
+
+<p>语句成功执行后，会取消表 tb_emp4 和表 tb_emp5 之间的关联关系。</p>
+<p>解除关联关系后，可以使用 DROP TABLE 语句直接删除父表 tb_emp4，SQL 语句如下：</p>
+<p>DROP TABLE tb_emp4;</p>
+<p>最后通过 SHOW TABLES 命令查看数据表列表，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------+</span><br><span class="line">| Tables_in_test |</span><br><span class="line">+----------------+</span><br><span class="line">| tb_emp5        |</span><br><span class="line">| temp           |</span><br><span class="line">+----------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>可以发现，数据库列表中已经不存在名称为 tb_emp4 的表，删除成功。</p>
+<h1 id="查看表结构命令"><a href="#查看表结构命令" class="headerlink" title="查看表结构命令"></a>查看表结构命令</h1><p>创建完数据表之后，经常需要查看表结构（表信息）。在 <a target="_blank" rel="noopener" href="http://c.biancheng.net/mysql/">MySQL</a> 中，可以使用 DESCRIBE 和 SHOW CREATE TABLE 命令来查看数据表的结构。</p>
+<h2 id="DESCRIBE：以表格的形式展示表结构"><a href="#DESCRIBE：以表格的形式展示表结构" class="headerlink" title="DESCRIBE：以表格的形式展示表结构"></a>DESCRIBE：以表格的形式展示表结构</h2><p>DESCRIBE/DESC 语句会以表格的形式来展示表的字段信息，包括字段名、字段数据类型、是否为主键、是否有默认值等，语法格式如下：</p>
+<p>DESCRIBE &lt;表名&gt;;</p>
+<p>或简写成：</p>
+<p>DESC &lt;表名&gt;;</p>
+<p>【实例1】分别使用 DESCRIBE 和 DESC 查看表 tb_emp1 的表结构，SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DESCRIBE tb_emp1;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| id     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| name   | varchar(25) | YES  |     | NULL    |       |</span><br><span class="line">| deptId | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| salary | float       | YES  |     | NULL    |       |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">4 rows in set (0.14 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; DESC tb_emp1;</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field  | Type        | Null | Key | Default | Extra |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">| id     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| name   | varchar(25) | YES  |     | NULL    |       |</span><br><span class="line">| deptId | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| salary | float       | YES  |     | NULL    |       |</span><br><span class="line">+--------+-------------+------+-----+---------+-------+</span><br><span class="line">4 rows in set (0.14 sec)</span><br></pre></td></tr></table></figure>
+
+<p>其中，各个字段的含义如下：</p>
+<ul>
+<li>Null：表示该列是否可以存储 NULL 值。</li>
+<li>Key：表示该列是否已编制索引。PRI 表示该列是表主键的一部分，UNI 表示该列是 UNIQUE 索引的一部分，MUL 表示在列中某个给定值允许出现多次。</li>
+<li>Default：表示该列是否有默认值，如果有，值是多少。</li>
+<li>Extra：表示可以获取的与给定列有关的附加信息，如 AUTO_INCREMENT 等。</li>
+</ul>
+<h2 id="SHOW-CREATE-TABLE：以SQL语句的形式展示表结构"><a href="#SHOW-CREATE-TABLE：以SQL语句的形式展示表结构" class="headerlink" title="SHOW CREATE TABLE：以SQL语句的形式展示表结构"></a>SHOW CREATE TABLE：以SQL语句的形式展示表结构</h2><p>SHOW CREATE TABLE 命令会以 SQL 语句的形式来展示表信息。和 DESCRIBE 相比，SHOW CREATE TABLE 展示的内容更加丰富，它可以查看表的存储引擎和字符编码；另外，你还可以通过<code>\g</code>或者<code>\G</code>参数来控制展示格式。</p>
+<p>SHOW CREATE TABLE 的语法格式如下：</p>
+<p>SHOW CREATE TABLE &lt;表名&gt;;</p>
+<p>在 SHOW CREATE TABLE 语句的结尾处（分号前面）添加<code>\g</code>或者<code>\G</code>参数可以改变展示形式。</p>
+<p>【实例2】使用 SHOW CREATE TABLE 语句查看表 tb_emp1 的详细信息，一次使用<code>\g</code>结尾，一次不使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE TABLE tb_emp1;</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">| Table   | Create Table                                   |</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">| tb_emp1 | CREATE TABLE `tb_emp1` (</span><br><span class="line">  `id` int(11) DEFAULT NULL,</span><br><span class="line">  `name` varchar(25) DEFAULT NULL,</span><br><span class="line">  `salary` float DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=gb2312 |</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">1 row in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW CREATE TABLE tb_emp1 \g;</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">| Table   | Create Table                                   |</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">| tb_emp1 | CREATE TABLE `tb_emp1` (</span><br><span class="line">  `id` int(11) DEFAULT NULL,</span><br><span class="line">  `name` varchar(25) DEFAULT NULL,</span><br><span class="line">  `salary` float DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=gb2312 |</span><br><span class="line">+---------+------------------------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>SHOW CREATE TABLE 使用<code>\G</code>结尾的 SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE TABLE tb_emp1\G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">       Table: tb_emp1</span><br><span class="line">Create Table: CREATE TABLE `tb_emp1` (</span><br><span class="line">  `id` int(11) DEFAULT NULL,</span><br><span class="line">  `name` varchar(25) DEFAULT NULL,</span><br><span class="line">  `deptId` int(11) DEFAULT NULL,</span><br><span class="line">  `salary` float DEFAULT NULL</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=gb2312</span><br><span class="line">1 row in set (0.03 sec)</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h1><p>数据表是由行和列构成的，通常把表的“列”称为字段（Field），把表的“行”称为记录（Record）。随着业务的变化，可能需要在已有的表中添加新的字段。</p>
+<p>MySQL 允许在开头、中间和结尾处添加字段。</p>
+<h2 id="在末尾添加字段"><a href="#在末尾添加字段" class="headerlink" title="在末尾添加字段"></a>在末尾添加字段</h2><p>一个完整的字段包括字段名、数据类型和约束条件。MySQL 添加字段的语法格式如下：</p>
+<p>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt;&lt;数据类型&gt;[约束条件];</p>
+<p>对语法格式的说明如下：                    </p>
+<ul>
+<li>&lt;表名&gt; 为数据表的名字；</li>
+<li>&lt;新字段名&gt; 为所要添加的字段的名字；</li>
+<li>&lt;数据类型&gt; 为所要添加的字段能存储数据的数据类型；</li>
+<li>[约束条件] 是可选的，用来对添加的字段进行约束。</li>
+</ul>
+<p>这种语法格式默认在表的最后位置（最后一列的后面）添加新字段。</p>
+<p>注意：本节我们只添加新的字段，不关注它的约束条件。</p>
+<h4 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h4><p>在 test 数据库中新建 student 数据表，SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE test;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; CREATE TABLE student (</span><br><span class="line">    -&gt; id INT(4),</span><br><span class="line">    -&gt; name VARCHAR(20),</span><br><span class="line">    -&gt; sex CHAR(1));</span><br><span class="line">Query OK, 0 rows affected (0.09 sec)                           </span><br></pre></td></tr></table></figure>
+
+
+<p>使用 DESC 查看 student 表结构，SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DESC student;</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| id    | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(20) | YES  |     | NULL    |       |</span><br><span class="line">| sex   | char(1)     | YES  |     | NULL    |       |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">3 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p>使用 ALTER TABLE 语句添加一个 INT 类型的字段 age，SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE student ADD age INT(4);</span><br><span class="line">Query OK, 0 rows affected (0.16 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br></pre></td></tr></table></figure>
+
+
+<p>使用 DESC 查看 student 表结构，检验 age 字段是否添加成功。SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DESC student;</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| id    | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(20) | YES  |     | NULL    |       |</span><br><span class="line">| sex   | char(1)     | YES  |     | NULL    |       |</span><br><span class="line">| age   | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看到，student 表已经添加了 age 字段，且该字段在表的最后一个位置，添加字段成功。</p>
+<h2 id="在开头添加字段"><a href="#在开头添加字段" class="headerlink" title="在开头添加字段"></a>在开头添加字段</h2><p>MySQL 默认在表的最后位置添加新字段，如果希望在开头位置（第一列的前面）添加新字段，那么可以使用 FIRST 关键字，语法格式如下：</p>
+<p>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt; [约束条件] FIRST;</p>
+<p>FIRST 关键字一般放在语句的末尾。</p>
+<h4 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h4><p>使用 ALTER TABLE 语句在表的第一列添加 INT 类型的字段 stuId，SQL 语句和运行结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE student ADD stuId INT(4) FIRST;</span><br><span class="line">Query OK, 0 rows affected (0.14 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; DESC student;</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| stuId | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| id    | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(20) | YES  |     | NULL    |       |</span><br><span class="line">| sex   | char(1)     | YES  |     | NULL    |       |</span><br><span class="line">| age   | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看到，student 表中已经添加了 stuId 字段，且该字段在表中的第一个位置，添加字段成功。</p>
+<h2 id="在中间位置添加字段"><a href="#在中间位置添加字段" class="headerlink" title="在中间位置添加字段"></a>在中间位置添加字段</h2><p>MySQL 除了允许在表的开头位置和末尾位置添加字段外，还允许在中间位置（指定的字段之后）添加字段，此时需要使用 AFTER 关键字，语法格式如下：</p>
+<p>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt; [约束条件] AFTER &lt;已经存在的字段名&gt;;</p>
+<p>AFTER 的作用是将新字段添加到某个已有字段后面。</p>
+<p>注意，只能在某个已有字段的后面添加新字段，不能在它的前面添加新字段。</p>
+<h4 id="实例3"><a href="#实例3" class="headerlink" title="实例3"></a>实例3</h4><p>使用 ALTER TABLE 语句在 student 表中添加名为 stuno，数据类型为 INT 的字段，stuno 字段位于 name 字段的后面。SQL 语句和运行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE student ADD stuno INT(11) AFTER name;</span><br><span class="line">Query OK, 0 rows affected (0.13 sec)</span><br><span class="line">Records: 0  Duplicates: 0  Warnings: 0</span><br><span class="line"> </span><br><span class="line">mysql&gt; DESC student;</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">| stuId | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| id    | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">| name  | varchar(20) | YES  |     | NULL    |       |</span><br><span class="line">| stuno | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| sex   | char(1)     | YES  |     | NULL    |       |</span><br><span class="line">| age   | int(4)      | YES  |     | NULL    |       |</span><br><span class="line">+-------+-------------+------+-----+---------+-------+</span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>由运行结果可以看到，student 表中已经添加了 stuId 字段，且该字段在 name 字段后面的位置，添加字段成功。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Q： 如果本文需要付费，你是否愿意为此支付一元</div>
+  <button>
+    我愿意资助创作者
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ivan 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ivan 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ivan
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wanstarge.github.io/2021/08/09/16-39-13/" title="mysql数据表">https://wanstarge.github.io/2021/08/09/16-39-13/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章，均在可信时间戳认证机构完成确权，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！商业性使用请联系主理人购买授权许可。
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://weibo.com/u/7426687127">
+          <span class="icon">
+            <i class="fa fa-weibo"></i>
+          </span>
+
+          <span class="label">微博</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/an-ye-ji-ling">
+          <span class="icon">
+            <i class=""></i>
+          </span>
+
+          <span class="label">知乎</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag"># 基础语法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/08/16-09-31/" rel="prev" title="mysql数据类型">
+                  <i class="fa fa-chevron-left"></i> mysql数据类型
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/09/17-46-39/" rel="next" title="sublime使用说明">
+                  sublime使用说明 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ivan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

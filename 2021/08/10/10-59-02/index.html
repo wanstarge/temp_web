@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="持续补充,欢迎讨论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基本语法">
+<meta property="og:url" content="https://wanstarge.github.io/2021/08/10/10-59-02/index.html">
+<meta property="og:site_name" content="万星阁">
+<meta property="og:description" content="持续补充,欢迎讨论">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-10T02:59:02.000Z">
+<meta property="article:modified_time" content="2021-08-10T09:24:37.158Z">
+<meta property="article:author" content="Ivan">
+<meta property="article:tag" content="基本语法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wanstarge.github.io/2021/08/10/10-59-02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/10/10-59-02/","path":"2021/08/10/10-59-02/","title":"python基本语法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python基本语法 | 万星阁</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">万星阁</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">是非在己 毁誉由人 得失不论</p>
+      <img class="custom-logo-image" src="/images/custom-logo.jpg" alt="万星阁">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">python环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">1. 输入输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B"><span class="nav-text">2. 错误类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1TypeError-%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF%EF%BC%8C%E5%AF%B9%E8%B1%A1%E7%94%A8%E6%9D%A5%E8%A1%A8%E7%A4%BA%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B%E9%9D%9E%E9%A2%84%E6%9C%9F%E7%B1%BB%E5%9E%8B%E6%97%B6%E5%8F%91%E7%94%9F%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-text">2.1TypeError:类型错误，对象用来表示值的类型非预期类型时发生的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2AttributeError-%E5%B1%9E%E6%80%A7%E9%94%99%E8%AF%AF%EF%BC%8C%E7%89%B9%E6%80%A7%E5%BC%95%E7%94%A8%E5%92%8C%E8%B5%8B%E5%80%BC%E5%A4%B1%E8%B4%A5%E6%97%B6%E4%BC%9A%E5%8F%91%E7%94%9F%E5%B1%9E%E6%80%A7%E9%94%99%E8%AF%AF"><span class="nav-text">2.2AttributeError: 属性错误，特性引用和赋值失败时会发生属性错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3NameError-%E8%AF%95%E5%9B%BE%E8%AE%BF%E9%97%AE%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="nav-text">2.3NameError: 试图访问的变量名不存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-SyntaxError%EF%BC%9A%E8%AF%AD%E6%B3%95%E9%94%99%E8%AF%AF%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%BD%A2%E5%BC%8F%E9%94%99%E8%AF%AF"><span class="nav-text">2.4 SyntaxError：语法错误，代码形式错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-KeyError-%E5%9C%A8%E8%AF%BB%E5%8F%96%E5%AD%97%E5%85%B8%E4%B8%AD%E7%9A%84key%E5%92%8Cvalue%E6%97%B6%EF%BC%8C%E8%8B%A5key%E4%B8%8D%E5%AD%98%E5%9C%A8%EF%BC%8C%E5%B0%B1%E4%BC%9A%E8%A7%A6%E5%8F%91%E8%AF%A5%E9%94%99%E8%AF%AF"><span class="nav-text">2.5 KeyError: 在读取字典中的key和value时，若key不存在，就会触发该错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-IndexError-%E7%B4%A2%E5%BC%95%E9%94%99%E8%AF%AF%EF%BC%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%8D%E5%AD%98%E5%9C%A8%EF%BC%8C%E5%B8%B8%E5%B8%B8%E8%B6%85%E5%87%BA%E5%BA%8F%E5%88%97%E8%8C%83%E5%9B%B4%EF%BC%8C%E5%BA%8F%E5%88%97%E4%B8%AD%E6%B2%A1%E6%9C%89%E6%AD%A4%E7%B4%A2%E5%BC%95"><span class="nav-text">2.6 IndexError:索引错误，使用的索引不存在，常常超出序列范围，序列中没有此索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-IndentationError-%E7%BC%A9%E8%BF%9B%E9%94%99%E8%AF%AF"><span class="nav-text">2.7 IndentationError: 缩进错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-TabError-Tab%E5%92%8C%E7%A9%BA%E6%A0%BC%E6%B7%B7%E7%94%A8"><span class="nav-text">2.8 TabError: Tab和空格混用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-ZeroDivisionError-%E9%99%A4%E4%BB%A5%E9%9B%B6%E6%97%B6%E5%AF%BC%E8%87%B4%E7%9A%84%E6%8A%A5%E9%94%99"><span class="nav-text">2.9 ZeroDivisionError: 除以零时导致的报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-KeyboardInterrupt-%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%97%B6%E4%BD%BF%E7%94%A8ctrl-c%E8%BF%9B%E8%A1%8C%E7%BB%88%E6%AD%A2"><span class="nav-text">2.10 KeyboardInterrupt: 程序执行时使用ctrl+c进行终止</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">3.1字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2%E5%88%97%E8%A1%A8"><span class="nav-text">3.2列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3%E5%AD%97%E5%85%B8"><span class="nav-text">3.3字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4%E5%85%83%E7%BB%84"><span class="nav-text">3.4元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-class%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="nav-text">3.5 class定义类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86"><span class="nav-text">编码处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%96%87%E6%A1%A3%E8%BF%9B%E8%A1%8Cutf-8%E7%BC%96%E7%A0%81"><span class="nav-text">对文档进行utf-8编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%BC%96%E7%A0%81%E7%9F%A5%E8%AF%86"><span class="nav-text">基本编码知识</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ivan"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ivan</p>
+  <div class="site-description" itemprop="description">一起分享交流，互相学习</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wanstarge" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wanstarge" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wanstarge@gmail.com" title="E-Mail → mailto:wanstarge@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/15556956" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;15556956" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/7426687127" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7426687127" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/136fabde72a8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;136fabde72a8" rel="noopener" target="_blank">简书</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      宝藏站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://t13mk.github.io/" title="https:&#x2F;&#x2F;t13mk.github.io" rel="noopener" target="_blank">t13mk</a>
+        </li>
+    </ul>
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/wanstarge" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/10-59-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python基本语法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-10 10:59:02 / 修改时间：17:24:37" itemprop="dateCreated datePublished" datetime="2021-08-10T10:59:02+08:00">2021-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/08/10/10-59-02/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/10/10-59-02/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>持续补充,欢迎讨论</strong></p>
+<span id="more"></span>
+
+<h1 id="python环境配置"><a href="#python环境配置" class="headerlink" title="python环境配置"></a>python环境配置</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pip命令</span><br><span class="line">	<span class="number">1.</span> pip install -i </span><br><span class="line">	<span class="number">2.</span> 参考镜像网站</span><br><span class="line">	http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">	https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">	http://pypi.hustunique.com/</span><br><span class="line">	http://pypi.sdutlinux.org/</span><br><span class="line">	http://pypi.douban.com/simple/                                                                                            </span><br><span class="line">	https://pypi.python.org/simple</span><br><span class="line">	python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple/ 更新pip下载器</span><br><span class="line">	<span class="comment"># 配置清华PyPI镜像（如无法运行，将pip版本升级到&gt;=10.0.0）</span></span><br><span class="line">	pip config <span class="built_in">set</span> <span class="keyword">global</span>.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-输入输出"><a href="#1-输入输出" class="headerlink" title="1. 输入输出"></a>1. 输入输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;dog&#x27;</span>,<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;mice&#x27;</span>)    <span class="comment"># 各单词之间默认以空格分隔</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;dog&#x27;</span>,<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;mice&#x27;</span>,seq=<span class="string">&#x27;,&#x27;</span>)   <span class="comment"># 此时输出的各个单词之间以,分隔</span></span><br><span class="line"><span class="built_in">input</span>(<span class="string">&#x27;请输入:&#x27;</span>)       <span class="comment"># 默认读取到的值为字符串，需要通过int等进行字符转</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-错误类型"><a href="#2-错误类型" class="headerlink" title="2. 错误类型"></a>2. 错误类型</h1><h3 id="2-1TypeError-类型错误，对象用来表示值的类型非预期类型时发生的错误"><a href="#2-1TypeError-类型错误，对象用来表示值的类型非预期类型时发生的错误" class="headerlink" title="2.1TypeError:类型错误，对象用来表示值的类型非预期类型时发生的错误"></a>2.1TypeError:类型错误，对象用来表示值的类型非预期类型时发生的错误</h3><p>错误例⼦： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age=<span class="number">18</span></span><br><span class="line"><span class="built_in">print</span> (‘我的年龄是’+age)</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<p>报错信息：TypeError: can only concat enat e st r (not “int “) t o st r这是类型错误，提示必须是⼀个字符串，不能是数字。</p>
+<p>###</p>
+<p>解决⽅法：在使⽤“+”做拼接的时候，必须使⽤字符串，或者把数字转化成字符串。</p>
+<p>###</p>
+<p>正确代码： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age=<span class="number">18</span></span><br><span class="line"><span class="built_in">print</span> (‘我的年龄是’+<span class="built_in">str</span>(age))</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2AttributeError-属性错误，特性引用和赋值失败时会发生属性错误"><a href="#2-2AttributeError-属性错误，特性引用和赋值失败时会发生属性错误" class="headerlink" title="2.2AttributeError: 属性错误，特性引用和赋值失败时会发生属性错误"></a>2.2AttributeError: 属性错误，特性引用和赋值失败时会发生属性错误</h3><p>###</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tp=(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">tp.append(<span class="string">&#x27;7&#x27;</span>) </span><br><span class="line"><span class="built_in">print</span> (tp)</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<p>报错信息：At t ribut eError: ‘t uple’ object has no at t ribut e ‘append’</p>
+<p>提示：属性错误：元组对象没有“append”的属性，简单来说元组是不可变对象，解决⽅法：把元组换成列表。</p>
+<h3 id="2-3NameError-试图访问的变量名不存在"><a href="#2-3NameError-试图访问的变量名不存在" class="headerlink" title="2.3NameError: 试图访问的变量名不存在"></a>2.3NameError: 试图访问的变量名不存在</h3><p>举个简单的例⼦，只运⾏⼀⾏print (a)，会报错：NameError: name ‘a’ is not deﬁned。简单来说，就是变量a没有定义，解决⽅法是在前⾯给a赋值，⽐如加上⼀⾏a=’’。</p>
+<p>###</p>
+<p>还有⼀种需要⼩⼼处理的是：变量或者函数名拼写错误。如： name= ‘卡⻄’</p>
+<p>###</p>
+<p>print (‘My name is ‘ + nane)</p>
+<p>报错信息和上⾯⼀样：NameError: name ‘nane’ is not deﬁned。这类错误只要根据报错信息，细⼼检查下拼写，就能很快解决~</p>
+<h3 id="2-4-SyntaxError：语法错误，代码形式错误"><a href="#2-4-SyntaxError：语法错误，代码形式错误" class="headerlink" title="2.4 SyntaxError：语法错误，代码形式错误"></a>2.4 SyntaxError：语法错误，代码形式错误</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> name == <span class="string">&#x27;小李&#x27;</span>       <span class="comment"># 缺少冒号</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<p>报错信息为：Synt axError: invalid synt ax提示是：语法错误，⾮法的语法。</p>
+<p>###</p>
+<p>当报错的时候，要注意回到错误信息的那⼀⾏，然后从下往上，慢慢查找，此处这个程序就是因为if语法忘了在判断语句后⾯加“：”，所以导致的错误。</p>
+<p>###</p>
+<p>另外，初学者写代码时注意：使⽤英⽂符号哦</p>
+<p>###</p>
+<h3 id="2-5-KeyError-在读取字典中的key和value时，若key不存在，就会触发该错误"><a href="#2-5-KeyError-在读取字典中的key和value时，若key不存在，就会触发该错误" class="headerlink" title="2.5 KeyError: 在读取字典中的key和value时，若key不存在，就会触发该错误"></a>2.5 KeyError: 在读取字典中的key和value时，若key不存在，就会触发该错误</h3><p>###</p>
+<p>举个⼩例⼦：    dict ={‘a’:1,’b’:2,’c’:3}</p>
+<p>print (dict [‘d’])</p>
+<p>报错信息为：KeyError: ‘d’。</p>
+<p>###</p>
+<p>第⼀种解决⽅法，⾸先测试key是否存在，然后才进⾏下⼀步操作，如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">&#x27;d&#x27;</span> <span class="keyword">in</span> t:</span><br><span class="line">    <span class="built_in">print</span>(t[<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;not exist&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>第⼆种，利⽤dict 内置的get (key[,default ])⽅法，如：print (dict [‘d’])改为print (dict .get (‘d’))</p>
+<p>###</p>
+<p>如果key存在，则返回其value，否则返回None;使⽤这个⽅法永远不会触发KeyError。</p>
+<p>###</p>
+<h3 id="2-6-IndexError-索引错误，使用的索引不存在，常常超出序列范围，序列中没有此索引"><a href="#2-6-IndexError-索引错误，使用的索引不存在，常常超出序列范围，序列中没有此索引" class="headerlink" title="2.6 IndexError:索引错误，使用的索引不存在，常常超出序列范围，序列中没有此索引"></a>2.6 IndexError:索引错误，使用的索引不存在，常常超出序列范围，序列中没有此索引</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="built_in">print</span>(list1[<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<p>报错信息：IndexError: list index out of range提示：索引错误，列表索引超出了范围。</p>
+<p>###</p>
+<p>解决办法：回头看列表的⻓度，索引是要⼩于列表的⻓度的。上⾯的列表⻓度是5，⽽索引却要打印第七个，所以是超出了列表的⻓度。</p>
+<p>###</p>
+<h3 id="2-7-IndentationError-缩进错误"><a href="#2-7-IndentationError-缩进错误" class="headerlink" title="2.7 IndentationError: 缩进错误"></a>2.7 IndentationError: 缩进错误</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">1</span></span><br><span class="line">b=<span class="number">2</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b:</span><br><span class="line"><span class="built_in">print</span> a</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+<p>报错：Indent at ionError: expect ed an indent ed block</p>
+<p>原因：缩进有误，Python的缩进⾮常严格，⾏⾸多个空格，少个空格都会报错。</p>
+<p>###</p>
+<p>由于不熟悉python编码规则，不易查找，所以会成为新⼿常犯的⼀个错误。像def，class，if，for，while等代码块都需要缩进。</p>
+<p>###</p>
+<h3 id="2-8-TabError-Tab和空格混用"><a href="#2-8-TabError-Tab和空格混用" class="headerlink" title="2.8 TabError: Tab和空格混用"></a>2.8 TabError: Tab和空格混用</h3><p>###</p>
+<p>相邻的两句的缩进需要统⼀使⽤tab或统⼀使⽤空格，不能混⽤。否则就会出现以下报错： TabError: inconsistent use of tabs and spaces in indentation。</p>
+<p>###</p>
+<p>tab键本质上是制表符，而不是缩进符，不同的文本编辑器中制表符代表的空格宽度不⼀，如果代码需要跨平台或跨编辑器读写，建议不要使用制表符（tab键）。</p>
+<h3 id="2-9-ZeroDivisionError-除以零时导致的报错"><a href="#2-9-ZeroDivisionError-除以零时导致的报错" class="headerlink" title="2.9 ZeroDivisionError: 除以零时导致的报错"></a>2.9 ZeroDivisionError: 除以零时导致的报错</h3><h3 id="2-10-KeyboardInterrupt-程序执行时使用ctrl-c进行终止"><a href="#2-10-KeyboardInterrupt-程序执行时使用ctrl-c进行终止" class="headerlink" title="2.10 KeyboardInterrupt: 程序执行时使用ctrl+c进行终止"></a>2.10 KeyboardInterrupt: 程序执行时使用ctrl+c进行终止</h3><h1 id="3-基本数据类型"><a href="#3-基本数据类型" class="headerlink" title="3.基本数据类型"></a>3.基本数据类型</h1><h3 id="3-1字符串"><a href="#3-1字符串" class="headerlink" title="3.1字符串"></a>3.1字符串</h3><p>python中对字符串的操作只是相当于创建了一个副本，如果不进行赋值，那么字符串不会有任何改变</p>
+<pre><code>1. 通过索引值对其中元素进行检索，比如s[3]
+2. 也可以使用s[0:13]对一定的区域进行检索输出
+3. 可以通过”+“实现两个字符串的拼接， 使用”*“实现两个字符串的重复
+4. 使用len()返回字符串的长度
+5. 通过str()函数转换为字符串
+6. &lt;string&gt;.fun()
+    a. &lt;string&gt;.upper() 将字符串中的字母变成大写
+    b. &lt;string&gt;.lower 将字符串中的字母变成小写
+    c. &lt;string&gt;.capitalize() 首字母大写
+    d. &lt;string&gt;.strip 去除两边空格及去除指定字符  rstrip和lstrip对应右边空白或者左边空白
+    e. &lt;string&gt;.split 按指定字符分割字符串为数组
+    f. &lt;string&gt;.isdigit() 判断字符串是否为数字类型若是则返回True,反之则返回False
+    g. &lt;string&gt;.find 搜索指定字符串
+    h. &lt;string&gt;.replace 字符串替换
+    i. &lt;string&gt;.isupper() 或者islower()判断字符串中的值是否全为大写或者小写
+        isalpha(),只包含字母   isalnum(),只包含字母和数字  isdecimal()只包含数字字符  isspace()只包含空格 istitle(),            第一个大写，后面小写   
+7. for i in &lt;string&gt; 遍历字符串中的每个字符
+8. startswith()和endswith() 判断字符串是否以某个字符串开头或结尾
+9. &#39;,&#39;.join([&#39;my&#39;, &#39;name&#39;, &#39;is&#39;, &#39;ivan&#39;])  以,拼接字符串 
+10. partition(&#39;w&#39;)        以w分割字符串，若果有多个w按第一个来分割，结果为三个字符串的元组
+11. &#39;hello&#39;.rjust(20,&#39;-&#39;)  将hello填充到有二十个-的右端，右对齐，还有ljust(), center()
+</code></pre>
+<h3 id="3-2列表"><a href="#3-2列表" class="headerlink" title="3.2列表"></a>3.2列表</h3><p>enumerate(list) 函数返回一个对应列表中的索引，另一个是索引所对应的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 列表是有序的元素集合，列表元素可以通过索引访问单个元素</span><br><span class="line"><span class="number">2.</span> a=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>] ,a[<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line"><span class="number">3.</span> 列表的大小可以随时修改</span><br><span class="line"><span class="number">4.</span> 常用操作</span><br><span class="line">	a. &lt;seq&gt;+&lt;seq&gt;            连接两个序列</span><br><span class="line">	b. &lt;seq&gt;*&lt;整数类型&gt;  对序列进行整数次重复</span><br><span class="line">	c. &lt;seq&gt;[&lt;整数类型&gt;]   索引序列中的元素</span><br><span class="line">	d. <span class="built_in">len</span>(&lt;seq&gt;)                    序列中元素的个数</span><br><span class="line">	e. &lt;seq&gt;[&lt;整数类型&gt;:&lt;整数类型&gt;]  取序列中的一个子序列</span><br><span class="line">	f. <span class="keyword">for</span> &lt;var&gt; <span class="keyword">in</span> &lt;seq&gt; 对序列进行循环检举</span><br><span class="line">	g. &lt;expr&gt; <span class="keyword">in</span> &lt;seq&gt;  成员检查，判断&lt;expr&gt;是否在序列中</span><br><span class="line">	h. &lt;<span class="built_in">list</span>&gt;.append(x)          将元素x增加到列表的最后</span><br><span class="line">	i. &lt;<span class="built_in">list</span>&gt;.sort()                   将列表中的元素进行排序 按照ASCII排序，可以设置key=<span class="built_in">str</span>.lower</span><br><span class="line">	j. &lt;<span class="built_in">list</span>&gt;.reverse()             将列表元素反转</span><br><span class="line">	k. &lt;<span class="built_in">list</span>&gt;.index()                 返回第一次出现元素x的索引值</span><br><span class="line">	l. &lt;<span class="built_in">list</span>&gt;.insert(i,x)        在位置i处插入新元素x</span><br><span class="line">	m. &lt;<span class="built_in">list</span>&gt;. count(x)         返回元素x在列表中的数量</span><br><span class="line">	n. &lt;<span class="built_in">list</span>&gt;.remove(x)       删除列表中第一次出现的元素x</span><br><span class="line">	o. &lt;<span class="built_in">list</span>&gt;.pop(i)                    取出列表中位置为i的元素并删除它</span><br><span class="line">	p. “字符串”.split()        可以将字符串拆分成一个列表，元素为一个个单词</span><br><span class="line"><span class="number">5.</span> <span class="built_in">enumerate</span>(<span class="built_in">list</span>) 函数返回一个对应列表中的索引，另一个是索引所对应的值</span><br><span class="line"><span class="number">6.</span> new_list = copy.copy(<span class="built_in">list</span>), 如果是嵌套列表，则使用deepcopy，创建了一个副本</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3字典"><a href="#3-3字典" class="headerlink" title="3.3字典"></a>3.3字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> &lt;键&gt;&lt;值&gt;对    比如通过身份证号码检索学生信息此时身份证号码即为键，学生信息即为值</span><br><span class="line"><span class="number">2.</span> python通过字典实现映射，</span><br><span class="line"><span class="number">3.</span> 字典是一个键值对的集合，以键为索引，同一个键信息对应一个值，一个键值对应一项</span><br><span class="line"><span class="number">4.</span> 序列只能用数字类型的键，字典可以用其他类型的键</span><br><span class="line"><span class="number">5.</span> 字典中元素是无序排列的</span><br><span class="line"><span class="number">6.</span> 序列通过地址映射到值，字典直接映射到值</span><br><span class="line"><span class="number">7.</span> 使用大括号可以创建字典并制定初始值</span><br><span class="line"><span class="number">8.</span> 使用中括号可以为字典添加一项 students = &#123;<span class="string">&quot;202-2013&quot;</span>:<span class="string">&quot;John&quot;</span>&#125;             students[<span class="string">&quot;202-1287&quot;</span>]=<span class="string">&quot;Susan&quot;</span></span><br><span class="line"><span class="number">9.</span> 删除字典<span class="keyword">del</span> 字典名</span><br><span class="line"><span class="number">10.</span> python 可以通过字典中的键返回其指定的值 若键不存在返回错误</span><br><span class="line"><span class="number">11.</span> 删除字典中的一项 <span class="keyword">del</span> 字典名称[键]</span><br><span class="line"><span class="number">12.</span> 字典的遍历   <span class="keyword">for</span> key <span class="keyword">in</span> dictionryName: <span class="built_in">print</span>(key+<span class="string">&quot;:&quot;</span>+<span class="built_in">str</span>(dictionaryName[key]))</span><br><span class="line"><span class="number">13.</span> 多种遍历选项</span><br><span class="line"><span class="number">14.</span> 遍历字典的键key      <span class="keyword">for</span> key <span class="keyword">in</span> dictionaryName.keys(): <span class="built_in">print</span>(key)</span><br><span class="line"><span class="number">15.</span> 遍历字典的值value   <span class="keyword">for</span> value <span class="keyword">in</span> dictionaryName.values(): <span class="built_in">print</span>(value)</span><br><span class="line"><span class="number">16.</span> 遍历字典的项      <span class="keyword">for</span> item <span class="keyword">in</span> dictionaryName.items(): <span class="built_in">print</span>(item)</span><br><span class="line"><span class="number">17.</span> 遍历字典的键值对  <span class="keyword">for</span> item , value <span class="keyword">in</span> adict.items(): <span class="built_in">print</span>(item, value)</span><br><span class="line"><span class="number">18.</span> 判断一个键是否在字典中  &lt;键&gt; <span class="keyword">in</span> &lt;字典&gt;   如果有则返回true,反之则返回false。</span><br><span class="line"><span class="number">19.</span> 其支持 -, &lt;, &gt;, &lt;=, &gt;=, ==, !=, <span class="keyword">and</span>, <span class="keyword">or</span>, <span class="keyword">not</span>等运算判断符</span><br><span class="line"><span class="number">20.</span> keys():<span class="built_in">tuple</span> 返回一个包含字典所有key的列表</span><br><span class="line"><span class="number">21.</span> values(): <span class="built_in">tuple</span>  返回一个包含字典所有value的列表 <span class="built_in">tuple</span>(students.values())</span><br><span class="line"><span class="number">22.</span> items():<span class="built_in">tuple</span>     返回一个包含所有键值的列表</span><br><span class="line"><span class="number">23.</span> clear():<span class="literal">None</span>      删除字典中的所有项目students.clear()</span><br><span class="line"><span class="number">24.</span> get(key,<span class="number">0</span>):value   返回字典中key对应的值, 若不存在则返回零</span><br><span class="line"><span class="number">25.</span> pop(key):val      删除并返回字典中key对应的值</span><br><span class="line"><span class="number">26.</span> update(字典)     将字典中的值添加到字典中</span><br><span class="line"><span class="number">27.</span> <span class="built_in">dir</span>.setdefault(<span class="string">&#x27;color&#x27;</span>, <span class="string">&#x27;black&#x27;</span>) 当一个键不存在时对其进行默认值的设定</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4元组"><a href="#3-4元组" class="headerlink" title="3.4元组"></a>3.4元组</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 指包含多个元素的类型 元组之间用逗号分隔  元组可以是空的也可以只包含一个元素，元组外侧可以使用括号也可以不使用</span><br><span class="line">2. 一个元组可以是另一个元素的元组，此时作为元素的元组要注意加一个括号用以区分</span><br><span class="line">3. 元组中各元素存在先后关系，可通过索引进行访问，比如t3=123,456,(&quot;hello&quot;,&quot;中国&quot;）</span><br><span class="line">4. 元组定义以后既不能更改也不能删除</span><br><span class="line">5. 只有一个数据的元组应在该数据之后添加一个逗号以表示其元组的形式</span><br><span class="line">6. 可以使用tuple(),和list()进行与列表之间的转换</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-class定义类"><a href="#3-5-class定义类" class="headerlink" title="3.5 class定义类"></a>3.5 class定义类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Restaurant</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;餐厅菜谱&quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, restaurant_name, *cuisine_type</span>):</span></span><br><span class="line">        self.restaurant_name = restaurant_name</span><br><span class="line">        self.cuisine_type = cuisine_type</span><br><span class="line">        self.number_served = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">describe_restaurant</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;The <span class="subst">&#123;self.restaurant_name&#125;</span>&#x27;s cuisine type is <span class="subst">&#123;self.cuisine_type&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_restaurant</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;the <span class="subst">&#123;self.restaurant_name&#125;</span> is now open&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_number_served</span>(<span class="params">self, number</span>):</span></span><br><span class="line">        self.number_served = number</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">increment_number_served</span>(<span class="params">self, increment</span>):</span></span><br><span class="line">        self.number_served += increment</span><br><span class="line"><span class="comment"># 类的继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IceCreamStand</span>(<span class="params">Restaurant</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, restaurant_name, *cuisine_type</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(restaurant_name, *cuisine_type)</span><br><span class="line">        self.flavors = [<span class="string">&#x27;peek&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;strawberry&#x27;</span>]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">present_flavors</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">for</span> flavor <span class="keyword">in</span> self.flavors:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;there are these flavors:<span class="subst">&#123;flavor&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="编码处理"><a href="#编码处理" class="headerlink" title="编码处理"></a>编码处理</h1><h3 id="对文档进行utf-8编码"><a href="#对文档进行utf-8编码" class="headerlink" title="对文档进行utf-8编码"></a>对文档进行utf-8编码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html=urlopen()</span><br><span class="line">bs_oj=BeautifulSoup(html,...)</span><br><span class="line">content=bs_oj.find().get_text()</span><br><span class="line">content=<span class="built_in">bytes</span>(content,<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">content=content.decode(<span class="string">&quot;utf-8&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本编码知识"><a href="#基本编码知识" class="headerlink" title="基本编码知识"></a>基本编码知识</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="built_in">ord</span>()可以实现将字符转换为ASCII码</span><br><span class="line"><span class="number">2.</span> <span class="built_in">chr</span>()可以实现将ASCII码转换为相应的字符</span><br><span class="line"><span class="number">3.</span> Unicode为通用编码 为十六进制编码  采用固定两个字节表示</span><br><span class="line"><span class="number">4.</span> UTF-<span class="number">8</span> 可变长度的Unicode  可以用<span class="number">1</span>到<span class="number">4</span>个字节不同长度表示 中文日文韩文对应其三字节， 英文对应其单字节</span><br><span class="line"><span class="number">5.</span> GBK 编码是双字节编码  《汉字内码扩展规范》针对汉字的编码 为十六进制编码</span><br><span class="line"><span class="number">6.</span> 英文数字为ASCII码，只有ASCII的为文本文件，其他的为二进制文件</span><br><span class="line"><span class="number">7.</span> ISO-<span class="number">8859</span>-<span class="number">1</span>  为拉丁字母设计，会出现小写<span class="number">1</span>/<span class="number">2</span>以及版权标记符号</span><br><span class="line"><span class="number">8.</span> 其他字符集ISO-<span class="number">8859</span>-<span class="number">9</span>(土耳其)， ISO-<span class="number">8859</span>-<span class="number">2</span>(德语)，ISO-<span class="number">8859</span>-<span class="number">15</span>(法语)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Q： 如果本文需要付费，你是否愿意为此支付一元</div>
+  <button>
+    我愿意资助创作者
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ivan 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ivan 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ivan
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wanstarge.github.io/2021/08/10/10-59-02/" title="python基本语法">https://wanstarge.github.io/2021/08/10/10-59-02/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章，均在可信时间戳认证机构完成确权，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！商业性使用请联系主理人购买授权许可。
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://weibo.com/u/7426687127">
+          <span class="icon">
+            <i class="fa fa-weibo"></i>
+          </span>
+
+          <span class="label">微博</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/an-ye-ji-ling">
+          <span class="icon">
+            <i class=""></i>
+          </span>
+
+          <span class="label">知乎</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="tag"># 基本语法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/10/09-36-50/" rel="prev" title="Eclipse快捷键大全">
+                  <i class="fa fa-chevron-left"></i> Eclipse快捷键大全
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/10/11-15-00/" rel="next" title="http响应码">
+                  http响应码 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ivan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

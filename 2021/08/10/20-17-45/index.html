@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="纯属闲着没事干，把命令给整理了一遍，绝了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令大全">
+<meta property="og:url" content="https://wanstarge.github.io/2021/08/10/20-17-45/index.html">
+<meta property="og:site_name" content="万星阁">
+<meta property="og:description" content="纯属闲着没事干，把命令给整理了一遍，绝了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-10T12:17:45.000Z">
+<meta property="article:modified_time" content="2021-08-10T12:46:48.726Z">
+<meta property="article:author" content="Ivan">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wanstarge.github.io/2021/08/10/20-17-45/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/10/20-17-45/","path":"2021/08/10/20-17-45/","title":"linux命令大全"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>linux命令大全 | 万星阁</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">万星阁</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">是非在己 毁誉由人 得失不论</p>
+      <img class="custom-logo-image" src="/images/custom-logo.jpg" alt="万星阁">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="nav-text">linux权限管理</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ivan"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ivan</p>
+  <div class="site-description" itemprop="description">一起分享交流，互相学习</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wanstarge" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wanstarge" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wanstarge@gmail.com" title="E-Mail → mailto:wanstarge@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/15556956" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;15556956" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/7426687127" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7426687127" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/136fabde72a8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;136fabde72a8" rel="noopener" target="_blank">简书</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      宝藏站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://t13mk.github.io/" title="https:&#x2F;&#x2F;t13mk.github.io" rel="noopener" target="_blank">t13mk</a>
+        </li>
+    </ul>
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/wanstarge" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/20-17-45/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux命令大全
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-10 20:17:45 / 修改时间：20:46:48" itemprop="dateCreated datePublished" datetime="2021-08-10T20:17:45+08:00">2021-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ubuntu-%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">-[ubuntu,命令]</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/08/10/20-17-45/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/10/20-17-45/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>35k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>32 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>纯属闲着没事干，把命令给整理了一遍，绝了</strong></p>
+<span id="more"></span>
+
+<h2 id="linux权限管理"><a href="#linux权限管理" class="headerlink" title="linux权限管理"></a>linux权限管理</h2><ol>
+<li>4 r只读 2 w写 1 x执行   6读写  7读写执行</li>
+<li>s setuid setgid权限    s粘滞位</li>
+<li>文件按权限分为 拥有者u，所属组g，其他用户o</li>
+<li>每个部分又都有 读r, 写w, 执行x.等权限的限制</li>
+<li>chmod u-r,o+w file  对所有者取消读取权限，对其它用户增加写权限</li>
+<li>一般最常用的选项为-r 表明对其中所有文件执行同样操作</li>
+<li>如果同时拥有setuid或setgid和x权限同时拥有则两种权限叠加将x替换为s,如果没有x权限则写为S</li>
+<li>粘滞位用t表示，主要用在其他用户上表示只有所有者才具有修改的权限，防止权限的交叉，如果只有粘滞位没有执行权限的话则用T表示​</li>
+<li>超级块修复<br>​sudo mkfs -t ext4 -n 主分区   得到备份编号<br>​sudo fsck -t ext4 -b 编号 主分区    进行恢复<br>​RAID 磁盘阵列  RAID0-RAID7</li>
+</ol>
+<p>基本命令</p>
+<pre><code>rm      删除文件
+    -r 强制删除文件夹及其包含内容     
+    -f 即使原文档属性为只读也直接删除，无需逐一确认   
+    -i  删除前逐一询问
+mkdir   新建文件夹       
+    -p 1/2/3  建立多级目录
+rmdir   删除文件夹       
+    -p 1/2/3  删除多级目录（要求每个文件夹都必须是空目录） 
+    -v 显示命令的详细执行过程
+tree    显示当前目录树结构
+cat     拼接文件内容  
+    -n  从一开始对所有输出的行编号 -b 功能类似但会忽略空行
+    -s 可以用来压缩裤空白行
+    cat file1 file2   一起显示
+    cat file1 file2 &gt; file3 一二的内容合并到3中
+|    管道符号 用以连接多个命令
+cp      复制内容  cp source dest
+    -a    常在复制目录时使用 保留文件属性，链接
+    -d 当复制符号链接时，为目标文件和目录也建立起符号链接并指向与源文件或目录连接的原始文件
+    -f 强行复制文件或目录，不论目标文件或目录是否已经存在
+    -i 覆盖已有文件之前先询问用户
+    -l 对源文件建立起硬链接
+    -p 保留原文件或目录的属性
+    -r 递归复制目录下的所有文件和子目录
+    -s 对源文件建立起符号链接
+    -u 只有源文件较目标文件更新或目标文件不存在时才复制文件
+    -S 后缀名 source dest  复制时更改后缀名
+    -b 覆盖已存在的文件目标前将文件备份
+su    变更为其他使用者的身份   su user
+    -c command user 变换为其他用户后执行命令后变为原使用者
+    -s 指定切换后使用的shell程序
+    -l 提供一个类似于用户直接登录的环境
+whoami    查看当前账户
+文件属性总纲（第一个字符）
+    d 目录文件
+    c字符设备文件
+    b块设备文件（磁盘，U盘）
+    p管道文件
+    l符号链接  类似于指针
+    s 套接字
+makefifo 管道名    ；   mknod 管道名 p        命名管道文件
+grep    筛选文件
+    grep &#39;^d&#39;筛选文件首字母为d的文件   （其中^d为正则表达式）
+file    用于查看文件的类型
+chmod    更改文件权限
+    chmod [-cfvR] [--help] [--version] mode file...
+    u 表示该文件的拥有者，g 表示与该文件的拥有者属于同一个群体(group)者，o 表示其他以外的人，a 表示这三者皆是。
+    + 表示增加权限、- 表示取消权限、= 表示唯一设定权限。
+    r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该文件是个子目录或者该文件已经被设定过为可执行。
+    其他参数说明：
+    -c : 若该文件权限确实已经更改，才显示其更改动作
+    -f : 若该文件权限无法被更改也不要显示错误讯息
+    -v : 显示权限变更的详细资料
+    -R : 对目前目录下的所有文件与子目录进行相同的权限变更(即以递归的方式逐个变更)
+    --help : 显示辅助说明
+    --version : 显示版本
+chown    修改文件所有权
+    chown [-cfhvR] [--help] [--version] user[:group] file...
+    chown 所有者:用户组 file 
+    user : 新的文件拥有者的使用者 ID
+    group : 新的文件拥有者的使用者组(group)
+    -c : 显示更改的部分的信息
+    -f : 忽略错误信息
+    -h :修复符号链接
+    -v : 显示详细的处理信息
+    -R : 处理指定目录以及其子目录下的所有文件
+    --help : 显示辅助说明
+    --version : 显示版本
+touch   创建文件  touch filename
+&gt;  &gt;&gt;    重定向创建文件
+    &gt; filename
+    &gt;&gt; filename (当文件不存在时，如果存在则插入已有文件之后)
+more    分屏显示一个文本文件的内容
+    -s 压缩空白行
+    -c 不滚动屏幕而直接刷新屏幕
+    -数字 每屏要显示的行数
+    空格 显示下一屏   回车 显示下一行     / 查找字符    h 显示帮助   b 显示上一屏  q 退出more命令
+vim    vi filename 启动vi编辑器创建文件
+    :wq 执行存盘并推出
+    ctrl+u 向文首翻半屏
+    ctrl+d 向文尾翻半屏
+    ctrl+f 向文尾翻一屏
+    ctrl+b 向文首翻一屏
+    ESC 切换到命令模式
+    :行号 跳转到某一行
+    :$ 光标跳到最后一行的行首
+    x 删除光标后的字符，X 删除光标前的字符
+    D 删除从当前光标所在位置到行尾的所有字符
+    dd 删除光标所在行
+    ndd 删除当前行以及之后的n-1行
+    p 将剪切板中的内容粘贴到光标位置下方
+    P 将剪切板中的内容粘贴到光标位置上方
+    /字符串 从当前光标位置向文件尾查找指定字符串内容
+    ?字符串 从当前光标位置向文件首查找指定字符串内容
+    a 在当前字符后添加文本
+    A 在行末添加文本
+    i 在当前字符前添加文本
+    I 在行首插入文本
+    o 在当前行后面插入一行空行
+    O 在当前行前面插入一行空行
+    :q 退出vi编辑器
+    :q! 强制退出vi编辑器
+    :w 强制存盘
+    :e文件名 打开并编辑指定名称的文件
+ls    显示件文列表
+    -a 显示所有文件包括隐藏文件
+    -A 显示除.和..之外的所有文件
+    -color[=WHEN] 使用不同颜色高亮显示不同类型
+    -l 以详细单列格式来显示 （特别的ls -l等同于ll）
+    -F 在每个输出的文件后追加文件类型的标识符
+    -i 显示文件的i节点信息，每个文件的i节点不同具有唯一性
+    -m 用逗号分隔每个文件和目录的名称
+    -r 用递归的方法显示文件目录和子目录
+less    前后翻页分屏命令
+    用pageup  pagedown 翻页  
+    q退出
+    基本上和more相同
+head    查看前几行命令
+    head -n 数字 表示要输出的行数
+    -c 数字 表示要输出的字符数
+tail    查看最后几行
+    tail -n 20 查看最后20行
+    tail -f file  将文件的增长部分实时输出到屏幕
+mv    移动文件
+    mv --backup=&lt;备份模式&gt;    覆盖前先备份文件  none   numbered  existing   simple
+    -b 文件存在时覆盖前先备份文件
+    -f 若重复则直接覆盖掉文件
+    -i 覆盖前进行询问
+    -S 后缀 为文件指定后缀
+    一种特殊应用 重命名文件 mv file1.c file1.cpp
+ln    建立同步链接 ln source dest
+    -b 删除，覆盖以前建立的链接
+    -d 允许超级用户制作目录的硬链接
+    -f 强制执行
+    -i 交互模式，文件存在则提示用户是否覆盖
+    -n 把符号链接视为一般目录
+    -s 软链接(符号链接)
+    -v 显示详细的处理过程
+diff    比较文件  diff file1 file2
+    4c4,6  表示第一个文件的第四行，c表示修改，a表示增加，d表示删除。4，6表示第二个文件中的4到6行
+    -&lt;行数&gt; 　指定要显示多少行的文本。此参数必须与-c或-u参数一并使用。
+    -a或--text 　diff预设只会逐行比较文本文件。
+    -b或--ignore-space-change 　不检查空格字符的不同。
+    -B或--ignore-blank-lines 　不检查空白行。
+    -c 　显示全部内文，并标出不同之处。
+    -C&lt;行数&gt;或--context&lt;行数&gt; 　与执行&quot;-c-&lt;行数&gt;&quot;指令相同。
+    -d或--minimal 　使用不同的演算法，以较小的单位来做比较。
+    -D&lt;巨集名称&gt;或ifdef&lt;巨集名称&gt; 　此参数的输出格式可用于前置处理器巨集。
+    -e或--ed 　此参数的输出格式可用于ed的script文件。
+    -f或-forward-ed 　输出的格式类似ed的script文件，但按照原来文件的顺序来显示不同处。
+    -H或--speed-large-files 　比较大文件时，可加快速度。
+    -l&lt;字符或字符串&gt;或--ignore-matching-lines&lt;字符或字符串&gt; 　若两个文件在某几行有所不同，而这几行同时都包含了选项中指定的字符或字符串，则不显示这两个文件的差异。
+    -i或--ignore-case 　不检查大小写的不同。
+    -l或--paginate 　将结果交由pr程序来分页。
+    -n或--rcs 　将比较结果以RCS的格式来显示。
+    -N或--new-file 　在比较目录时，若文件A仅出现在某个目录中，预设会显示：
+    Only in目录：文件A若使用-N参数，则diff会将文件A与一个空白的文件比较。
+    -p 　若比较的文件为C语言的程序码文件时，显示差异所在的函数名称。
+    -P或--unidirectional-new-file 　与-N类似，但只有当第二个目录包含了一个第一个目录所没有的文件时，才会将这个文件与空白的文件做比较。
+    -q或--brief 　仅显示有无差异，不显示详细的信息。
+    -r或--recursive 　比较子目录中的文件。
+    -s或--report-identical-files 　若没有发现任何差异，仍然显示信息。
+    -S&lt;文件&gt;或--starting-file&lt;文件&gt; 　在比较目录时，从指定的文件开始比较。
+    -t或--expand-tabs 　在输出时，将tab字符展开。
+    -T或--initial-tab 　在每行前面加上tab字符以便对齐。
+    -u,-U&lt;列数&gt;或--unified=&lt;列数&gt; 　以合并的方式来显示文件内容的不同。
+    -v或--version 　显示版本信息。
+    -w或--ignore-all-space 　忽略全部的空格字符。
+    -W&lt;宽度&gt;或--width&lt;宽度&gt; 　在使用-y参数时，指定栏宽。
+    -x&lt;文件名或目录&gt;或--exclude&lt;文件名或目录&gt; 　不比较选项中所指定的文件或目录。
+    -X&lt;文件&gt;或--exclude-from&lt;文件&gt; 　您可以将文件或目录类型存成文本文件，然后在=&lt;文件&gt;中指定此文本文件。
+    -y或--side-by-side 　以并列的方式显示文件的异同之处。
+    --help 　显示帮助。
+    --left-column 　在使用-y参数时，若两个文件某一行内容相同，则仅在左侧的栏位显示该行内容。
+    --suppress-common-lines 　在使用-y参数时，仅显示不同之处
+locate    搜索文件
+    -b, --basename -- 仅匹配路径名的基本名称
+    -c, --count -- 只输出找到的数量
+    -d, --database DBPATH -- 使用 DBPATH 指定的数据库，而不是默认数据库 /var/lib/mlocate/mlocate.db
+    -e, --existing -- 仅打印当前现有文件的条目
+    -1 -- 如果 是 1．则启动安全模式。在安全模式下，使用者不会看到权限无法看到 的档案。这会始速度减慢，因为 locate 必须至实际的档案系统中取得档案的 权限资料。
+    -0, --null -- 在输出上带有NUL的单独条目
+    -S, --statistics -- 不搜索条目，打印有关每个数据库的统计信息
+    -q -- 安静模式，不会显示任何错误讯息。
+    -P, --nofollow, -H -- 检查文件存在时不要遵循尾随的符号链接
+    -l, --limit, -n LIMIT -- 将输出（或计数）限制为LIMIT个条目
+    -n -- 至多显示 n个输出。
+    -m, --mmap -- 被忽略，为了向后兼容
+    -r, --regexp REGEXP -- 使用基本正则表达式
+    --regex -- 使用扩展正则表达式
+    -q, --quiet -- 安静模式，不会显示任何错误讯息
+    -s, --stdio -- 被忽略，为了向后兼容
+    -o -- 指定资料库存的名称。
+    -h, --help -- 显示帮助
+    -i, --ignore-case -- 忽略大小写
+    -V, --version -- 显示版本信息
+whereis    按类型搜索文件
+    -b 只搜索二进制文件
+    -m 指定whereis命令搜索命令手册
+    -s 搜索源代码文件
+    这三者大写后加目录，表示在对应目录中实现这三红功能
+    -u 查找不包含指定类型的文件
+which    搜索二进制文件
+    通常用来搜索命令的位置 which python3
+find    全功能搜索
+    find 根据下列规则判断 path 和 expression，在命令列上第一个 - ( ) , ! 之前的部份为 path，之后的是 expression。如果 path 是空字串则使用目前路径，如果 expression 是空字串则使用 -print 为预设 expression。
+    expression 中可使用的选项有二三十个之多，在此只介绍最常用的部份。
+    -mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件
+    -amin n : 在过去 n 分钟内被读取过
+    -anewer file : 比文件 file 更晚被读取过的文件
+    -atime n : 在过去n天内被读取过的文件
+    -cmin n : 在过去 n 分钟内被修改过
+    -cnewer file :比文件 file 更新的文件
+    -ctime n : 在过去n天内被修改过的文件
+    -empty : 空的文件-gid n or -group name : gid 是 n 或是 group 名称是 name
+    -ipath p, -path p : 路径名称符合 p 的文件，ipath 会忽略大小写
+    -name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写
+    -size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。
+    -type c : 文件类型是 c 的文件。
+    d: 目录
+    c: 字型装置文件
+    b: 区块装置文件
+    p: 具名贮列
+    f: 一般文件
+    l: 符号连结
+    s: socket
+    -pid n : process id 是 n 的文件
+grep    检索文本内容
+    -a 或 --text : 不要忽略二进制的数据。
+    -A&lt;显示行数&gt; 或 --after-context=&lt;显示行数&gt; : 除了显示符合范本样式的那一列之外，并显示该行之后的内容。
+    -b 或 --byte-offset : 在显示符合样式的那一行之前，标示出该行第一个字符的编号。
+    -B&lt;显示行数&gt; 或 --before-context=&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前的内容。
+    -c 或 --count : 计算符合样式的列数。
+    -C&lt;显示行数&gt; 或 --context=&lt;显示行数&gt;或-&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前后的内容。
+    -d &lt;动作&gt; 或 --directories=&lt;动作&gt; : 当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。
+    -e&lt;范本样式&gt; 或 --regexp=&lt;范本样式&gt; : 指定字符串做为查找文件内容的样式。
+    -E 或 --extended-regexp : 将样式为延伸的正则表达式来使用。
+    -f&lt;规则文件&gt; 或 --file=&lt;规则文件&gt; : 指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。
+    -F 或 --fixed-regexp : 将样式视为固定字符串的列表。
+    -G 或 --basic-regexp : 将样式视为普通的表示法来使用。
+    -h 或 --no-filename : 在显示符合样式的那一行之前，不标示该行所属的文件名称。
+    -H 或 --with-filename : 在显示符合样式的那一行之前，表示该行所属的文件名称。
+    -i 或 --ignore-case : 忽略字符大小写的差别。
+    -l 或 --file-with-matches : 列出文件内容符合指定的样式的文件名称。
+    -L 或 --files-without-match : 列出文件内容不符合指定的样式的文件名称。
+    -n 或 --line-number : 在显示符合样式的那一行之前，标示出该行的列数编号。
+    -o 或 --only-matching : 只显示匹配PATTERN 部分。
+    -q 或 --quiet或--silent : 不显示任何信息。
+    -r 或 --recursive : 此参数的效果和指定&quot;-d recurse&quot;参数相同。
+    -s 或 --no-messages : 不显示错误信息。
+    -v 或 --invert-match : 显示不包含匹配文本的所有行。
+    -V 或 --version : 显示版本信息。
+    -w 或 --word-regexp : 只显示全字符合的列。
+    -x --line-regexp : 只显示全列符合的列。
+    -y : 此参数的效果和指定&quot;-i&quot;参数相同
+grep中的正则表达式
+    ^ 匹配行首
+    $ 匹配行尾
+    []or[n-n] 匹配方括号内的任意字符
+    . 匹配任意的单字符
+    * 跟在某个字符后面，表示匹配0个或多个前面的字符
+    \ 用来屏蔽元字符的特殊含义
+    \? 匹配前面的字符0次或一次
+    \+ 匹配前面的字符一次或多次
+    X\&#123;m\&#125; 匹配X字符m次
+    X\&#123;m,\&#125; 匹配X字符至少m次
+    X\&#123;m,n\&#125; 匹配X字符m~n次
+    \| 表示或的关系
+sort    对文件内容进行排序
+    -b 忽略每行前面开始出的空格字符。
+    -c 检查文件是否已经按照顺序排序。
+    -d 排序时，处理英文字母、数字及空格字符外，忽略其他的字符。
+    -f 排序时，将小写字母视为大写字母。
+    -i 排序时，除了040至176之间的ASCII字符外，忽略其他的字符。
+    -m 将几个排序好的文件进行合并。
+    -M 将前面3个字母依照月份的缩写进行排序。
+    -n 依照数值的大小排序。
+    -u 意味着是唯一的(unique)，输出的结果是去完重了的。
+    -o&lt;输出文件&gt; 将排序后的结果存入指定的文件。
+    -r 以相反的顺序来排序。
+    -t&lt;分隔字符&gt; 指定排序时所用的栏位分隔字符。
+    +&lt;起始栏位&gt;-&lt;结束栏位&gt; 以指定的栏位来排序，范围由起始栏位到结束栏位的前一栏位。
+    --help 显示帮助。
+    --version 显示版本信息。
+zip    压缩文件
+    -A 调整可执行的自动解压缩文件。
+    -b&lt;工作目录&gt; 指定暂时存放文件的目录。
+    -c 替每个被压缩的文件加上注释。
+    -d 从压缩文件内删除指定的文件。
+    -D 压缩文件内不建立目录名称。
+    -f 更新现有的文件。
+    -F 尝试修复已损坏的压缩文件。
+    -g 将文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。
+    -h 在线帮助。
+    -i&lt;范本样式&gt; 只压缩符合条件的文件。
+    -j 只保存文件名称及其内容，而不存放任何目录名称。
+    -J 删除压缩文件前面不必要的数据。
+    -k 使用MS-DOS兼容格式的文件名称。
+    -l 压缩文件时，把LF字符置换成LF+CR字符。
+    -ll 压缩文件时，把LF+CR字符置换成LF字符。
+    -L 显示版权信息。
+    -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。
+    -n&lt;字尾字符串&gt; 不压缩具有特定字尾字符串的文件。
+    -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。
+    -q 不显示指令执行过程。
+    -r 递归处理，将指定目录下的所有文件和子目录一并处理。
+    -S 包含系统和隐藏文件。
+    -t&lt;日期时间&gt; 把压缩文件的日期设成指定的日期。
+    -T 检查备份文件内的每个文件是否正确无误。
+    -u 与 -f 参数类似，但是除了更新现有的文件外，也会将压缩文件中的其他文件解压缩到目录中。
+    -v 显示指令执行过程或显示版本信息。
+    -V 保存VMS操作系统的文件属性。
+    -w 在文件名称里假如版本编号，本参数仅在VMS操作系统下有效。
+    -x&lt;范本样式&gt; 压缩时排除符合条件的文件。
+    -X 不保存额外的文件属性。
+    -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。
+    -z 替压缩文件加上注释。
+    -$ 保存第一个被压缩文件所在磁盘的卷册名称。
+    -&lt;压缩效率&gt; 压缩效率是一个介于1-9的数值。
+gzip    压缩文件
+    -a或--ascii 　使用ASCII文字模式。
+    -c或--stdout或--to-stdout 　把压缩后的文件输出到标准输出设备，不去更动原始文件。
+    -d或--decompress或----uncompress 　解开压缩文件。
+    -f或--force 　强行压缩文件。不理会文件名称或硬连接是否存在以及该文件是否为符号连接。
+    -h或--help 　在线帮助。
+    -l或--list 　列出压缩文件的相关信息。
+    -L或--license 　显示版本与版权信息。
+    -n或--no-name 　压缩文件时，不保存原来的文件名称及时间戳记。
+    -N或--name 　压缩文件时，保存原来的文件名称及时间戳记。
+    -q或--quiet 　不显示警告信息。
+    -r或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。
+    -S&lt;压缩字尾字符串&gt;或----suffix&lt;压缩字尾字符串&gt; 　更改压缩字尾字符串。
+    -t或--test 　测试压缩文件是否正确无误。
+    -v或--verbose 　显示指令执行过程。
+    -V或--version 　显示版本信息。
+    -&lt;压缩效率&gt; 　压缩效率是一个介于1－9的数值，预设值为&quot;6&quot;，指定愈大的数值，压缩效率就会愈高。
+    --best 　此参数的效果和指定&quot;-9&quot;参数相同。
+    --fast 　此参数的效果和指定&quot;-1&quot;参数相同
+compress压缩文件
+    c 输出结果至标准输出设备（一般指荧幕）
+    f 强迫写入档案，若目的档已经存在，则会被覆盖 (force)
+    v 将程序执行的讯息印在荧幕上 (verbose)
+    b 设定共同字串数的上限，以位元计算，可以设定的值为 9 至 16 bits 。由于值越大，能使用的共同字串就 越多，压缩比例就越大，所以一般使用预设值 16 bits (bits)
+    d 将压缩档解压缩
+    V 列出版本讯息
+bzip2    压缩文件
+    -c或--stdout 　将压缩与解压缩的结果送到标准输出。
+    -d或--decompress 　执行解压缩。
+    -f或--force 　bzip2在压缩或解压缩时，若输出文件与现有文件同名，预设不会覆盖现有文件。若要覆盖，请使用此参数。
+    -h或--help 　显示帮助。
+    -k或--keep 　bzip2在压缩或解压缩后，会删除原始的文件。若要保留原始文件，请使用此参数。
+    -s或--small 　降低程序执行时内存的使用量。
+    -t或--test 　测试.bz2压缩文件的完整性。
+    -v或--verbose 　压缩或解压缩文件时，显示详细的信息。
+    -z或--compress 　强制执行压缩。
+    -L,--license,
+    -V或--version 　显示版本信息。
+    --repetitive-best 　若文件中有重复出现的资料时，可利用此参数提高压缩效果。
+    --repetitive-fast 　若文件中有重复出现的资料时，可利用此参数加快执行速度。
+    -压缩等级 　压缩时的区块大小。
+pwd    显示当前目录
+cd    切换目录
+    - 表示两个目录之间来回切换
+    -P 如果目标是符号链接，直接切换到目标目录
+    -L 如果目录是一个符号的链接，切换到字符连接名代表的目录
+useradd 添加用户
+    useradd -D [-b][-e &lt;有效期限&gt;][-f &lt;缓冲天数&gt;][-g &lt;群组&gt;][-G &lt;群组&gt;][-s &lt;shell&gt;]
+    -c&lt;备注&gt; 　加上备注文字。备注文字会保存在passwd的备注栏位中。
+    -d&lt;登入目录&gt; 　指定用户登入时的起始目录。
+    -D 　变更预设值．
+    -e&lt;有效期限&gt; 　指定帐号的有效期限。
+    -f&lt;缓冲天数&gt; 　指定在密码过期后多少天即关闭该帐号。
+    -g&lt;群组&gt; 　指定用户所属的群组。
+    -G&lt;群组&gt; 　指定用户所属的附加群组。
+    -m 　自动建立用户的登入目录。
+    -M 　不要自动建立用户的登入目录。
+    -n 　取消建立以用户名称为名的群组．
+    -r 　建立系统帐号。
+    -s&lt;shell&gt;　 　指定用户登入后所使用的shell。
+    -u&lt;uid&gt; 　指定用户ID。
+adduser 添加用户 
+    adduser [-c comment] [-d home_dir] [-e expire_date] [-f inactive_time] [-g initial_group] [-G group[,...]] [-m [-k skeleton_dir] | -M] [-p passwd] [-s shell] [-u uid [ -o]] [-n] [-r] loginid
+    -c comment 新使用者位于密码档（通常是 /etc/passwd）的注解资料
+    -d home_dir 设定使用者的家目录为 home_dir ，预设值为预设的 home 后面加上使用者帐号 loginid
+    -e expire_date 设定此帐号的使用期限（格式为 YYYY-MM-DD），预设值为永久有效
+    -f inactive_time 范例：
+    --disabled-login 不为新用户设置密码，意味用户不能登陆系统
+    --disabled-passwd 不能使用密码认证，但可通过其他方式认证例如RSA密钥
+    --gid 指定用户组的标识号
+    --group 创建一个用户组
+    --home 指定用户的主目录，若不存在会自动创建
+    --shell 指定默认的shell程序
+    --ingroup 指定用户所属的主组
+    --system 创建一个系统账户
+    --no-create-home 不创建用户主目录
+    --uid 指定用户的用户标识号
+    --aid_extra_groups 指定用户的附加用户组
+usermmod 
+    修改用户 usermod [-LU][-c &lt;备注&gt;][-d &lt;登入目录&gt;][-e &lt;有效期限&gt;][-f &lt;缓冲天数&gt;][-g &lt;群组&gt;][-G &lt;群组&gt;][-l &lt;帐号名称&gt;][-s &lt;shell&gt;][-u &lt;uid&gt;][用户帐号]
+    -c&lt;备注&gt; 　修改用户帐号的备注文字。
+    -d登入目录&gt; 　修改用户登入时的目录。
+    -e&lt;有效期限&gt; 　修改帐号的有效期限。
+    -f&lt;缓冲天数&gt; 　修改在密码过期后多少天即关闭该帐号。
+    -g&lt;群组&gt; 　修改用户所属的群组。
+    -G&lt;群组&gt; 　修改用户所属的附加群组。
+    -l&lt;帐号名称&gt; 　修改用户帐号名称。
+    -L 　锁定用户密码，使密码无效。
+    -s&lt;shell&gt; 　修改用户登入后所使用的shell。
+    -u&lt;uid&gt; 　修改用户ID。
+    -U 　解除密码锁定 将移除用户加密密码之前的感叹号
+userdel    删除用户 
+    userdel [-r][用户帐号]
+    -r 　删除用户登入目录以及目录中所有文件。
+passwd    修改用户密码
+    passwd [-k] [-l] [-u [-f]] [-d] [-S] [username]
+    -d 删除密码
+    -f 强迫用户下次登录时必须修改口令
+    -w 口令要到期提前警告的天数
+    -k 更新只能发送在过期之后
+    -l 停止账号使用
+    -S 显示密码信息
+    -u 启用已被停止的账户
+    -x 指定口令最长存活期
+    -g 修改群组密码
+    指定口令最短存活期
+    -i 口令过期后多少天停用账户
+id    显示用户信息
+    id [-gGnru][--help][--version][用户名称]
+    -g或--group 　显示用户所属群组的ID。
+    -G或--groups 　显示用户所属附加群组的ID。
+    -n或--name 　显示用户，所属群组或附加群组的名称。
+    -r或--real 　显示实际ID。
+    -u或--user 　显示用户ID。
+    -help 　显示帮助。
+    -version 　显示版本信息
+sudo    受限的特权命令 5分钟内以root身份工作
+    -V 显示版本编号
+    -h 会显示版本编号及指令的使用方式说明
+    -l 显示出自己（执行 sudo 的使用者）的权限
+    -v 因为 sudo 在第一次执行时或是在 N 分钟内没有执行（N 预设为五）会问密码，这个参数是重新做一次确认，如果超过 N 分钟，也会问密码
+    -k 将会强迫使用者在下一次执行 sudo 时问密码（不论有没有超过 N 分钟）
+    -b 将要执行的指令放在背景执行
+    -p prompt 可以更改问密码的提示语，其中 %u 会代换为使用者的帐号名称， %h 会显示主机名称
+    -u username/#uid 不加此参数，代表要以 root 的身份执行指令，而加了此参数，可以以 username 的身份执行指令（#uid 为该 username 的使用者号码）
+    -s 执行环境变数中的 SHELL 所指定的 shell ，或是 /etc/passwd 里所指定的 shell
+    -H 将环境变数中的 HOME （家目录）指定为要变更身份的使用者家目录（如不加 -u 参数就是系统管理者 root ）
+    command 要以系统管理者身份（或以 -u 更改为其他人）执行的指令
+groupadd添加用户组
+    -g：指定新建工作组的 id；
+    -r：创建系统工作组，系统工作组的组ID小于 500；
+    -K：覆盖配置文件 &quot;/ect/login.defs&quot;；
+    -o：允许添加组 ID 号不唯一的工作组。
+    -f,--force: 如果指定的组已经存在，此选项将失明了仅以成功状态退出。
+        当与 -g 一起使用，并且指定的GID_MIN已经存在时，选择另一个唯一的GID（即-g关闭）。
+addgroup是adduser的符号链接
+    addgroup 组名
+groupmod 修改用户组
+    groupmod [-g &lt;群组识别码&gt; &lt;-o&gt;][-n &lt;新群组名称&gt;][群组名称]
+    -g &lt;群组识别码&gt; 　设置欲使用的群组识别码。
+    -o 　重复使用群组识别码。
+    -n &lt;新群组名称&gt; 　设置欲使用的群组名称。
+groupdel 删除1111111户组
+    groupdel 组名
+acl的语法规则
+    [d[efault]:] u[ser]:uid [:perms]
+    [d[efault]:] g[roup]:gid [:perms]
+    [d[efault]:] m[ask][:] [:perms]
+    [d[efault]:] o[ther] [:perms]
+    perm为权限列表  u:joe:rwx  用户joe具有读写执行权限
+chgrp    改变文件所属组
+    chgrp [-cfhRv][--help][--version][所属群组][文件或目录...] 
+    或 chgrp [-cfhRv][--help][--reference=&lt;参考文件或目录&gt;][--version][文件或目录...]
+    -c或--changes 效果类似&quot;-v&quot;参数，但仅回报更改的部分。
+    -f或--quiet或--silent 　不显示错误信息。
+    -h或--no-dereference 　只对符号连接的文件作修改，而不更动其他任何相关文件。
+    -R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。
+    -v或--verbose 　显示指令执行过程。
+    --help 　在线帮助。
+    --reference=&lt;参考文件或目录&gt; 　把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同。
+    --version 　显示版本信息。
+unmask    设置权限掩码
+    对新建文件设置默认权限值 用666减去设置的掩码
+    对于目录而言 用777减去设置的掩码
+    -S 使掩码以字符形式显示
+    unmask 244 
+setfacl    修改文件的ACL
+    setfacl [-bkndRLP] &#123; -m|-M|-x|-X ... &#125; file ...
+    -m, --modify=acl 更改文件的访问控制列表
+    -M, --modify-file=file 从文件读取访问控制列表条目更改
+    -x, --remove=acl 根据文件中访问控制列表移除条目
+    -X, --remove-file=file 从文件读取访问控制列表条目并删除
+    -b, --remove-all 删除所有扩展访问控制列表条目
+    -k, --remove-default 移除默认访问控制列表
+    --set=acl 设定替换当前的文件访问控制列表
+    --set-file=file 从文件中读取访问控制列表条目设定
+    --mask 重新计算有效权限掩码
+    -n, --no-mask 不重新计算有效权限掩码
+    -d, --default 应用到默认访问控制列表的操作
+    -R, --recursive 递归操作子目录
+    -L, --logical 依照系统逻辑，跟随符号链接
+    -P, --physical 依照自然逻辑，不跟随符号链接
+    --restore=file 恢复访问控制列表，和“getfacl -R”作用相反
+    --test 测试模式，并不真正修改访问控制列表属性
+    -v, --version           显示版本并退出
+    -h, --help              显示本帮助信息
+getfacl    查询文件的ACL
+    getfacl  [-aceEsRLPtpndvh]  文件 ...
+    -a,  --access           仅显示文件访问控制列表
+    -d, --default           仅显示默认的访问控制列表
+    -c, --omit-header     不显示注释表头
+    -e, --all-effective     显示所有的有效权限
+    -E, --no-effective      显示无效权限
+    -s, --skip-base         跳过只有基条目(base entries)的文件
+    -R, --recursive         递归显示子目录
+    -L, --logical           逻辑遍历(跟随符号链接)
+    -P, --physical          物理遍历(不跟随符号链接)
+    -t, --tabular           使用制表符分隔的输出格式
+    -n, --numeric           显示数字的用户/组标识
+    -p, --absolute-names    不去除路径前的 &#39;/&#39; 符号
+    -v, --version           显示版本并退出
+    -h, --help              显示本帮助信息
+shutdown关闭系统
+    -t seconds : 设定在几秒钟之后进行关机程序。
+    -k : 并不会真的关机，只是将警告讯息传送给所有使用者。
+    -r : 关机后重新开机。
+    -h : 关机后停机。
+    -n : 不采用正常程序来关机，用强迫的方式杀掉所有执行中的程序后自行关机。
+    -c : 取消目前已经进行中的关机动作。
+    -f : 关机时，不做 fcsk 动作(检查 Linux 档系统)。
+    -F : 关机时，强迫进行 fsck 动作。
+    time : 设定关机的时间。
+    message : 传送给所有使用者的警告讯息。
+init 0 关闭各项进程后关闭系统
+</code></pre>
+<p>进阶命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br></pre></td><td class="code"><pre><span class="line">程序引导</span><br><span class="line">	一、指定/boot所在的分区</span><br><span class="line">	复制代码 代码如下:grub&gt; root (hd0,0)   </span><br><span class="line">	<span class="comment">#指定第一块硬盘的第一个分区。这个root (hd[0,n],y)是可以省略的，如果省略了，我们要在kerenl 命令中指定</span></span><br><span class="line">	二、指定内核映像及根分区</span><br><span class="line">	复制代码 代码如下:grub&gt; kernel /boot/vmlinuz-2.6.11-1.1369_FC4 ro root=LABEL=/</span><br><span class="line">	<span class="comment"># kernel 指令，用来指定Linux的内核，及/所在的分区</span></span><br><span class="line">	三、指定initrd.img</span><br><span class="line">	复制代码 代码如下:grub&gt; initrd /boot/initrd-2.6.11-1.1369_FC4.img</span><br><span class="line">	<span class="comment"># initrd 命令行来指定initrd文件</span></span><br><span class="line">	四、启动</span><br><span class="line">	复制代码 代码如下:grub&gt;boot</span><br><span class="line">	<span class="comment">#输入boot，然后敲回车就可以了</span></span><br><span class="line">	五、通过GRUB指令来引导Windows</span><br><span class="line">	如果我们启动Windows ，只是输入指令就行了；</span><br><span class="line">	比如 Windows的分区在 (hd0,0)，我们在开机后，按ctrl+c ，进入GRUB的命令模式；就可以用下面的</span><br><span class="line">	复制代码 代码如下:</span><br><span class="line">	grub&gt; rootnoverify (hd0,0)</span><br><span class="line">	grub&gt; chainloader +1</span><br><span class="line">	grub&gt; boot</span><br><span class="line">grub 启动命令</span><br><span class="line">	一、菜单命令</span><br><span class="line">	菜单命令只能用于grub配置文件的全局配置部分，不能用在grub命令行交互界面，菜单命令在配置文件中应放在其它命令之前。</span><br><span class="line">	1、default  //设置默认启动的菜单项</span><br><span class="line">	2、fallback  //设置启动某菜单项失败后反回的菜单项</span><br><span class="line">	3、hiddenmenu //隐藏菜单界面</span><br><span class="line">	4、timeout //设置菜单自动启动的延时时间</span><br><span class="line">	5、title  //开始一个菜单项</span><br><span class="line">	二、常规命令</span><br><span class="line">	常规命令可以应该于配置文件和grub命令行交互界面，可使用的常规命令有</span><br><span class="line">	1、bootp //通过bootp初始化网络设备</span><br><span class="line">	2、color //设置菜单界面的颜色</span><br><span class="line">	3、device //指定设备文件作为驱动器</span><br><span class="line">	4、dhcp //通过DHCP初始化网络设备</span><br><span class="line">	5、hide  //隐藏某分区</span><br><span class="line">	6、ifconfig //手工配置网络设备</span><br><span class="line">	7、pager //改变内部页程序的状态</span><br><span class="line">	8、partnew //新建一个主分区</span><br><span class="line">	9、parttype //改变分区的类型</span><br><span class="line">	10、password 为菜单界面设置口令</span><br><span class="line">	11、rarp //通过RARP初始化网络设置</span><br><span class="line">	12、serial //设置串口设备</span><br><span class="line">	13、setkey //设置键盘映射</span><br><span class="line">	14、splashimage //设置GRUB启动时的背景图片文件</span><br><span class="line">	15、termainal //选择终端类型</span><br><span class="line">	16、tftpserver //指定TFTP服务器</span><br><span class="line">	17、unhide //还原某隐藏分区</span><br><span class="line">	三、命令行和菜单项命令</span><br><span class="line">	命令行和菜单项命令可应该于GRUB配置文件的菜单项设置中，也可以用在GRUB命令交互界面。</span><br><span class="line">	1、bolcklist //显示某文件所在分区位置（block list notation）</span><br><span class="line">	2、boot //启动操作系统</span><br><span class="line">	3、cat //显示文件内容</span><br><span class="line">	4、chainloader //把启动控制权软交给另外的启动引导器</span><br><span class="line">	5、cmp //比较两个文件</span><br><span class="line">	6、configfile //加载已存在的GRUB配置文件</span><br><span class="line">	7、debug //设置为debug模式</span><br><span class="line">	8、displayapm //显示APM BIOS信息</span><br><span class="line">	9、displaymem //显示内存配置</span><br><span class="line">	10、embed //嵌入Stage 1.5文件</span><br><span class="line">menuentry定义菜单</span><br><span class="line">	menuentry <span class="string">&quot;title&quot;</span> [--class=class ...] [--users=users] [--usrestricted] [--hotkey=key] [--id=id] [arg ...] &#123;<span class="built_in">command</span>; ...&#125;</span><br><span class="line">submenu	定义二级菜单</span><br><span class="line">	submenu <span class="string">&#x27;title&#x27;</span> --id=id&#123;</span><br><span class="line">	menuentry <span class="string">&#x27;title&#x27;</span> --class=class --id=id&#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">	menuentry <span class="string">&#x27;title&#x27;</span> --class=class --id=id&#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">systemctl列出单元</span><br><span class="line">	-t 指定要列出的单元类型，多个类型之间用逗号隔开</span><br><span class="line">	--state 指定要列出单元的LOAD，SUB，以及ACTIVE状态，多个状态之间用逗号隔开</span><br><span class="line">	-a 列出所有单元</span><br><span class="line">	status 进程ID</span><br><span class="line">		可显示单元的而状态</span><br><span class="line">		如果无参数可查看systemd的运行状态</span><br><span class="line">	list-dependencies 单元名称</span><br><span class="line">		显示单元的依赖关系</span><br><span class="line">	list-unit-files </span><br><span class="line">		查看系统中的单元文件</span><br><span class="line">		--<span class="built_in">type</span>=状态 进行筛选</span><br><span class="line">	状态</span><br><span class="line">		enabled 已启用(已建立启动符号链接)</span><br><span class="line">		disabled 未启用</span><br><span class="line">		static 无法自己执行，只能作为其他配置文件的依赖项</span><br><span class="line">		masked 被禁止建立符号链接，即完全被禁用</span><br><span class="line">		generated 该单元文件由其他的API动态创建</span><br><span class="line">		bad 无效的单元文件</span><br><span class="line">		indirect 本身没有启用，但部分配置了Also选项</span><br><span class="line">	单元管理</span><br><span class="line">		启动服务</span><br><span class="line">			sudo systemctl start mysql</span><br><span class="line">			sudo systemctl start mysql.service</span><br><span class="line">			sudo systemctl start apt-daily.timer</span><br><span class="line">			也可同时启用多个服务,也可采用通配符</span><br><span class="line">			sudo systemctl start mysql apt-daily.timer</span><br><span class="line">		停止服务</span><br><span class="line">			sudo systemctl stop mysql</span><br><span class="line">		重启服务</span><br><span class="line">			sudo systemctl restart mysql</span><br><span class="line">		重载服务配置文件</span><br><span class="line">			sudo systemctl reload apache2</span><br><span class="line">		查看服务状态</span><br><span class="line">			sudo systemctl status apache2</span><br><span class="line">			若第一行为黑点则已停止，为绿点则在运行</span><br><span class="line">		配置服务自启动</span><br><span class="line">			sudo systemctl <span class="built_in">enable</span> apache2</span><br><span class="line">		禁止服务自启动</span><br><span class="line">			sudo systemctl <span class="built_in">disable</span> apache2</span><br><span class="line">		重载所有单元配置文件（被修改后）</span><br><span class="line">			sudo systemctl daemon-reload</span><br><span class="line">	show 显示服务器属性</span><br><span class="line">		--property=属性  进行筛选</span><br><span class="line">	设置服务属性</span><br><span class="line">		sudo systemctl set-property apache2.serviceMemoryLimit=500M</span><br><span class="line">systemd-aalyze 分析系统启动时的性能</span><br><span class="line">	--user 在用户级别上查询systemd实例</span><br><span class="line">	--system 在系统级别查询systemd实例</span><br><span class="line">	子命令</span><br><span class="line">		time 输出系统启动时间</span><br><span class="line">		blame 按照占用时间长短的顺序输出正在运行的单元，用以优化系统，缩短启动时间</span><br><span class="line">		critical-chain 以树状形式输出单元的启动连，用红色标注延时较长的单元</span><br><span class="line">		plot 以SVG图像格式输出服务在什么时间启动并用了多少时间</span><br><span class="line">		dot 输出单元依赖图</span><br><span class="line">			systemd-analyze dot | dot -Tsvg &gt; systtemd.svg</span><br><span class="line">		dump 输出详细的，可读的服务状态</span><br><span class="line">hostnamectl 查看修改主机名</span><br><span class="line">	修改 sudo hostnamectl set-hostname ubuntu-server</span><br><span class="line">localectl 查看修改系统的区域和键盘布局</span><br><span class="line">	sudo localectl set-locale LANG=en.GB.UTF-8</span><br><span class="line">timedatectl 查看或修改当前系统的时区设置</span><br><span class="line">	sudo timedatectl set-timezone Ameriica/New_York</span><br><span class="line">loginctl 用以查看当前登录的用户</span><br><span class="line">	list-users 列出当前系统的用户及其ID</span><br><span class="line">	show-user 用户名  展示某个用户的详细信息</span><br><span class="line">查看目标</span><br><span class="line">	systemctl list-units --<span class="built_in">type</span>=target</span><br><span class="line">	查看目标的依赖，及其所包含的单元</span><br><span class="line">	systemctl list-dependencies *.target</span><br><span class="line">	黑色未启动，绿色已启动</span><br><span class="line">	systemd的目标是可以并行的</span><br><span class="line">切换目标</span><br><span class="line">	systemctl isolate rescue.target</span><br><span class="line">	注意:使用该命令启动单元时，单元文件中必须有AllowIsolate选项</span><br><span class="line">默认目标</span><br><span class="line">	systemctl get-default    获取当前的默认目标</span><br><span class="line">	sudo systemctl set-default multi-user.target 将目标设置为multi-user.target</span><br><span class="line">	此时系统启动默认进入多用户的命令行模式</span><br><span class="line">journalctl 读取日志</span><br><span class="line">	-a 以完整格式显示日志</span><br><span class="line">	-f 实时动态显示最新日志</span><br><span class="line">	-n 显示指定行数的日志</span><br><span class="line">	-r 按时间逆序显示日志</span><br><span class="line">	-o 指定输出格式 可以为short short-full <span class="built_in">export</span> json json-pretty</span><br><span class="line">	-b 查看系统本次启动的日志</span><br><span class="line">	-k 仅仅查看内核日志</span><br><span class="line">	-u 限制显示某个单元的日志 </span><br><span class="line">	-S -U 通过时间限制日志范围</span><br><span class="line">	--since=<span class="string">&quot;2017-08-09 14:00:00&quot;</span> 只显示2017年8月9日14点之后的日志</span><br><span class="line">		也可用20 minutes ago           today      yesterday等限制</span><br><span class="line">	日志大小限制</span><br><span class="line">		--disk-usage  查看占用空间</span><br><span class="line">		SystemMaxUse=2G 将日志最大占容设为2G</span><br><span class="line">	清理日志</span><br><span class="line">		--vacuum-size=500M  将内存占用大小设为500M</span><br><span class="line">		--vacuum-time=2weeks 清除两周前的日志</span><br><span class="line">		--vacuum-files</span><br><span class="line">ps	列出当前的进程信息</span><br><span class="line">	-a 显示所有活动进程的当前状态</span><br><span class="line">	-A 列出所有的进程的状态 等同于-e</span><br><span class="line">	-w 显示加宽可以显示较多的资讯</span><br><span class="line">	-f 显示每个进程的完整信息</span><br><span class="line">	-l 显示每个进程的详细信息，起始时间除外</span><br><span class="line">	-g 显示与指定用户组ID或组名相关联的进程</span><br><span class="line">	-p 显式指定进程ID的进程信息</span><br><span class="line">	-u 显示与指定用户ID或用户名相关联的进程</span><br><span class="line">	-au 显示较详细的资讯</span><br><span class="line">	-aux 显示所有包含其他使用者的行程</span><br><span class="line">	au(x) 输出格式 :</span><br><span class="line">		USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</span><br><span class="line">		USER: 行程拥有者</span><br><span class="line">		%CPU: 占用的 CPU 使用率</span><br><span class="line">		%MEM: 占用的记忆体使用率</span><br><span class="line">		VSZ: 占用的虚拟记忆体大小</span><br><span class="line">		RSS: 占用的记忆体大小</span><br><span class="line">		TTY: 终端的次要装置号码 (minor device number of tty)</span><br><span class="line">		STAT: 该行程的状态:</span><br><span class="line">			D: 无法中断的休眠状态 (通常 IO 的进程)</span><br><span class="line">			R: 正在执行中</span><br><span class="line">			S: 静止状态</span><br><span class="line">			T: 暂停执行</span><br><span class="line">			Z: 不存在但暂时无法消除</span><br><span class="line">			W: 没有足够的记忆体分页可分配</span><br><span class="line">			&lt;: 高优先序的行程</span><br><span class="line">			N: 低优先序的行程</span><br><span class="line">			L: 有记忆体分页分配并锁在记忆体内 (实时系统或捱A I/O)</span><br><span class="line">		START: 行程开始时间</span><br><span class="line">		TIME: 执行的时间</span><br><span class="line">		COMMAND:所执行的指令</span><br><span class="line">		WCHAN进程所等待时间的内存地址</span><br><span class="line">		SZ 虚拟内存用量</span><br><span class="line">		F  标识 1为已创建但尚未执行，4为得到超级用户权限的进程</span><br><span class="line">		s进程状态码。</span><br><span class="line">			S表示因等待某一时间而处于休眠状态,进程可以中断;</span><br><span class="line">			D表示进程处于眠状态,但是不能中断;</span><br><span class="line">			R表示进程正在运行;</span><br><span class="line">			X表示进程已经终止;</span><br><span class="line">			Z表示僵尸进程</span><br><span class="line">		UID	进程所有者的有效用户ID</span><br><span class="line">		PID	进程的进程ID</span><br><span class="line">		PPID	父进程的进程ID</span><br><span class="line">		C	进程生命周期的CPU的利用率(百分比),即进程实际利用CPU的时间除以进程整个生命周期的时长</span><br><span class="line">		STIME	进程的起始运行的时间。如果起始时间位于24小时以内,则以HHMM的形式表示;如果超过了24小时,则以 MmmDD的形式表示其中Mmm表示月份,DD表示天</span><br><span class="line">		TTY	控制终端。表示进程从哪个终端上运行。如果该字段的值为问号?,则表示该进程与任何的终端无关</span><br><span class="line">		TIME	进程迄今累计占用的CPU时间的总和,以Dd-jhh:mm:ss的形式表示</span><br><span class="line">		CMD	进程对应的程序或者命令的名称</span><br><span class="line">		PRI	进程优先级,数值越大,表示进程的优先级越低</span><br><span class="line">		NI	进程优先级的nice调整值,其范围为-20~1,用于调整进程的优先级</span><br><span class="line">		ADDR	进程的内存地址</span><br><span class="line">pstree 树状形式显示进程之间的调用关系</span><br><span class="line">	-p 显示进程ID</span><br><span class="line">top 实时监控进程</span><br><span class="line">	-d 更改刷新时间间隔，单位为秒</span><br><span class="line">	界面内</span><br><span class="line">		b反相展示状态为R的进程</span><br><span class="line">		x反相展示排序字段</span><br><span class="line">		<span class="built_in">shift</span> &gt; 向右改变排序字段</span><br><span class="line">		f 切换到字段管理视图，</span><br><span class="line">			按空格添加或取消字段</span><br><span class="line">			按s使主界面中的字段按此顺序排列</span><br><span class="line">			后用esc 回到主界面</span><br><span class="line">	q 退出top主界面</span><br><span class="line">	U1命令输出结果的字段含义</span><br><span class="line">	PID	进程ID</span><br><span class="line">	USER	进程所有者</span><br><span class="line">	PR	进程优先级</span><br><span class="line">	NI	进程优先级的nice调整值,其范围为-20~1,用于调整进程的优先级</span><br><span class="line">	VIRT	进程使用的虚拟内存的数量</span><br><span class="line">	RES	进程占用的基本物理内存的数量</span><br><span class="line">	SHR	进程占用的共享内存的数量</span><br><span class="line">	S	进程当前的状态,可以取D、R、S、T或者Z等值</span><br><span class="line">		在top命令中,字段S表示进程的状态S字段可以是以下值:</span><br><span class="line">		●D:进程处于不可中断的休眠状态。</span><br><span class="line">		●R:进程已经运行,或者已经处于运行队列,一旦调度即可运行。</span><br><span class="line">		●S:进程因等待外部事件的完成而处于休眠状态。</span><br><span class="line">		●T:进程因跟踪调试或者因收到某个信号而暂时停止运行。</span><br><span class="line">		●Z:进程已经终止,但是其父进程未完成善后工作。</span><br><span class="line">	%CPU	进程占用CPU的百分比。默认情况下,tp命令据此降序排列进程</span><br><span class="line">	%MEM	进程占用物理内存的百分比</span><br><span class="line">	TIME+	进程累计占用的CPU时间</span><br><span class="line">	COMMAND	进程所执行的命令</span><br><span class="line"><span class="built_in">kill</span> 终止进程</span><br><span class="line">	<span class="built_in">kill</span> [-s &lt;信息名称或编号&gt;][程序]　或　<span class="built_in">kill</span> [-l &lt;信息编号&gt;]</span><br><span class="line">	-l &lt;信息编号&gt; 　若不加&lt;信息编号&gt;选项，则 -l 参数会列出全部的信息名称。</span><br><span class="line">	-s &lt;信息名称或编号&gt; 　指定要送出的信息。</span><br><span class="line">	[程序] 　[程序]可以是程序的PID或是PGID，也可以是工作编号。</span><br><span class="line">	使用 <span class="built_in">kill</span> -l 命令列出所有可用信号。</span><br><span class="line">	最常用的信号是：</span><br><span class="line">	1 (HUP)：重新加载进程。</span><br><span class="line">	9 (KILL)：杀死一个进程。</span><br><span class="line">	15 (TERM)：正常停止一个进程。</span><br><span class="line">nice 调整进程优先级</span><br><span class="line">	-n 数字    范围 root为-20~19 普通用户为0~19   默认值为10</span><br><span class="line">renice 对正在进行的程序调整nice值</span><br><span class="line">	renice [优先等级][-g&lt;程序群组名称&gt;...][-p&lt;程序识别码&gt;...][-u &lt;用户名称&gt;...]</span><br><span class="line">	renice -5 -p 5200  <span class="comment">#将PID为5200的进程的niceness设为-5</span></span><br><span class="line">	renice -5 -u xie   <span class="comment">#将属于用户xie的进程的niceness设为-5</span></span><br><span class="line">	renice -5 -g group1 <span class="comment">#将属于group1组的程序的niceness设为-5</span></span><br><span class="line">apt-cache [<span class="built_in">command</span>] （单独的）</span><br><span class="line">	showpkg 查看软件包的信息</span><br><span class="line">	search 搜索某个软件包</span><br><span class="line">	depends 显示软件包的依赖关系</span><br><span class="line">apt-get [options] [<span class="built_in">command</span>] 管理软件包</span><br><span class="line">	options </span><br><span class="line">		-c 指定apt-get命令使用的，除默认的配置文件之外的配置文件</span><br><span class="line">		-y 对于需要确认的请求，总用yes回答</span><br><span class="line">		--no-download 禁止下载软件包</span><br><span class="line">		--download-only 仅仅下载软件包，不解压和安装</span><br><span class="line">		--purge 清除软件包,与remove子命令配合使用，，等同于purge子命令</span><br><span class="line">		--reinstall 重新安装已经安装过的软件包</span><br><span class="line">		--allow-unauthenticated 允许安装未认证的软件包</span><br><span class="line">		--no-remove 禁止删除软件包</span><br><span class="line">		--no-upgrade 禁止升级软件包</span><br><span class="line">	<span class="built_in">command</span></span><br><span class="line">		install 安装一个或多个软件包</span><br><span class="line">		update 同步软件仓库的软件包的索引</span><br><span class="line">		upgrade 升级软件包</span><br><span class="line">		remove 删除一个或多个软件包</span><br><span class="line">		autoremove 删除一个或多个软件包，并自动处理依赖关系</span><br><span class="line">		purge 彻底清除某个软件包，包含其配置文件</span><br><span class="line">		check 检查apt缓冲区，判断其依赖包是否存在</span><br><span class="line">		clean 清除apt本地缓存</span><br><span class="line">apt 管理软件包</span><br><span class="line">	<span class="built_in">command</span></span><br><span class="line">		update 同步软件仓库的软件包的索引</span><br><span class="line">		upgrade 升级软件包但不删除软件包</span><br><span class="line">		full-upgrade 升级安装包，同时安装或删除其他的软件包以解决依赖关系</span><br><span class="line">		remove 删除一个或多个软件包</span><br><span class="line">		install 安装软件包</span><br><span class="line">		autoremove 删除一个或多个软件包，并自动处理依赖关系</span><br><span class="line">		purge 彻底清除某个软件包，包含其配置文件</span><br><span class="line">		search 搜索软件包</span><br><span class="line">		show 显示软件包的信息</span><br><span class="line">		list 根据指定的标准列出软件包</span><br><span class="line">			--installe 列出已安装的软件包</span><br><span class="line">			--upgradeable 指定可升级的软件包</span><br><span class="line">aptitude [options] [<span class="built_in">command</span>]  管理软件包</span><br><span class="line">	 install         Install/upgrade packages.</span><br><span class="line">	 remove          Remove packages.</span><br><span class="line">	 purge           Remove packages and their configuration files.</span><br><span class="line">	 hold            Place packages on hold.</span><br><span class="line">	 unhold          Cancel a hold <span class="built_in">command</span> <span class="keyword">for</span> a package.</span><br><span class="line">	 markauto        Mark packages as having been automatically installed.</span><br><span class="line">	 unmarkauto      Mark packages as having been manually installed.</span><br><span class="line">	 forbid-version  Forbid aptitude from upgrading to a specific package version.</span><br><span class="line">	 update          Download lists of new/upgradable packages.</span><br><span class="line">	 safe-upgrade    Perform a safe upgrade.</span><br><span class="line">	 full-upgrade    Perform an upgrade, possibly installing and removing packages.</span><br><span class="line">	 build-dep       Install the build-dependencies of packages.</span><br><span class="line">	 forget-new      Forget what packages are <span class="string">&quot;new&quot;</span>.</span><br><span class="line">	 search          Search <span class="keyword">for</span> a package by name and/or expression.</span><br><span class="line">	 show            Display detailed info about a package.</span><br><span class="line">	 showsrc         Display detailed info about a <span class="built_in">source</span> package (apt wrapper).</span><br><span class="line">	 versions        Displays the versions of specified packages.</span><br><span class="line">	 clean           Erase downloaded package files.</span><br><span class="line">	 autoclean       Erase old downloaded package files.</span><br><span class="line">	 changelog       View a package<span class="string">&#x27;s changelog.</span></span><br><span class="line"><span class="string">	 download        Download the .deb file for a package (apt wrapper).</span></span><br><span class="line"><span class="string">	 source          Download source package (apt wrapper).</span></span><br><span class="line"><span class="string">	 reinstall       Reinstall a currently installed package.</span></span><br><span class="line"><span class="string">	 why             Explain why a particular package should be installed.</span></span><br><span class="line"><span class="string">	 why-not         Explain why a particular package cannot be installed.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	 add-user-tag    Add user tag to packages/patterns.</span></span><br><span class="line"><span class="string">	 remove-user-tag Remove user tag from packages/patterns.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	Options:</span></span><br><span class="line"><span class="string">	 -h              This help text.</span></span><br><span class="line"><span class="string">	 --no-gui        Do not use the GTK GUI even if available.</span></span><br><span class="line"><span class="string">	 -s              Simulate actions, but do not actually perform them.</span></span><br><span class="line"><span class="string">	 -d              Only download packages, do not install or remove anything.</span></span><br><span class="line"><span class="string">	 -P              Always prompt for confirmation of actions.</span></span><br><span class="line"><span class="string">	 -y              Assume that the answer to simple yes/no questions is &#x27;</span>yes<span class="string">&#x27;.</span></span><br><span class="line"><span class="string">	 -F format       Specify a format for displaying search results; see the manual.</span></span><br><span class="line"><span class="string">	 -O order        Specify how search results should be sorted; see the manual.</span></span><br><span class="line"><span class="string">	 -w width        Specify the display width for formatting search results.</span></span><br><span class="line"><span class="string">	 -f              Aggressively try to fix broken packages.</span></span><br><span class="line"><span class="string">	 -V              Show which versions of packages are to be installed.</span></span><br><span class="line"><span class="string">	 -D              Show the dependencies of automatically changed packages.</span></span><br><span class="line"><span class="string">	 -Z              Show the change in installed size of each package.</span></span><br><span class="line"><span class="string">	 -v              Display extra information. (may be supplied multiple times).</span></span><br><span class="line"><span class="string">	 -t [release]    Set the release from which packages should be installed.</span></span><br><span class="line"><span class="string">	 -q              In command-line mode, suppress the incremental progress</span></span><br><span class="line"><span class="string">			  indicators.</span></span><br><span class="line"><span class="string">	 -o key=val      Directly set the configuration option named &#x27;</span>key<span class="string">&#x27;.</span></span><br><span class="line"><span class="string">	 --with(out)-recommends     Specify whether or not to treat recommends as</span></span><br><span class="line"><span class="string">				    strong dependencies.</span></span><br><span class="line"><span class="string">	 -S fname        Read the aptitude extended status info from fname.</span></span><br><span class="line"><span class="string">	 -u              Download new package lists on startup.</span></span><br><span class="line"><span class="string">			  (terminal interface only)</span></span><br><span class="line"><span class="string">	 -i              Perform an install run on startup.</span></span><br><span class="line"><span class="string">			  (terminal interface only)</span></span><br><span class="line"><span class="string">synaptic 图形化界面应用管理工具</span></span><br><span class="line"><span class="string">fdisk 管理磁盘分区</span></span><br><span class="line"><span class="string">	 用法：</span></span><br><span class="line"><span class="string">	 fdisk [选项] &lt;磁盘&gt;         更改分区表</span></span><br><span class="line"><span class="string">	 fdisk [选项] -l [&lt;磁盘&gt;]     列出分区表</span></span><br><span class="line"><span class="string">	 显示或操作磁盘分区表。</span></span><br><span class="line"><span class="string">	 选项：</span></span><br><span class="line"><span class="string">	 -b, --sectors-size &lt;大小&gt;     显示扇区计数和大小</span></span><br><span class="line"><span class="string">	 -B, --protect-boot            创建新标签时不要擦除 bootbits</span></span><br><span class="line"><span class="string">	 -c, --compatibility[=&lt;模式&gt;]  模式，为“dos”或“nondos”(默认)</span></span><br><span class="line"><span class="string">	 -L, --color[=&lt;时机&gt;]          彩色输出(auto, always 或 never) 默认启用颜色</span></span><br><span class="line"><span class="string">	 -l, --list                    显示分区并退出</span></span><br><span class="line"><span class="string">	 -o, --output &lt;列表&gt;           输出列</span></span><br><span class="line"><span class="string">	 -t, --type &lt;类型&gt;             只识别指定的分区表类型</span></span><br><span class="line"><span class="string">	 -u, --units[=&lt;单位&gt;]          显示单位，“cylinders”柱面或“sectors”扇区(默认)</span></span><br><span class="line"><span class="string">	 -b, --bytes                   以字节为单位而非易读的格式来打印 SIZE</span></span><br><span class="line"><span class="string">	 -w, --wipe &lt;模式&gt;             擦除签名(auto, always 或 never)</span></span><br><span class="line"><span class="string">	 -W, --wipe-partitions &lt;模式&gt;  擦除新分区的签名(auto, always 或 never)</span></span><br><span class="line"><span class="string">	 -C, --cylinders &lt;数字&gt;        指定柱面数</span></span><br><span class="line"><span class="string">	 -H, --heads &lt;数字&gt;            指定磁头数</span></span><br><span class="line"><span class="string">	 -S, --sectors &lt;数字&gt;          指定每条磁道的扇区数</span></span><br><span class="line"><span class="string">	 -h, --help                    display this help</span></span><br><span class="line"><span class="string">	 -V, --version                 display version</span></span><br><span class="line"><span class="string">mkfs 创建文件分区</span></span><br><span class="line"><span class="string">	mkfs [options] device [size]</span></span><br><span class="line"><span class="string">	主要选项为-t 来指定文件系统类型</span></span><br><span class="line"><span class="string">mk2fs [options] device [fs-size]         创建ext2 ext3 ext4等系统</span></span><br><span class="line"><span class="string">	-b 指定块的大小 可取1024，2048，4096 单位为字节</span></span><br><span class="line"><span class="string">	-c 在创建文件系统之前检查坏的块</span></span><br><span class="line"><span class="string">	-E 指定文件系统的扩展选项</span></span><br><span class="line"><span class="string">	-f 指定磁盘碎片的大小</span></span><br><span class="line"><span class="string">	-g 指定每个块组包含的块的数量，通常无用</span></span><br><span class="line"><span class="string">	-i 指定字节和索引点的比例</span></span><br><span class="line"><span class="string">	-I 指定索引节点的大小</span></span><br><span class="line"><span class="string">	-L 指定新的文件系统的卷标</span></span><br><span class="line"><span class="string">	-m 该值为百分比，用以保留给超级用户，默认%5</span></span><br><span class="line"><span class="string">	-M 记录最后一次挂载的目录</span></span><br><span class="line"><span class="string">	-N 指定要创建的索引节点的数量</span></span><br><span class="line"><span class="string">	-t 指定创建的文件系统的类型  如 ext2，ext3或ext4</span></span><br><span class="line"><span class="string">mkfs.fat 创建一个MS-DOS即 FAT文件系统</span></span><br><span class="line"><span class="string">	mkfs.fat [options] device [block-count]</span></span><br><span class="line"><span class="string">	device为目标分区</span></span><br><span class="line"><span class="string">	block-count 为要创建的系统的块数</span></span><br><span class="line"><span class="string">mkfs.reiser4 创建一个reiser4文件系统</span></span><br><span class="line"><span class="string">	mkfs.reiser4 [options] device [size[k|m|g]]</span></span><br><span class="line"><span class="string">	size 为文件系统的大小</span></span><br><span class="line"><span class="string">mkntfs 创建一个ntfs文件系统</span></span><br><span class="line"><span class="string">	mkntfs [options] device [number-of-selectors]</span></span><br><span class="line"><span class="string">	number-of-selectors 为文件系统的扇区数</span></span><br><span class="line"><span class="string">dmesg	显示或控制内核环形缓冲区。</span></span><br><span class="line"><span class="string">	 选项：</span></span><br><span class="line"><span class="string">	 -C, --clear                 清除内核环形缓冲区(ring butter)</span></span><br><span class="line"><span class="string">	 -c, --read-clear            读取并清除所有消息</span></span><br><span class="line"><span class="string">	 -D, --console-off           禁止向终端打印消息</span></span><br><span class="line"><span class="string">	 -E, --console-on            启用向终端打印消息</span></span><br><span class="line"><span class="string">	 -F, --file &lt;文件&gt;           用 文件 代替内核日志缓冲区</span></span><br><span class="line"><span class="string">	 -f, --facility &lt;列表&gt;       将输出限制为定义的设施</span></span><br><span class="line"><span class="string">	 -H, --human                 易读格式输出</span></span><br><span class="line"><span class="string">	 -k, --kernel                显示内核消息</span></span><br><span class="line"><span class="string">	 -L, --color[=&lt;时机&gt;]        彩色显示消息(auto, always 或 never) 默认启用颜色</span></span><br><span class="line"><span class="string">	 -l, --level &lt;列表&gt;          限制输出级别</span></span><br><span class="line"><span class="string">	 -n, --console-level &lt;级别&gt;  设置打印到终端的消息级别</span></span><br><span class="line"><span class="string">	 -P, --nopager               不将输出通过管道传递给分页程序</span></span><br><span class="line"><span class="string">	 -r, --raw                   打印原生消息缓冲区</span></span><br><span class="line"><span class="string">	 -S, --syslog                强制使用 syslog(2) 而非 /dev/kmsg</span></span><br><span class="line"><span class="string">	 -s, --buffer-size &lt;大小&gt;    查询内核环形缓冲区所用的缓冲区大小</span></span><br><span class="line"><span class="string">	 -u, --userspace             显示用户空间消息</span></span><br><span class="line"><span class="string">	 -w, --follow                等待新消息</span></span><br><span class="line"><span class="string">	 -x, --decode                将设施和级别解码为可读的字符串</span></span><br><span class="line"><span class="string">	 -d, --show-delta            显示打印消息之间的时间差</span></span><br><span class="line"><span class="string">	 -e, --reltime               以易读格式显示本地时间和时间差</span></span><br><span class="line"><span class="string">	 -T, --ctime                 显示易读的时间戳(可能不准确！)</span></span><br><span class="line"><span class="string">	 -t, --notime                不显示任何消息的时间戳</span></span><br><span class="line"><span class="string">	     --time-format &lt;格式&gt;    以指定格式显示时间戳：</span></span><br><span class="line"><span class="string">		[delta|reltime|ctime|notime|iso]</span></span><br><span class="line"><span class="string">	挂起/恢复会使 ctime 和 iso 时间戳不精确。</span></span><br><span class="line"><span class="string">mount  挂载文件系统</span></span><br><span class="line"><span class="string">	 用法：</span></span><br><span class="line"><span class="string">	 mount [-lhV]</span></span><br><span class="line"><span class="string">	 mount -a [选项]</span></span><br><span class="line"><span class="string">	 mount [选项] [--source] &lt;源&gt; | [--target] &lt;目录&gt;</span></span><br><span class="line"><span class="string">	 mount [选项] &lt;源&gt; &lt;目录&gt;</span></span><br><span class="line"><span class="string">	 mount &lt;操作&gt; &lt;挂载点&gt; [&lt;目标&gt;]</span></span><br><span class="line"><span class="string">	 挂载文件系统。</span></span><br><span class="line"><span class="string">	 选项：</span></span><br><span class="line"><span class="string">	 -a, --all               挂载 fstab 中的所有文件系统</span></span><br><span class="line"><span class="string">	 -c, --no-canonicalize   不对路径规范化</span></span><br><span class="line"><span class="string">	 -f, --fake              空运行；跳过 mount(2) 系统调用</span></span><br><span class="line"><span class="string">	 -F, --fork              对每个设备禁用 fork(和 -a 选项一起使用)</span></span><br><span class="line"><span class="string">	 -T, --fstab &lt;路径&gt;      /etc/fstab 的替代文件</span></span><br><span class="line"><span class="string">	 -i, --internal-only     不调用 mount.&lt;type&gt; 辅助程序</span></span><br><span class="line"><span class="string">	 -l, --show-labels       也显示文件系统标签</span></span><br><span class="line"><span class="string">	 -n, --no-mtab           不写 /etc/mtab</span></span><br><span class="line"><span class="string">	 -o, --options &lt;列表&gt;    挂载选项列表，以英文逗号分隔</span></span><br><span class="line"><span class="string">	 -O, --test-opts &lt;列表&gt;  限制文件系统集合(和 -a 选项一起使用)</span></span><br><span class="line"><span class="string">	 -r, --read-only         以只读方式挂载文件系统(同 -o ro)</span></span><br><span class="line"><span class="string">	 -t, --types &lt;列表&gt;      限制文件系统类型集合</span></span><br><span class="line"><span class="string">	     --source &lt;源&gt;       指明源(路径、标签、uuid)</span></span><br><span class="line"><span class="string">	     --target &lt;目标&gt;     指明挂载点</span></span><br><span class="line"><span class="string">	 -v, --verbose           打印当前进行的操作</span></span><br><span class="line"><span class="string">	 -w, --rw, --read-write  以读写方式挂载文件系统(默认)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	 -h, --help              display this help</span></span><br><span class="line"><span class="string">	 -V, --version           display version</span></span><br><span class="line"><span class="string">	 源：</span></span><br><span class="line"><span class="string">	 -L, --label &lt;标签&gt;      同 LABEL=&lt;label&gt;</span></span><br><span class="line"><span class="string">	 -U, --uuid &lt;uuid&gt;       同 UUID=&lt;uuid&gt;</span></span><br><span class="line"><span class="string">	 LABEL=&lt;标签&gt;            按文件系统标签指定设备</span></span><br><span class="line"><span class="string">	 UUID=&lt;uuid&gt;             按文件系统 UUID 指定设备</span></span><br><span class="line"><span class="string">	 PARTLABEL=&lt;标签&gt;        按分区标签指定设备</span></span><br><span class="line"><span class="string">	 PARTUUID=&lt;uuid&gt;         按分区 UUID 指定设备</span></span><br><span class="line"><span class="string">	 &lt;设备&gt;                  按路径指定设备</span></span><br><span class="line"><span class="string">	 &lt;目录&gt;                  绑定式挂载的挂载点(参阅 --bind/rbind)</span></span><br><span class="line"><span class="string">	 &lt;文件&gt;                  用于设置回环设备的常规文件</span></span><br><span class="line"><span class="string">umount 卸载文件系统</span></span><br><span class="line"><span class="string">	 用法：</span></span><br><span class="line"><span class="string">	 umount [-hV]</span></span><br><span class="line"><span class="string">	 umount -a [选项]</span></span><br><span class="line"><span class="string">	 umount [选项] &lt;源&gt; | &lt;目录&gt;</span></span><br><span class="line"><span class="string">	 卸载文件系统:</span></span><br><span class="line"><span class="string">	 选项：</span></span><br><span class="line"><span class="string">	 -a, --all               卸载所有文件系统</span></span><br><span class="line"><span class="string">	 -A, --all-targets       卸载当前名字空间内指定设备</span></span><br><span class="line"><span class="string">				 对应的所有挂臷点</span></span><br><span class="line"><span class="string">	 -c, --no-canonicalize   不对路径规范化</span></span><br><span class="line"><span class="string">	 -d, --detach-loop       若挂臷了回环设备，也释放该回环设备</span></span><br><span class="line"><span class="string">	     --fake              空运行；跳过 umount(2) 系统调用</span></span><br><span class="line"><span class="string">	 -f, --force             强制卸载(遇到不响应的 NFS 系统时)</span></span><br><span class="line"><span class="string">	 -i, --internal-only     不调用 umount.&lt;类型&gt; 辅助程序</span></span><br><span class="line"><span class="string">	 -n, --no-mtab           不写 /etc/mtab</span></span><br><span class="line"><span class="string">	 -l, --lazy              立即断开文件系统，清理以后执行，占用的仍可以使用，不占用时自动卸载</span></span><br><span class="line"><span class="string">	 -O, --test-opts &lt;列表&gt;  限制文件系统集合(和 -a 选项一起使用)</span></span><br><span class="line"><span class="string">	 -R, --recursive         递归卸载目录及其子对象</span></span><br><span class="line"><span class="string">	 -r, --read-only         若卸载失败，尝试以只读方式重新挂臷</span></span><br><span class="line"><span class="string">	 -t, --types &lt;列表&gt;      限制文件系统集合</span></span><br><span class="line"><span class="string">	 -v, --verbose           打印当前进行的操作</span></span><br><span class="line"><span class="string">findmnt 列出挂载系统和类型</span></span><br><span class="line"><span class="string">	 用法：</span></span><br><span class="line"><span class="string">	 findmnt [选项]</span></span><br><span class="line"><span class="string">	 findmnt [选项] &lt;设备&gt; | &lt;挂臷点&gt;</span></span><br><span class="line"><span class="string">	 findmnt [选项] &lt;设备&gt; &lt;挂臷点&gt;</span></span><br><span class="line"><span class="string">	 findmnt [选项] [--source &lt;设备&gt;] [--target &lt;挂臷点&gt;]</span></span><br><span class="line"><span class="string">	 查找(挂载的)文件系统。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	 选项：</span></span><br><span class="line"><span class="string">	 -s, --fstab            在文件系统表态表中搜索</span></span><br><span class="line"><span class="string">	 -m, --mtab             search in table of mounted filesystems (includes user space mount options)</span></span><br><span class="line"><span class="string">	 -k, --kernel           在已挂载文件系统的内核表中搜索 (默认)</span></span><br><span class="line"><span class="string">	 -p, --poll[=&lt;列表&gt;]    监测已挂臷文件系统表的改变</span></span><br><span class="line"><span class="string">	 -w, --timeout &lt;数字&gt;   --poll 阻塞的时间上限(毫秒)</span></span><br><span class="line"><span class="string">	 -A, --all              禁用所有内置过滤器，打印所有文件系统</span></span><br><span class="line"><span class="string">	 -a, --ascii            用 ASCII 字符格式化树</span></span><br><span class="line"><span class="string">	 -b, --bytes           以字节为单位而非易读的格式来打印大小</span></span><br><span class="line"><span class="string">	 -c, --no-canonicalize  在比较路径时不对路径规范化</span></span><br><span class="line"><span class="string">	 -c, --no-canonicalize  对打印的路径规范化</span></span><br><span class="line"><span class="string">	 -D, --df               仿照 df(1) 输出</span></span><br><span class="line"><span class="string">	 -d, --direction &lt;单词&gt; 搜索方向，“forward”(往前)或“backward”(往回)</span></span><br><span class="line"><span class="string">	 -e, --evaluate         将标签(LABEL,UUID,PARTUUID,PARTLABEL) 转换为 设备名</span></span><br><span class="line"><span class="string">	 -F, --tab-file &lt;路径&gt;  -s, -m 或 -k 选项的替代文件</span></span><br><span class="line"><span class="string">	 -f, --first-only       只打印找到的第一个文件系统</span></span><br><span class="line"><span class="string">	 -i, --invert           反转搜索的匹配</span></span><br><span class="line"><span class="string">	 -J, --json              使用 JSON 输出格式</span></span><br><span class="line"><span class="string">	 -l, --list             使用列表格式的输出</span></span><br><span class="line"><span class="string">	 -N, --task &lt;tid&gt;       使用替代的名字空间(/proc/&lt;tid&gt;/mountinfo 文件)</span></span><br><span class="line"><span class="string">	 -n, --noheadings       不打印列标题</span></span><br><span class="line"><span class="string">	 -O, --options &lt;列表&gt;   根据挂臷选项限制文件系统集合</span></span><br><span class="line"><span class="string">	 -o, --output &lt;列表&gt;    要显示的列</span></span><br><span class="line"><span class="string">	 -P, --pairs            使用 键=“值”的输出格式</span></span><br><span class="line"><span class="string">	 -R, --submounts        打印匹配文件系统的所有子挂载(submount)</span></span><br><span class="line"><span class="string">	 -r, --raw              使用原生输出格式</span></span><br><span class="line"><span class="string">	 -S, --source &lt;字符串&gt;  要挂载的设备(按 名称, 主:次设备号,  LABEL=, UUID=, PARTUUID=, PARTLABEL=)</span></span><br><span class="line"><span class="string">	 -T, --target &lt;路径&gt;    要使用的文件系统的路径</span></span><br><span class="line"><span class="string">	     --tree             enable tree format output is possible</span></span><br><span class="line"><span class="string">	 -M, --mountpoint &lt;目录&gt; 挂载点目录</span></span><br><span class="line"><span class="string">	 -t, --types &lt;列表&gt;     根据文件系统类型限制文件系统集合</span></span><br><span class="line"><span class="string">	 -U, --uniq             忽略目标重复的文件系统</span></span><br><span class="line"><span class="string">	 -u, --notruncate       不截断列中的文本</span></span><br><span class="line"><span class="string">	 -v, --nofsroot         对绑定式或 btrfs 挂载不打印[/dir]</span></span><br><span class="line"><span class="string">	 -x, --verify           验证挂载表内容(默认为 fstab)</span></span><br><span class="line"><span class="string">	     --verbose          打印更多细节</span></span><br><span class="line"><span class="string">lsof  查看文件的进程信息</span></span><br><span class="line"><span class="string">	-a	列出打开文件存在的进程</span></span><br><span class="line"><span class="string">	-c &lt;进程名&gt;	列出指定进程所打开的文件</span></span><br><span class="line"><span class="string">	-g	列出GID号进程详情</span></span><br><span class="line"><span class="string">	-d &lt;文件号&gt;	列出占用该文件号的进程</span></span><br><span class="line"><span class="string">	+d &lt;目录&gt;	列出目录下被打开的文件</span></span><br><span class="line"><span class="string">	+D &lt;目录&gt;	递归列出目录下被打开的文件</span></span><br><span class="line"><span class="string">	-n &lt;目录&gt;	列出使用NFS的文件</span></span><br><span class="line"><span class="string">	-i &lt;条件&gt;	列出符合条件的进程</span></span><br><span class="line"><span class="string">	-p &lt;进程号&gt;	列出指定进程号所打开的文件</span></span><br><span class="line"><span class="string">	-u	列出UID号进程详情</span></span><br><span class="line"><span class="string">fuser 用文件结构识别进程</span></span><br><span class="line"><span class="string">	尾字符含义</span></span><br><span class="line"><span class="string">		c  ：指示进程的工作目录。</span></span><br><span class="line"><span class="string">		e  ：指示该文件为进程的可执行文件(即进程由该文件拉起)。</span></span><br><span class="line"><span class="string">		f  ：指示该文件被进程打开，默认情况下f字符不显示。</span></span><br><span class="line"><span class="string">		F  ：指示该文件被进程打开进行写入，默认情况下F字符不显示。</span></span><br><span class="line"><span class="string">		r  ：指示该目录为进程的根目录。</span></span><br><span class="line"><span class="string">		m  ：指示进程使用该文件进行内存映射，抑或该文件为共享库文件，被进程映射进内存</span></span><br><span class="line"><span class="string">	options </span></span><br><span class="line"><span class="string">		-a	显示命令行中指定的所有文件</span></span><br><span class="line"><span class="string">		-k	杀死访问指定文件的所有进程</span></span><br><span class="line"><span class="string">		-i	杀死进程前需要用户进行确认</span></span><br><span class="line"><span class="string">		-l	列出所有已知信号名</span></span><br><span class="line"><span class="string">		-m	指定一个被加载的文件系统或一个被加载的块设备</span></span><br><span class="line"><span class="string">		-n	选择不同的名称空间</span></span><br><span class="line"><span class="string">		-u	在每个进程后显示所属的用户名</span></span><br><span class="line"><span class="string">fsck 修复多种文件系统 同样可以使用多种符号链接</span></span><br><span class="line"><span class="string">	语法格式：fsck [参数] [文件系统]</span></span><br><span class="line"><span class="string">	常用参数：</span></span><br><span class="line"><span class="string">	-a	自动修复文件系统，不询问任何问题</span></span><br><span class="line"><span class="string">	-A	依照/etc/fstab配置文件的内容，检查文件内所列的全部文件系统</span></span><br><span class="line"><span class="string">	-N	不执行指令，仅列出实际执行会进行的动作</span></span><br><span class="line"><span class="string">	-P	当搭配”-A”参数使用时，则会同时检查所有的文件系统</span></span><br><span class="line"><span class="string">	-r	采用互动模式，在执行修复时询问问题，让用户得以确认并决定处理方式</span></span><br><span class="line"><span class="string">	-R	当搭配”-A”参数使用时，则会略过/目录的文件系统不予检查</span></span><br><span class="line"><span class="string">	-t	指定要检查的文件系统类型</span></span><br><span class="line"><span class="string">	-T	执行fsck指令时，不显示标题信息</span></span><br><span class="line"><span class="string">	-V	显示指令执行过程</span></span><br><span class="line"><span class="string">e2fsck 主要针对修复ext2/3/4文件系统</span></span><br><span class="line"><span class="string">	常用参数：</span></span><br><span class="line"><span class="string">	device	预备检查的硬盘 partition，例如：/dev/sda1</span></span><br><span class="line"><span class="string">	-b	设定存放 superblock 的位置</span></span><br><span class="line"><span class="string">	-B	设定单位 block 的大小</span></span><br><span class="line"><span class="string">	-c	检查该partition 是否有坏轨</span></span><br><span class="line"><span class="string">	-C file 	将检查的结果存到 file 中以便查看</span></span><br><span class="line"><span class="string">	-d	列印 e2fsck 的 debug 结果</span></span><br><span class="line"><span class="string">	-f	强制检查</span></span><br><span class="line"><span class="string">	-F	在开始检查前，将device 的 buffer cache 清空，避免有错误发生</span></span><br><span class="line"><span class="string">	-l bad_blocks_file	将有坏轨的block资料加到 bad_blocks_file 里面</span></span><br><span class="line"><span class="string">	-L bad_blocks_file	设定坏轨的block资料存到 bad_blocks_file 里面，若无该档则自动产生</span></span><br><span class="line"><span class="string">	-n	将档案系统以[唯读]方式开启</span></span><br><span class="line"><span class="string">	-p	对 partition 做检查，若有问题便自动修复</span></span><br><span class="line"><span class="string">	-v 	详细显示模式</span></span><br><span class="line"><span class="string">	-V	显示出目前 e2fsck 的版本</span></span><br><span class="line"><span class="string">	-y	预先设定所有检查时的问题均回答[是]</span></span><br><span class="line"><span class="string">mdadm  创建和管理磁盘阵列</span></span><br><span class="line"><span class="string">	见图片</span></span><br><span class="line"><span class="string">逻辑卷管理需要安装lvm2</span></span><br><span class="line"><span class="string">pvcreate 创建物理卷    接收设备名作为参数</span></span><br><span class="line"><span class="string">	-u 指定设备的UUID</span></span><br><span class="line"><span class="string">	后可以接多个 物理分区</span></span><br><span class="line"><span class="string">pvscan  pvdisplay 展示物理卷，后者更详细</span></span><br><span class="line"><span class="string">lvcreate 创建逻辑卷</span></span><br><span class="line"><span class="string">	-L	指定逻辑卷的大小，单位为“kKmMgGtT”字节</span></span><br><span class="line"><span class="string">	-l	指定逻辑卷的大小（LE数）</span></span><br><span class="line"><span class="string">	-a 创建完成后立即激活该卷</span></span><br><span class="line"><span class="string">	-p 指定访问权限   可以是rw或r</span></span><br><span class="line"><span class="string">	-i 指定要创建的条带数</span></span><br><span class="line"><span class="string">	-I 指定条带的大小</span></span><br><span class="line"><span class="string">vgcreate 创建卷组</span></span><br><span class="line"><span class="string">	[options] volumegroupname physcialdevicepath....</span></span><br><span class="line"><span class="string">	volumegroupname 卷组名称</span></span><br><span class="line"><span class="string">	physcialdevicepath 要加入卷组的物理卷列表</span></span><br><span class="line"><span class="string">vgdisplay 查看卷组 </span></span><br><span class="line"><span class="string">lvextend 扩展逻辑卷</span></span><br><span class="line"><span class="string">	-L	指定逻辑卷的大小，单位为“kKmMgGtT”字节</span></span><br><span class="line"><span class="string">	-l	指定逻辑卷的大小（LE数）</span></span><br><span class="line"><span class="string">	-i 指定要创建的条带数</span></span><br><span class="line"><span class="string">	-I 指定条带的大小</span></span><br><span class="line"><span class="string">	-r 同时扩展文件系统的大小</span></span><br><span class="line"><span class="string">	扩展后要显示出来需要使用resize2fs 卷名</span></span><br><span class="line"><span class="string">resize2fs 调整文件系统大小</span></span><br><span class="line"><span class="string">	resize2fs 卷名 大小</span></span><br><span class="line"><span class="string">lvreduce 类似于lvextend</span></span><br><span class="line"><span class="string">lshw 查看硬件信息</span></span><br><span class="line"><span class="string">	lshw是一个能把我们显示硬件信息的小工具，它能为我们提供内存配置、固件版本、主板配置信息、CPU版本和速度、cache信息、总线速度等。</span></span><br><span class="line"><span class="string">	语法格式：lshw [参数]</span></span><br><span class="line"><span class="string">	常用参数：</span></span><br><span class="line"><span class="string">	-short	显示设备列表，输出包括设备路径(path)、类别(class)以及简单描述</span></span><br><span class="line"><span class="string">	-businfo	显示设备列表，输出包括总线信息、SCSI、USB、IDE、PCI地址等</span></span><br><span class="line"><span class="string">	-C memory	显示内存相关的硬件</span></span><br><span class="line"><span class="string">	usage: lshw [-format] [-options ...]</span></span><br><span class="line"><span class="string">	format can be</span></span><br><span class="line"><span class="string">		-html           output hardware tree as HTML</span></span><br><span class="line"><span class="string">		-xml            output hardware tree as XML</span></span><br><span class="line"><span class="string">		-json           output hardware tree as a JSON object</span></span><br><span class="line"><span class="string">		-short          output hardware paths</span></span><br><span class="line"><span class="string">		-businfo        output bus information</span></span><br><span class="line"><span class="string">	options can be</span></span><br><span class="line"><span class="string">		-class CLASS    only show a certain class of hardware</span></span><br><span class="line"><span class="string">		-C CLASS        same as &#x27;</span>-class CLASS<span class="string">&#x27;</span></span><br><span class="line"><span class="string">		-c CLASS        same as &#x27;</span>-class CLASS<span class="string">&#x27;</span></span><br><span class="line"><span class="string">		-disable TEST   disable a test (like pci, isapnp, cpuid, etc. )</span></span><br><span class="line"><span class="string">		-enable TEST    enable a test (like pci, isapnp, cpuid, etc. )</span></span><br><span class="line"><span class="string">		-quiet          don&#x27;</span>t display status</span><br><span class="line">		-sanitize       sanitize output (remove sensitive information like serial numbers, etc.)</span><br><span class="line">		-numeric        output numeric IDs (<span class="keyword">for</span> PCI, USB, etc.)</span><br><span class="line">		-notime         exclude volatile attributes (timestamps) from output</span><br><span class="line">ifconfig 查看网络接口</span><br><span class="line">	语法格式：ifconfig interface [aftype] [options] | address</span><br><span class="line">	aftype 表示地址类型 inet inet6 ddp;</span><br><span class="line">	address 为指派给网络接口的ip地址</span><br><span class="line">	常用参数：</span><br><span class="line">	-a 显示所有网络接口包括被禁用的</span><br><span class="line">	netmask 指定当前网络的子网掩码</span><br><span class="line">	-broadcast 指定网络接口的广播地址 </span><br><span class="line">	add&lt;地址&gt;	设置网络设备IPv6的IP地址</span><br><span class="line">	del&lt;地址&gt;	删除网络设备IPv6的IP地址</span><br><span class="line">	down	关闭指定的网络设备</span><br><span class="line">	up	启动指定的网络设备</span><br><span class="line">	IP地址	指定网络设备的IP地址</span><br><span class="line">	接口命名规则</span><br><span class="line">		en eth 表示以太网</span><br><span class="line">		<span class="built_in">fc</span> 表示光纤网络</span><br><span class="line">		ge 表示千兆以太网络</span><br><span class="line">		xe 表示万兆以太网络</span><br><span class="line">	示例</span><br><span class="line">		enp0s8</span><br><span class="line">		其中en为以太网，p表示网卡的位置，s表示网卡所处的槽位，数字表示序号</span><br><span class="line">	ifconfig interface ip netmask netmask 设置临时IP地址</span><br><span class="line">		ifconfig eth1 10.0.3.16 netmask 255.255.255.0</span><br><span class="line">		将eth1的IP设为10.0.3.16，子网掩码设为255.255.255.0</span><br><span class="line">		此时要通信还需指定网关</span><br><span class="line">		sudo route add default gw 10.0.3.1 eth1    将eth1默认网关设为10.0.3.1</span><br><span class="line">		sudo ip addr flush eth1    不保存接口的ip地址</span><br><span class="line">ip 网络管理工具</span><br><span class="line">	ip [options] [object] (<span class="built_in">command</span>)</span><br><span class="line">	options</span><br><span class="line">		-h 输出可读的信息</span><br><span class="line">		-f 指定协议族</span><br><span class="line">			inet </span><br><span class="line">			inet6</span><br><span class="line">			bridge</span><br><span class="line">			ipx</span><br><span class="line">			dnet</span><br><span class="line">			若没有指定协议族，ip会从其他协议判断，如果判断不了，默认为inet</span><br><span class="line">		-4 指定协议族为inet4 IPV4</span><br><span class="line">		-6 指定协议族为inet6 IPV6</span><br><span class="line">		-B 指定协议族为bridge 即为桥接</span><br><span class="line">		-D 指定协议族为decent</span><br><span class="line">		-I 指定协议族为IPX 即IPX协议</span><br><span class="line">		-s 显示详细信息</span><br><span class="line">	object 操作对象</span><br><span class="line">		address:IPV4或者IPV6地址  (通常缩写为a、add或addr)</span><br><span class="line">			sudo ip address add 192.168.125.1/24 dev enp0s3   为网络接口新加一个IP地址</span><br><span class="line">				IP采用CIDR表示法，前面为地址，后面为二进制子网掩码中1的个数</span><br><span class="line">			sudo ip addr delete 192.168.125.1/24 dev enp0s3 删除指定网络接口的IP地址</span><br><span class="line">			show dev enp0s3 显示指定网络接口的IP地址信息</span><br><span class="line">			ip addr ls enp0s3 和 ip addr ls dev enp0s3 也可均显示指定网络接口的IP地址信息</span><br><span class="line">				用list(缩写为ls)代替show</span><br><span class="line">			ip -4 addr flush enp0s3  清除某个网络接口的IP地址</span><br><span class="line">		l2tp: L2TP隧道协议</span><br><span class="line">		link: 网络设备</span><br><span class="line">			list 列出所有的网络设备</span><br><span class="line">			<span class="built_in">set</span> interface up/down 启用禁用网络设备</span><br><span class="line">			<span class="built_in">set</span> dev enp0s3 mtu 1600 将网络接口enp0s3的MTU值设为1600，   其中dev表示网络接口</span><br><span class="line">			<span class="built_in">set</span> dev enp0s3 address 08:00:27:58:3d:f7   将接口enp0s3的MAC地址设为08:00:27:58:3d:f7	</span><br><span class="line">		maddress: 多播地址</span><br><span class="line">		route: 路由表（可以缩写为，r或者ro）</span><br><span class="line">			show  显示出main 路由表的信息</span><br><span class="line">				table 显示其它路由表的路由记录</span><br><span class="line">			sudo ip route del default 删除一条默认路由</span><br><span class="line">			ip route list 显示路由表信息</span><br><span class="line">			ip route add default via 192.168.1.1 dev enp0s8  添加一条缺省路由</span><br><span class="line">			ip route get IP  获取通向某个路由器地址的信息</span><br><span class="line">		rule: 路由策略</span><br><span class="line">			list 列出当前的所有路由策略</span><br><span class="line">				0是最高规则</span><br><span class="line">			sudo ip route add default via 192.168.0.1 dev enp0s3 table localnet 在路由表localnet中增加一条默认路由</span><br><span class="line">			sudo ip rule add from 192.168.1.0/24 table localnet  指定来自该IP的数据包都通过路由表localnet路由</span><br><span class="line">			sudo ip rule del from 192.168.1.0/24 table localnet  将路由规则从路由表中删除</span><br><span class="line">		tunnel: 隧道</span><br><span class="line">route 显示和管理路由表</span><br><span class="line">	语法格式：route [参数]</span><br><span class="line">	常用参数：</span><br><span class="line">	-A	设置地址类型（ 默认IPv4）</span><br><span class="line">	-C	打印linux核心的路由缓存</span><br><span class="line">	-v	详细信息模式</span><br><span class="line">	-n	不执行DNS反向查找，直接显示数字形式的ip地址</span><br><span class="line">	-e	netstat格式显示路由表</span><br><span class="line">	-net	到一个网络的路由表</span><br><span class="line">	-host	到一个主机的路由表</span><br><span class="line">	netmask 指定目标网络的子网掩码</span><br><span class="line">	Add	增加指定的路由记录</span><br><span class="line">	Del	删除指定的路由记录</span><br><span class="line">	Target	目的网络或目的主机</span><br><span class="line">	gw	设置默认网关</span><br><span class="line">	mss	设置TCP的最大区块长度（MSS），单位MB</span><br><span class="line">	window	指定通过路由表的TCP连接的TCP窗口大小</span><br><span class="line">	dev	路由记录所表示的网络接口</span><br><span class="line">netstat 查看网络信息</span><br><span class="line">	-a 显示所有处于活动状态的套接字</span><br><span class="line">		协议:未读取的套接字中的数据:远程主机未获取的套接字中的数据:本地地址和端口号:</span><br><span class="line">		远程地址和端口号:套接字状态</span><br><span class="line">			状态可以是ESTABLISHED,TIME_WAIT,CLOSE,LISTEN </span><br><span class="line">			连接已建立 已关闭等待处理完数据 已关闭 正在监听进入的连接请求</span><br><span class="line">	-A 显示指定协议族的网络连接信息</span><br><span class="line">	-c 持续输出网络状态信息，刷新频率为一秒</span><br><span class="line">	-e 显示更加详细的信息</span><br><span class="line">	-i 列出所有的网络接口</span><br><span class="line">	-l 列出处于监听状态的套接字</span><br><span class="line">	-n 直接显示IP地址</span><br><span class="line">	-p 显示使用套接字的进程id和程序名称</span><br><span class="line">	-r 显示路由表信息</span><br><span class="line">	-s 显示每个协议的统计信息</span><br><span class="line">	-t 显示TCP/IP协议的连接信息</span><br><span class="line">	-u 显示UDP协议的连接信息</span><br><span class="line">nslookup 查询域名信息</span><br><span class="line">	nslookup [name | -] [server]</span><br><span class="line">	name 表示域名</span><br><span class="line">	sever lserver 指定要使用的域名服务器</span><br><span class="line">	<span class="built_in">set</span> 指定查询记录类型</span><br><span class="line">	<span class="built_in">set</span> <span class="built_in">type</span>==a; server 8.8.8.8</span><br><span class="line">ping [options] destination</span><br><span class="line">	常用参数：</span><br><span class="line">	-4	仅使用IPV4</span><br><span class="line">	-6	仅使用IPV6</span><br><span class="line">	-d	使用Socket的SO_DEBUG功能</span><br><span class="line">	-c	指定发送报文的次数</span><br><span class="line">	-i	指定收发信息的间隔时间</span><br><span class="line">	-I	使用指定的网络接口送出数据包</span><br><span class="line">	-l	设置在送出要求信息之前，先行发出的数据包</span><br><span class="line">	-n	只输出数值</span><br><span class="line">	-p	设置填满数据包的范本样式</span><br><span class="line">	-q	不显示指令执行过程</span><br><span class="line">	-R	记录路由过程</span><br><span class="line">	-s	设置数据包的大小</span><br><span class="line">	-t	设置存活数值TTL的大小</span><br><span class="line">ufw 防火墙管理工具</span><br><span class="line">	ufw [option] <span class="built_in">command</span></span><br><span class="line">	<span class="built_in">command</span></span><br><span class="line">		<span class="built_in">enable</span>	启动ufw</span><br><span class="line">		<span class="built_in">disable</span>	关闭ufw</span><br><span class="line">		reload	重新加载ufw</span><br><span class="line">		default 修改默认策略，可指定</span><br><span class="line">			allow reject deny 三个参数</span><br><span class="line">			指定数据包方向为incoming,outgoing,routed</span><br><span class="line">		logging on|off|LEVEL	日志 启动|关闭|级别</span><br><span class="line">		reset	重置配置</span><br><span class="line">		status	查看状态</span><br><span class="line">		show REPORT	显示“报告”</span><br><span class="line">		reset 将防火墙配置恢复到初始状态</span><br><span class="line">		status 显示防火墙状态</span><br><span class="line">		show 显示防火墙信息</span><br><span class="line">		allow 允许添加通信的规则  还可以直接允许某个服务</span><br><span class="line">		deny 添加禁止通信的规则</span><br><span class="line">		reject 添加拒绝通信的规则</span><br><span class="line">		<span class="built_in">limit</span> 添加限制规则</span><br><span class="line">		delete 删除指定的规则</span><br><span class="line">		insert 在指定位置添加规则</span><br><span class="line">			sudo ufw insert 1 allow 80 在第一行之前插入一条规则允许访问80端口</span><br><span class="line">		app list 列出使用防火墙的应用系统</span><br><span class="line">		app info 查看应用系统的信息</span><br><span class="line">		app update 更新应用系统的信息</span><br><span class="line">		app default 指定应用系统默认的规则</span><br><span class="line">	示例</span><br><span class="line">		sudo ufw allow proto tcp from 192.168.0.2 to any port 22 </span><br><span class="line">			proto表示协议 from指定来源地址 to指定被访问的IP或端口，这里使用any表示本机所有IP地址的22端口</span><br><span class="line">		sudo ufw allow from 192.168.0.2/24 to any app mysql允许任何来自192.168.0.2/24的主机访问mysql</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Q： 如果本文需要付费，你是否愿意为此支付一元</div>
+  <button>
+    我愿意资助创作者
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ivan 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ivan 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ivan
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wanstarge.github.io/2021/08/10/20-17-45/" title="linux命令大全">https://wanstarge.github.io/2021/08/10/20-17-45/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章，均在可信时间戳认证机构完成确权，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！商业性使用请联系主理人购买授权许可。
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://weibo.com/u/7426687127">
+          <span class="icon">
+            <i class="fa fa-weibo"></i>
+          </span>
+
+          <span class="label">微博</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/an-ye-ji-ling">
+          <span class="icon">
+            <i class=""></i>
+          </span>
+
+          <span class="label">知乎</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/10/18-45-49/" rel="prev" title="bash基本语法">
+                  <i class="fa fa-chevron-left"></i> bash基本语法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/10/20-48-36/" rel="next" title="matlab基本语法">
+                  matlab基本语法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ivan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

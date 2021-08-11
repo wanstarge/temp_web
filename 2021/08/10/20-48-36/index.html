@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="胡乱整整，别当真，检索一下还行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matlab基本语法">
+<meta property="og:url" content="https://wanstarge.github.io/2021/08/10/20-48-36/index.html">
+<meta property="og:site_name" content="万星阁">
+<meta property="og:description" content="胡乱整整，别当真，检索一下还行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-10T12:48:36.000Z">
+<meta property="article:modified_time" content="2021-08-11T09:18:49.332Z">
+<meta property="article:author" content="Ivan">
+<meta property="article:tag" content="基本语法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wanstarge.github.io/2021/08/10/20-48-36/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wanstarge.github.io/2021/08/10/20-48-36/","path":"2021/08/10/20-48-36/","title":"matlab基本语法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>matlab基本语法 | 万星阁</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">万星阁</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">是非在己 毁誉由人 得失不论</p>
+      <img class="custom-logo-image" src="/images/custom-logo.jpg" alt="万星阁">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E6%A1%A3%E6%A1%88%E5%AD%98%E5%8F%96"><span class="nav-text">变量与档案存取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E5%8A%A0%E8%BD%BD"><span class="nav-text">数据的保存加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C"><span class="nav-text">表格操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80"><span class="nav-text">文件打开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E8%AF%BB%E5%8F%96"><span class="nav-text">文件写入读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"><span class="nav-text">格式化输出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BC%8F%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-text">结构化程式与自定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-text">一些快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%AC%A6%E5%8F%B7"><span class="nav-text">判断符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if%E8%AF%AD%E5%8F%A5"><span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for%E8%AF%AD%E5%8F%A5"><span class="nav-text">for语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch-case-otherwise%E8%AF%AD%E5%8F%A5"><span class="nav-text">switch,case,otherwise语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while%E8%AF%AD%E5%8F%A5"><span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch%E8%AF%AD%E5%8F%A5"><span class="nav-text">try,catch语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-continue"><span class="nav-text">break,continue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">一些常量和基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-text">定义函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E5%87%BD%E6%95%B0"><span class="nav-text">指针指向函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5"><span class="nav-text">矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%88%87%E7%89%87"><span class="nav-text">矩阵切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0"><span class="nav-text">矩阵函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%BB%E5%9B%BE"><span class="nav-text">画图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="nav-text">解方程组</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ivan"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ivan</p>
+  <div class="site-description" itemprop="description">一起分享交流，互相学习</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wanstarge" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wanstarge" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wanstarge@gmail.com" title="E-Mail → mailto:wanstarge@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/15556956" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;15556956" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/7426687127" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;7426687127" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/136fabde72a8" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;136fabde72a8" rel="noopener" target="_blank">简书</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      宝藏站
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://t13mk.github.io/" title="https:&#x2F;&#x2F;t13mk.github.io" rel="noopener" target="_blank">t13mk</a>
+        </li>
+    </ul>
+  </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/wanstarge" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/20-48-36/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          matlab基本语法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-10 20:48:36" itemprop="dateCreated datePublished" datetime="2021-08-10T20:48:36+08:00">2021-08-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-11 17:18:49" itemprop="dateModified" datetime="2021-08-11T17:18:49+08:00">2021-08-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/matlab/" itemprop="url" rel="index"><span itemprop="name">-[matlab]</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/08/10/20-48-36/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/10/20-48-36/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>胡乱整整，别当真，检索一下还行</strong></p>
+<span id="more"></span>
+
+<h1 id="变量与档案存取"><a href="#变量与档案存取" class="headerlink" title="变量与档案存取"></a>变量与档案存取</h1><ol>
+<li><p>character也就是char类型指定的话需要用单引号来进行指定,可以直接进行赋值，而不用事先规定好内存大小和数字数组一样也可以用中括号将多个字符串进行合并，也可以当数组使用，比如s1=’nihao’  那么s1(2)输出的结果就为i</p>
+</li>
+<li><p>如果’a’==s1相当于进行比较此时相同的会输出1，不同的则会输出0</p>
+<p>此时若再执行str(str==’a’)=’Z’则会将字符串str中的a全部换成Z.</p>
+<p>将字符串前后颠倒可以运用indexing进行解决</p>
+</li>
+</ol>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><p>无需先定义可以直接边定义边使用，比如<code>sv.a=1 sv.b=3 sv.c=6</code> 运行后就会形成一个结构体里面存储了这些变量sv(2).a sv(2).b sv(2).c 如此就可以创建一个结构体数组</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="数据的保存加载"><a href="#数据的保存加载" class="headerlink" title="数据的保存加载"></a>数据的保存加载</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%保存数据表</span></span><br><span class="line">save mydata.mat          </span><br><span class="line">save mydata2.mat -ascii</span><br><span class="line"><span class="comment">%加载数据表</span></span><br><span class="line">load(<span class="string">&#x27;mydata1.mat&#x27;</span>)       </span><br><span class="line">load(<span class="string">&#x27;mydata2.mat&#x27;</span>,<span class="string">&#x27;-ascii&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="表格操作"><a href="#表格操作" class="headerlink" title="表格操作"></a>表格操作</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%读取表格 xlsread(&#x27;*.xlsx也可直接写路径&#x27;,变量,&#x27;表单名&#x27;,&#x27;区域&#x27;)</span></span><br><span class="line">var=xlsread(<span class="string">&#x27;\*.xlsx&#x27;</span>)   </span><br><span class="line">var=xlsread(<span class="string">&#x27;*.xlsx&#x27;</span>,<span class="string">&#x27;B2:D4&#x27;</span>)</span><br><span class="line"><span class="comment">% 写入表格 xlswrite(&#x27;*.xlsx&#x27;,变量,&#x27;表单名&#x27;,&#x27;区域&#x27;)</span></span><br><span class="line">xlswrite(<span class="string">&#x27;\*.xlsx&#x27;</span>,M,<span class="number">1</span>,<span class="string">&#x27;E2:E4&#x27;</span>)   </span><br><span class="line">xlswrite(<span class="string">&#x27;\*.write&#x27;</span>,&#123;<span class="string">&#x27;Mean&#x27;</span>&#125;,<span class="number">1</span>,<span class="string">&#x27;E1&#x27;</span>)    </span><br><span class="line">[Score Header]=xlsread(<span class="string">&#x27;*.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="文件打开"><a href="#文件打开" class="headerlink" title="文件打开"></a>文件打开</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%文件打开方式</span></span><br><span class="line">fid=fopen(<span class="string">&#x27;[filename]&#x27;</span>,<span class="string">&#x27;[permission]&#x27;</span>);   </span><br><span class="line"><span class="comment">%文件打开选项</span></span><br><span class="line"><span class="string">&#x27;r&#x27;</span>  <span class="string">&#x27;r+&#x27;</span>  <span class="string">&#x27;w&#x27;</span>  <span class="string">&#x27;w+&#x27;</span>  <span class="string">&#x27;a&#x27;</span>  <span class="string">&#x27;a+&#x27;</span>        </span><br><span class="line"><span class="comment">%关闭文件</span></span><br><span class="line">status=fclose(fid);</span><br></pre></td></tr></table></figure>
+<h3 id="文件写入读取"><a href="#文件写入读取" class="headerlink" title="文件写入读取"></a>文件写入读取</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 读取文件中数据</span></span><br><span class="line">fscanf(fid,format,<span class="built_in">size</span>)    </span><br><span class="line"><span class="comment">%输出</span></span><br><span class="line">fprintf(fid,format,x,y...);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%示例</span></span><br><span class="line">x = <span class="number">100</span>*<span class="built_in">rand</span>(<span class="number">8</span>,<span class="number">1</span>);</span><br><span class="line">fileID = fopen(<span class="string">&#x27;nums1.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">fprintf(fileID,<span class="string">&#x27;%4.4f\n&#x27;</span>,x);</span><br><span class="line">fclose(fileID);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileID = fopen(<span class="string">&#x27;nums2.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">formatSpec = <span class="string">&#x27;%d %f&#x27;</span>;</span><br><span class="line">sizeA = [<span class="number">2</span> Inf];</span><br><span class="line">A = fscanf(fileID,formatSpec,sizeA)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feof     <span class="comment">%意为end of file                  </span></span><br><span class="line"><span class="comment">%示例</span></span><br><span class="line"><span class="keyword">while</span> ~feof(fid)</span><br></pre></td></tr></table></figure>
+
+<h3 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%c 单字符   </span></span><br><span class="line"><span class="comment">%d 按十进制整型输出   </span></span><br><span class="line"><span class="comment">%e按指数型输出   </span></span><br><span class="line"><span class="comment">%f按浮点型输出   </span></span><br><span class="line"><span class="comment">%g用以输出实数自动选择f或e格式  </span></span><br><span class="line"><span class="comment">%o以八进制输出整数         </span></span><br><span class="line"><span class="comment">%s   输出字符串    </span></span><br><span class="line"><span class="comment">%u代表无符号整数    </span></span><br><span class="line"><span class="comment">%x表示以十六进制输出     </span></span><br><span class="line"><span class="comment">%p以十六进制输出指针的值</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="结构化程式与自定义函数"><a href="#结构化程式与自定义函数" class="headerlink" title="结构化程式与自定义函数"></a>结构化程式与自定义函数</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注解的方式为“%”单独一个只注解一行，而两个的话则是分节，可以分部分执行，亦可设置断点</p>
+<h2 id="一些快捷键"><a href="#一些快捷键" class="headerlink" title="一些快捷键"></a>一些快捷键</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ctrl+I</td>
+<td>可以格式化程序，便于观看</td>
+</tr>
+<tr>
+<td>ctrl+T</td>
+<td>取消注释</td>
+</tr>
+<tr>
+<td>ctrl+R</td>
+<td>进行注释</td>
+</tr>
+<tr>
+<td>ctrl+J</td>
+<td>注释并换行</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>运行程序</td>
+</tr>
+<tr>
+<td>ctrl+C</td>
+<td>可以强行停止正在执行的程序</td>
+</tr>
+</tbody></table>
+<h2 id="判断符号"><a href="#判断符号" class="headerlink" title="判断符号"></a>判断符号</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;    小于</span><br><span class="line">&lt;=   小于或者等于</span><br><span class="line">&gt;      大于</span><br><span class="line">&gt;=    大于或者等于</span><br><span class="line">==     相等</span><br><span class="line">~=      不相等</span><br><span class="line">&amp;&amp;    且</span><br><span class="line">||      或者</span><br></pre></td></tr></table></figure>
+
+<p><strong>条件编程语句 最后均以end作为结尾表示程序结构结束</strong></p>
+<h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件) 后面跟条件成立之后要执行的程序</span><br><span class="line"><span class="keyword">elseif</span>和<span class="keyword">else</span> 均用于<span class="keyword">else</span>后</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">elseif</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">10</span>,,,,,,</span><br><span class="line"><span class="comment">% 循环语句类似于c但又有它自己的表示方法。</span></span><br><span class="line"><span class="keyword">for</span> variable=start:increment:<span class="keyword">end</span></span><br><span class="line">	commmands</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="number">10</span>;</span><br><span class="line">H = <span class="built_in">zeros</span>(s);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c = <span class="number">1</span>:s</span><br><span class="line">    <span class="keyword">for</span> r = <span class="number">1</span>:s</span><br><span class="line">        H(r,c) = <span class="number">1</span>/(r+c<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-case-otherwise语句"><a href="#switch-case-otherwise语句" class="headerlink" title="switch,case,otherwise语句"></a>switch,case,otherwise语句</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%switch , case也和c语言差不多比如</span></span><br><span class="line">n = input(<span class="string">&#x27;Enter a number: &#x27;</span>);</span><br><span class="line"><span class="keyword">switch</span> n</span><br><span class="line">    <span class="keyword">case</span> <span class="number">-1</span></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;negative one&#x27;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;zero&#x27;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;positive one&#x27;</span>)</span><br><span class="line">    <span class="keyword">otherwise</span></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;other value&#x27;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">10</span>;</span><br><span class="line">f = n;</span><br><span class="line"><span class="keyword">while</span> n &gt; <span class="number">1</span></span><br><span class="line">    n = n<span class="number">-1</span>;</span><br><span class="line">    f = f*n;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;n! = &#x27;</span> num2str(f)])</span><br></pre></td></tr></table></figure>
+
+<h2 id="try-catch语句"><a href="#try-catch语句" class="headerlink" title="try,catch语句"></a>try,catch语句</h2><p><strong>类似于python中的try,except语句</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">    a = notaFunction(<span class="number">5</span>,<span class="number">6</span>);</span><br><span class="line"><span class="keyword">catch</span></span><br><span class="line">    warning(<span class="string">&#x27;Problem using function.  Assigning a value of 0.&#x27;</span>);</span><br><span class="line">    a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="break-continue"><a href="#break-continue" class="headerlink" title="break,continue"></a>break,continue</h2><p><strong>与其它语言中的作用一样</strong></p>
+<h1 id="一些常量和基本操作"><a href="#一些常量和基本操作" class="headerlink" title="一些常量和基本操作"></a>一些常量和基本操作</h1><table>
+<thead>
+<tr>
+<th>常量，命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>disp</td>
+<td>类似于print，用于输出</td>
+</tr>
+<tr>
+<td>clear all  或者  clear var</td>
+<td>清除某个变量中的数据</td>
+</tr>
+<tr>
+<td>…</td>
+<td>matlab将其识别为换行</td>
+</tr>
+<tr>
+<td>close all</td>
+<td>关闭所有的图形</td>
+</tr>
+<tr>
+<td>.*  ./  .^</td>
+<td>实现对矩阵中每个元素的运算，而非矩阵间的运算</td>
+</tr>
+<tr>
+<td>num2str</td>
+<td>将数字转换为字符串</td>
+</tr>
+<tr>
+<td>cell2struct</td>
+<td>将子列转换为数据结构中的列</td>
+</tr>
+<tr>
+<td>isempty</td>
+<td>判断是否为空</td>
+</tr>
+<tr>
+<td>input</td>
+<td>进行输入</td>
+</tr>
+<tr>
+<td>nargin</td>
+<td>输入参数的数目</td>
+</tr>
+<tr>
+<td>inputname</td>
+<td>显示输入的变量的名字，即实参的名字</td>
+</tr>
+<tr>
+<td>who</td>
+<td>会显现出当前有值已定义的变量</td>
+</tr>
+<tr>
+<td>whos</td>
+<td>则会出现更多的内容包括变量类型</td>
+</tr>
+<tr>
+<td>exp(n)</td>
+<td>表示的是自然底数e的n次方</td>
+</tr>
+<tr>
+<td>inf</td>
+<td>表示为无穷</td>
+</tr>
+<tr>
+<td>eps</td>
+<td>表示为很小很小的数</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>表示为未定义的数</td>
+</tr>
+<tr>
+<td>pi</td>
+<td>表示为π</td>
+</tr>
+<tr>
+<td>format</td>
+<td>数据显示形式有<br />bank两个小数点<br />hex十六进制<br />longE , shortE科学计数法<br />rat 分数<br />long 小数精度提高<br />short 小数精度减小</td>
+</tr>
+<tr>
+<td>rem(a,b)</td>
+<td>a对b取余</td>
+</tr>
+<tr>
+<td>prod(1:n)</td>
+<td>意为n的阶乘</td>
+</tr>
+<tr>
+<td>global</td>
+<td>声明全局变量</td>
+</tr>
+<tr>
+<td>conj()</td>
+<td>求共轭复数</td>
+</tr>
+</tbody></table>
+<h1 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span>= <span class="title">mean</span><span class="params">(x)</span> 定义函数在<span class="title">mean</span>.<span class="title">m</span>文件中</span></span><br><span class="line"><span class="comment">%定义函数时如果有多个输出的值比如</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[a f]</span>=<span class="title">acc</span><span class="params">(v1,v2,v3,v4)</span>        </span></span><br><span class="line">	a=(v1-v2); </span><br><span class="line">	f=v3-v4;    </span><br><span class="line"><span class="comment">%那么调用时应该为[acc,force]=acc(1,2,3,4)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指针指向函数"><a href="#指针指向函数" class="headerlink" title="指针指向函数"></a>指针指向函数</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f=@(x) <span class="built_in">exp</span>(<span class="number">-2</span>,x)  <span class="built_in">plot</span>(x,f(x))  </span><br><span class="line"><span class="comment">%f指向的是exp这个函数</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>/</td>
+<td>右除</td>
+</tr>
+<tr>
+<td>\</td>
+<td>左除</td>
+</tr>
+<tr>
+<td>^</td>
+<td>次方</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>矩阵的转置</td>
+</tr>
+<tr>
+<td>.*    .^     ./      .\</td>
+<td>表示对矩阵中的对应每一项进行此运算</td>
+</tr>
+</tbody></table>
+<h2 id="矩阵切片"><a href="#矩阵切片" class="headerlink" title="矩阵切片"></a>矩阵切片</h2><p>matalb矩阵中编号是一列一列读取的</p>
+<ol>
+<li>A(8)表示一列列读取时的第八个数；</li>
+<li>A([1 3 5])分别输出第1,第3，第5个数；</li>
+<li>A([1,3;1,3]) 表示出现第一个和第三个出现两排的矩阵； </li>
+<li>A(3,2)表示第三排第二列的数； </li>
+<li>A([1 3],[2 3])表示输出第一和第三排与第二列和第三列相交产生的数</li>
+<li>索引单个值x(m,n)表示数组x中第m行，第n列那个数，若需输出x第一行的所有元素可以用x(1,:)   若需输出第二列的所有元素则需x(:,2)</li>
+</ol>
+<p>要使某一矩阵中的某一行或者某一列<strong>消失</strong>可以使用A(3,:)=[],就会把哪一排全部变为空，消失</p>
+<h2 id="矩阵函数"><a href="#矩阵函数" class="headerlink" title="矩阵函数"></a>矩阵函数</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eye</span>(n)  <span class="comment">%创建一个n阶单位矩阵</span></span><br><span class="line"><span class="built_in">zeros</span>(n1,n2)  <span class="comment">%创建一个n1排，n2列的零矩阵</span></span><br><span class="line"><span class="built_in">ones</span>(n1,n2) <span class="comment">%创建一个n1*n2维的1矩阵</span></span><br><span class="line"><span class="built_in">diag</span>([<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>])  <span class="comment">%创建一个对角线为1 2 3 4的对角矩阵</span></span><br><span class="line"><span class="built_in">sort</span>(A) <span class="comment">%对每一列进行从小到大的排序</span></span><br><span class="line"><span class="built_in">sortrows</span>(A) <span class="comment">%是把排进行绑定，通过第一列进行从大到小的排序</span></span><br><span class="line"><span class="built_in">max</span> <span class="built_in">min</span> 取最大值最小值 若是用于一个多维矩阵则会列出每一列的最大(最小)值。若是取矩阵中的最大值可这样编写<span class="built_in">max</span>(<span class="built_in">max</span>(A))，以下类似</span><br><span class="line">	sum是每一个列的加和</span><br><span class="line">	<span class="built_in">mean</span>是每一列的平均值；</span><br><span class="line"><span class="built_in">size</span>(A) 会展现矩阵的维度</span><br><span class="line"><span class="built_in">length</span>(A) 仅展示矩阵的横向长度</span><br><span class="line"><span class="built_in">find</span>(A==某个元素) 就会输出这个元素在矩阵中的位置</span><br><span class="line">若是从某一确定行中提取从第m个到第n个元素时用 x(m:n) 此时仅有一行数。</span><br><span class="line">使用<span class="keyword">end</span>表示某列或某行最后一个元素，如A(<span class="keyword">end</span>,<span class="number">2</span>)表示矩阵A的最后一行第二个元素，<span class="keyword">end</span>可以和运算符结合使用，如<span class="keyword">end</span>+<span class="number">1</span>,<span class="keyword">end</span><span class="number">-1</span> ……</span><br><span class="line"><span class="built_in">round</span>函数用于实现四舍五入</span><br><span class="line">[a,b]=<span class="built_in">max</span>(vr) 其中a是矩阵vr中最大的那个值，b则代表矩阵vr中最大的那个值所对应的索引值。</span><br><span class="line">[a,b]=<span class="built_in">size</span>(vr)其中a对应矩阵vr中的行数，b则对应矩阵vr中的列数</span><br><span class="line">randi(<span class="number">20</span>,<span class="number">5</span>,<span class="number">7</span>) <span class="comment">% 表示返回一个以1到20间的随机数组成的5*7数组，而将20替换为[a,b] 则表示返回a到b间的随机数</span></span><br><span class="line">eig 计算特征值</span><br><span class="line">x=<span class="number">20</span>:<span class="number">2</span>:<span class="number">26</span>  <span class="comment">%意味着x是一个包含着等距为2，且从20到26所有数的数组。即20 22 24 26   而x=1:4 默认间距为1，即1 2 3 4.</span></span><br><span class="line"><span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>)表示从<span class="number">0</span>到<span class="number">1</span>的五个间距数</span><br></pre></td></tr></table></figure>
+
+<h1 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">&quot;ro-&quot;</span>,<span class="string">&quot;LineWidth&quot;</span>,<span class="number">5</span>),xlabel(<span class="string">&quot;时间&quot;</span>),ylabel(<span class="string">&quot;温度&quot;</span>) <span class="comment">%表示将绘制一条红色（r）虚线（--）,并使用圆圈（o）标记转折点，线宽为5，x轴标签为时间,y轴标签是温度</span></span><br><span class="line">grid on  <span class="comment">% 加入背景网格</span></span><br><span class="line"><span class="built_in">plot</span>(x,y),axis([xmin xmax ymin ymax])  <span class="comment">%设置坐标比例</span></span><br><span class="line">subplot(row,colum,sequence) <span class="comment">%对图进行分块</span></span><br><span class="line">polar(θ,r) <span class="comment">%极坐标绘图</span></span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&quot;&quot;</span>,<span class="string">&quot;&quot;</span>,…)添加图例</span><br><span class="line">axis equal <span class="comment">%横纵间隔各自相等</span></span><br><span class="line"><span class="built_in">plot</span>(t,f,t,g)画出f和g的函数图像</span><br><span class="line">bar绘制条形图 bar(v1) 对应v1中元素个数绘制条形图； bar(x,y) 对应x的位置上绘制对应y值的条形图</span><br><span class="line"><span class="built_in">plot</span>(x,<span class="built_in">cos</span>(x))画出函数图像</span><br><span class="line"><span class="built_in">logspace</span>(a,b,n) <span class="comment">%列出a,b间n个之间相差相等对数的数</span></span><br><span class="line">shading interp  <span class="comment">%对颜色着色进行插值处理使颜色平滑过渡 </span></span><br><span class="line">colormap(gray) 使图形全部变为灰色</span><br><span class="line">stem()        <span class="comment">%离散图         可以用fill为所有形状填充颜色</span></span><br><span class="line">area()画出以围成的形状展示的图形</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(a:b:c,m:n:q)对x,y分别定义区间</span><br><span class="line">imread(path, name) 读取</span><br><span class="line">imagshow(path, name) 展示</span><br><span class="line">b=rgb2gray(a) 将图片变成灰色</span><br><span class="line"></span><br><span class="line">text(position,<span class="string">&#x27;极小值&#x27;</span>)对特定位置的点进行标注</span><br><span class="line">subs(函数,旧,新)   替换比较分别为新数值时的函数值  例如 subs(F,[b,x],[<span class="number">2</span>,<span class="number">4</span>])</span><br><span class="line"><span class="built_in">plot</span>(double(s(<span class="number">1</span>))*[<span class="number">1</span> <span class="number">1</span>],[<span class="number">-1</span> <span class="number">2</span>],<span class="string">&#x27;--&#x27;</span>)  画出渐近线</span><br><span class="line">ezplot(表达式(不用赋值),[区间范围xmin,xmax]), set(findobj(<span class="string">&#x27;Type&#x27;</span>,<span class="string">&#x27;line&#x27;</span>),<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="解方程组"><a href="#解方程组" class="headerlink" title="解方程组"></a>解方程组</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">syms定义变量    equ=表达式==值     solve(equ,指定特定变量)</span><br><span class="line">equ1=<span class="number">5</span>*x+<span class="number">4</span>*y==<span class="number">6</span>;  equ2=x<span class="number">-6</span>y==<span class="number">0</span>; solve(equ1,equ2);</span><br><span class="line">fourier()    <span class="comment">%傅里叶变换</span></span><br><span class="line">	ifourier逆傅里叶变换</span><br><span class="line">laplace(函数) <span class="comment">%拉普拉斯变换</span></span><br><span class="line">	ilaplace(函数)逆变换 </span><br><span class="line">int(函数,积分变量)代表对变量x的积分</span><br><span class="line">dsolve(<span class="string">&#x27;Dy=x+3&#x27;</span>,<span class="string">&#x27;y(0)=3&#x27;</span>,<span class="string">&#x27;变量名&#x27;</span>)  不写时变量默认为t</span><br><span class="line">std求标准差</span><br><span class="line">var求方差</span><br><span class="line">midian()求中位数</span><br><span class="line">pretty(函数名)   使函数变得更加符合人类的写法</span><br><span class="line">[t,y]=ode23[<span class="string">&#x27;函数&#x27;</span>,[取值范围],初值]</span><br><span class="line">[t,w]=ode45(<span class="string">&#x27;eql&#x27;</span>,[<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>],<span class="number">2</span>)</span><br><span class="line">重积分   f=x^<span class="number">2</span>*y    int(int(f,x,<span class="number">2</span>,<span class="number">4</span>),y,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">数值积分  trapz(x,y)</span><br><span class="line">线性或高次幂拟合plolyfit(x,y,高次项次数)多项式拟合</span><br><span class="line"><span class="built_in">isequal</span>(F1,F2) 函数相等返回<span class="number">1</span>,函数不等返回<span class="number">0.</span></span><br><span class="line">函数的级数展开taylor(函数),对函数进行泰勒展开</span><br><span class="line">limit(函数名,变量,x,<span class="string">&#x27;left&#x27;</span>)      求左极限,右极限同理</span><br><span class="line">expand(未展开的表达式), 类似合并collect()</span><br><span class="line">因式分解<span class="built_in">factor</span>(表达式), simplify()简化合并</span><br><span class="line">set(h(<span class="number">1</span>),<span class="string">&#x27;linestyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>).</span><br><span class="line">contour(x,y,z)以二维形式画出三维图像(俯视图)</span><br><span class="line">contour3(x,y,z,数字)画出函数三维图像,数字的大小表示曲线的密集程度</span><br><span class="line">surface(x,y,z,<span class="string">&#x27;EdgeColor&#x27;</span>,[<span class="number">.8</span><span class="number">.8</span><span class="number">.8</span>],<span class="string">&#x27;FaceColor&#x27;</span>,<span class="string">&#x27;none&#x27;</span>)可以直接画出曲面,</span><br><span class="line">[C,h]=contour(x,y,z);  set(h,<span class="string">&#x27;showText&#x27;</span>,<span class="string">&#x27;on&#x27;</span>,<span class="string">&#x27;TextStep&#x27;</span>,get(h,<span class="string">&#x27;LevelStep&#x27;</span>)*<span class="number">2</span>)</span><br><span class="line">mesh(x,y,z) 可以画出一些三维网格曲面类似于surf(x,y,z). 而surfc(x,y,z)则为带有投影的曲面即二维三维同时呈现  surfl(x,y,z)</span><br><span class="line">fft(函数名，n)快速傅里叶变换   </span><br><span class="line">贝塞尔函数<span class="built_in">besselj</span>(n,r)</span><br><span class="line">特殊函数 <span class="built_in">gamma</span>(x)</span><br><span class="line">点积<span class="built_in">dot</span>(a,b)  叉积<span class="built_in">cross</span>()</span><br><span class="line">fplot(@x <span class="built_in">sin</span>(x),[<span class="number">0</span>,<span class="number">4</span>])  画<span class="built_in">sin</span>(x)在一定区间内的函数</span><br><span class="line">矩阵分解(l,u)=lu()</span><br><span class="line">正交积分 quad(<span class="string">&#x27;函数名&#x27;</span>，xmin,xmax)</span><br><span class="line">heaviside(t)阶梯函数</span><br><span class="line">diff(函数名,求导次数) 求微分导数</span><br><span class="line">幻方矩阵<span class="built_in">magic</span>()</span><br><span class="line">rref() 求阶梯矩阵</span><br><span class="line">求矩阵的秩rank()</span><br><span class="line">矩阵的逆inv()</span><br><span class="line">求行列式的值det() </span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Q： 如果本文需要付费，你是否愿意为此支付一元</div>
+  <button>
+    我愿意资助创作者
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ivan 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ivan 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ivan
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wanstarge.github.io/2021/08/10/20-48-36/" title="matlab基本语法">https://wanstarge.github.io/2021/08/10/20-48-36/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章，均在可信时间戳认证机构完成确权，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！商业性使用请联系主理人购买授权许可。
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://weibo.com/u/7426687127">
+          <span class="icon">
+            <i class="fa fa-weibo"></i>
+          </span>
+
+          <span class="label">微博</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/an-ye-ji-ling">
+          <span class="icon">
+            <i class=""></i>
+          </span>
+
+          <span class="label">知乎</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="tag"># 基本语法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/10/20-17-45/" rel="prev" title="linux命令大全">
+                  <i class="fa fa-chevron-left"></i> linux命令大全
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ivan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">155k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:21</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>
