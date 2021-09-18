@@ -19,18 +19,32 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wanstarge.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="一起分享交流，互相学习">
+<meta name="description" content="简单认识感觉比较有用，参考这篇文章进行学习记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python-opencv">
 <meta property="og:url" content="https://wanstarge.github.io/2021/08/10/13-11-34/index.html">
 <meta property="og:site_name" content="万星阁">
-<meta property="og:description" content="一起分享交流，互相学习">
+<meta property="og:description" content="简单认识感觉比较有用，参考这篇文章进行学习记录">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wanstarge.github.io/images/cv1.png">
+<meta property="og:image" content="https://wanstarge.github.io/images/cv2.png">
+<meta property="og:image" content="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190601224852098-1757221396.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602091005036-227493627.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092346111-65750210.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092700612-1331464134.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092727342-320819378.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607111439230-653546455.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607104028901-605422183.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607104933761-1590038994.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607114939954-1993012118.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1483773/202102/1483773-20210210175616751-623661270.png">
 <meta property="article:published_time" content="2021-08-10T05:11:34.000Z">
-<meta property="article:modified_time" content="2021-08-10T09:23:28.768Z">
+<meta property="article:modified_time" content="2021-08-13T10:31:05.769Z">
 <meta property="article:author" content="Ivan">
-<meta property="article:tag" content="process, technique">
+<meta property="article:tag" content="opencv">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wanstarge.github.io/images/cv1.png">
 
 
 <link rel="canonical" href="https://wanstarge.github.io/2021/08/10/13-11-34/">
@@ -134,7 +148,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -147,6 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AE%A4%E8%AF%86"><span class="nav-text">简单认识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%AD%98%E5%82%A8%E5%BD%A2%E5%BC%8F"><span class="nav-text">图像存储形式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E8%AF%BB%E5%8F%96%E5%92%8C%E5%86%99%E5%85%A5"><span class="nav-text">图像的读取和写入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#imread"><span class="nav-text">imread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imshow"><span class="nav-text">imshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imwrite"><span class="nav-text">imwrite</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%83%8F%E7%B4%A0%E8%8E%B7%E5%8F%96%E5%92%8C%E7%BC%96%E8%BE%91"><span class="nav-text">图像像素获取和编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E5%80%BC%E8%8E%B7%E5%8F%96"><span class="nav-text">像素值获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E6%80%A7%E8%B4%A8"><span class="nav-text">图片性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROI%E6%88%AA%E5%8F%96"><span class="nav-text">ROI截取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BE%B9%E7%95%8C"><span class="nav-text">添加边界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97"><span class="nav-text">像素算术运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add"><span class="nav-text">add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addWeight"><span class="nav-text">addWeight()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-text">图像位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2"><span class="nav-text">图像颜色空间转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cv2-cvtColor"><span class="nav-text">cv2.cvtColor()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7"><span class="nav-text">性能评价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%91%E5%AE%9Atrackbar"><span class="nav-text">绑定trackbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%98%88%E5%80%BC%E5%8C%96-%E4%BA%8C%E5%80%BC%E5%8C%96"><span class="nav-text">图像阈值化(二值化)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E5%83%8F%E4%BA%8C%E5%80%BC%E5%8C%96"><span class="nav-text">一、图像二值化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81threshold"><span class="nav-text">二、threshold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-adaptiveThreshold"><span class="nav-text">三. adaptiveThreshold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%A5%A5%E6%96%AF%E4%BA%8C%E5%80%BC%E5%8C%96%EF%BC%88Otsu%E2%80%99s-Binarization%EF%BC%89"><span class="nav-text">四. 奥斯二值化（Otsu’s Binarization）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%BD%A2%E7%8A%B6%E5%8F%98%E6%8D%A2"><span class="nav-text">图像形状变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#resize"><span class="nav-text">resize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#warpAffine-%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2"><span class="nav-text">warpAffine()   仿射变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB%E5%8F%98%E6%8D%A2"><span class="nav-text">平移变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BE%E5%A4%A7%E5%92%8C%E7%BC%A9%E5%B0%8F"><span class="nav-text">放大和缩小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2"><span class="nav-text">旋转变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-text">仿射变换矩阵的计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2-persperctive-transformation"><span class="nav-text">透视变换(persperctive transformation)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +177,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -269,9 +284,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-08-10 13:11:34 / 修改时间：17:23:28" itemprop="dateCreated datePublished" datetime="2021-08-10T13:11:34+08:00">2021-08-10</time>
+      <time title="创建时间：2021-08-10 13:11:34" itemprop="dateCreated datePublished" datetime="2021-08-10T13:11:34+08:00">2021-08-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-13 18:31:05" itemprop="dateModified" datetime="2021-08-13T18:31:05+08:00">2021-08-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
     </span>
 
   
@@ -282,36 +312,20 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/13-11-34/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/10/13-11-34/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>12k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>11 分钟</span>
     </span>
 </div>
 
@@ -322,7 +336,141 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="简单认识"><a href="#简单认识" class="headerlink" title="简单认识"></a>简单认识</h1><p><strong>感觉比较有用，参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/silence-cho/p/10926248.html">这篇文章</a>进行学习记录</strong></p>
+<span id="more"></span>
+
+<h2 id="图像存储形式"><a href="#图像存储形式" class="headerlink" title="图像存储形式"></a>图像存储形式</h2><p><strong>对于只有黑白颜色的灰度图，为单通道，一个像素块对应矩阵中一个数字，数值为0到255, 其中0表示最暗（黑色） ，255表示最亮（白色）</strong></p>
+<!--more-->
+
+<p><img src="/images/cv1.png"></p>
+<p><strong>对于采用RGB模式的彩色图片，为三通道图，Red、Green、Blue三原色，按不同比例相加，一个像素块对应矩阵中的一个向量, 如[24,180, 50]，分别表示三种颜色的比列, 即对应深度上的数字，如下图所示</strong></p>
+<p><img src="/images/cv2.png"></p>
+<p><strong>需要注意的是，由于历史遗留问题，opencv采用BGR模式，而不是RGB</strong></p>
+<h1 id="图像的读取和写入"><a href="#图像的读取和写入" class="headerlink" title="图像的读取和写入"></a>图像的读取和写入</h1><h2 id="imread"><a href="#imread" class="headerlink" title="imread"></a>imread</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># imread(img_path,flag) 读取图片，返回图片对象</span></span><br><span class="line">    img_path: 图片的路径，即使路径错误也不会报错，但打印返回的图片对象为<span class="literal">None</span></span><br><span class="line">    flag：cv2.IMREAD_COLOR，读取彩色图片，图片透明性会被忽略，为默认参数，也可以传入<span class="number">1</span></span><br><span class="line">          cv2.IMREAD_GRAYSCALE,按灰度模式读取图像，也可以传入<span class="number">0</span></span><br><span class="line">          也可以如此cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">          cv2.IMREAD_UNCHANGED,读取图像，包括其alpha通道，也可以传入-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>注：有时会报错，一方面是路径不能有中文，二是文件夹下的图片不能以数字顺序命名，不然会报错,实在不行用pycharm运行一下就全解决了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.error: OpenCV(4.5.2) C:\Users\runneradmin\AppData\Local\Temp\pip-req-build-_8k9tw8n\opencv\modules\highgui\src\window.cpp:404: error: (-215:Assertion failed) size.width&gt;0 &amp;&amp; size.height&gt;0 in function &#x27;cv::imshow&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="imshow"><a href="#imshow" class="headerlink" title="imshow"></a>imshow</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#　imshow(window_name,img)：显示图片，窗口自适应图片大小</span></span><br><span class="line">    window_name: 指定窗口的名字</span><br><span class="line">    img：显示的图片对象</span><br><span class="line">    可以指定多个窗口名称，显示多个图片</span><br><span class="line">waitKey(millseconds)  键盘绑定事件，阻塞监听键盘按键，返回一个数字（不同按键对应的数字不同）</span><br><span class="line">    millseconds: 传入时间毫秒数，在该时间内等待键盘事件；传入<span class="number">0</span>时，会一直等待键盘事件,此时任意按键均会使程序进行下一步操作    </span><br><span class="line">destroyAllWindows(window_name) </span><br><span class="line">    window_name: 需要关闭的窗口名字，不传入时关闭所有窗口</span><br></pre></td></tr></table></figure>
+
+<h2 id="imwrite"><a href="#imwrite" class="headerlink" title="imwrite"></a>imwrite</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># imwrite(img_path_name,img)</span></span><br><span class="line">    img_path_name:保存的文件名</span><br><span class="line">    img：文件对象</span><br></pre></td></tr></table></figure>
+
+<h1 id="图像像素获取和编辑"><a href="#图像像素获取和编辑" class="headerlink" title="图像像素获取和编辑"></a>图像像素获取和编辑</h1><h2 id="像素值获取"><a href="#像素值获取" class="headerlink" title="像素值获取"></a>像素值获取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取和设置</span></span><br><span class="line">pixel = img[<span class="number">100</span>,<span class="number">100</span>]  <span class="comment">#[57 63 68],获取(100,100)处的像素值</span></span><br><span class="line">img[<span class="number">100</span>,<span class="number">100</span>]=[<span class="number">57</span>,<span class="number">63</span>,<span class="number">99</span>] <span class="comment">#设置像素值</span></span><br><span class="line">b = img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">0</span>]    <span class="comment">#57, 获取(100,100)处，blue通道像素值</span></span><br><span class="line">g = img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">1</span>]    <span class="comment">#63</span></span><br><span class="line">r = img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">2</span>]      <span class="comment">#68</span></span><br><span class="line">r = img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">2</span>]=<span class="number">99</span>    <span class="comment">#设置red通道值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#另一种获取和设置方式</span></span><br><span class="line">piexl = img.item(<span class="number">100</span>,<span class="number">100</span>,<span class="number">2</span>)</span><br><span class="line">img.itemset((<span class="number">100</span>,<span class="number">100</span>,<span class="number">2</span>),<span class="number">99</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="图片性质"><a href="#图片性质" class="headerlink" title="图片性质"></a>图片性质</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">img = cv2.imread(<span class="string">r&quot;./code.png&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#rows,cols,channels</span></span><br><span class="line"><span class="built_in">print</span>(img.shape)   <span class="comment">#返回(42, 120, 3), 长42(cols)，宽120(rows)，3通道(channels)</span></span><br><span class="line"><span class="comment">#size</span></span><br><span class="line"><span class="built_in">print</span>(img.size)    <span class="comment">#返回15120，所有像素数量，=42*120*3</span></span><br><span class="line"><span class="comment">#type</span></span><br><span class="line"><span class="built_in">print</span>(img.dtype)   <span class="comment">#dtype(&#x27;uint8&#x27;) 数字整型</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ROI截取"><a href="#ROI截取" class="headerlink" title="ROI截取"></a>ROI截取</h2><p>ROI（region of interest），感兴趣区域。机器视觉、图像处理中，从被处理的图像以方框、圆、椭圆、不规则多边形等方式勾勒出需要处理的区域，称为感兴趣区域，ROI。在Halcon、OpenCV、Matlab等机器视觉软件上常用到各种算子（Operator）和函数来求得感兴趣区域ROI，并进行图像的下一步处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">roi = img[<span class="number">100</span>:<span class="number">200</span>,<span class="number">300</span>:<span class="number">400</span>]  <span class="comment">#截取100行到200行，列为300到400列的整块区域</span></span><br><span class="line">img[<span class="number">50</span>:<span class="number">150</span>,<span class="number">200</span>:<span class="number">300</span>] = roi   <span class="comment">#将截取的roi移动到该区域 （50到100行，200到300列）</span></span><br><span class="line">b = img[:,:,<span class="number">0</span>]  <span class="comment">#截取整个蓝色通道</span></span><br><span class="line"></span><br><span class="line">b,g,r = cv2.split(img) <span class="comment">#截取三个通道，比较耗时</span></span><br><span class="line">img = cv2.merge((b,g,r))</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加边界"><a href="#添加边界" class="headerlink" title="添加边界"></a>添加边界</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cv2.copyMakeBorder() <span class="comment"># 也是属于创建一个中间副本</span></span><br><span class="line">    参数：</span><br><span class="line">        img:图像对象</span><br><span class="line">        top,bottom,left,right: 上下左右边界宽度，单位为像素值</span><br><span class="line">        borderType:</span><br><span class="line">            cv2.BORDER_CONSTANT, 带颜色的边界，需要传入另外一个颜色值</span><br><span class="line">            cv2.BORDER_REFLECT, 边缘元素的镜像反射做为边界</span><br><span class="line">            cv2.BORDER_REFLECT_101/cv2.BORDER_DEFAULT</span><br><span class="line">            cv2.BORDER_REPLICATE, 边缘元素的复制做为边界</span><br><span class="line">            CV2.BORDER_WRAP</span><br><span class="line">        value: borderType为cv2.BORDER_CONSTANT时，传入的边界颜色值，如[<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="像素算术运算"><a href="#像素算术运算" class="headerlink" title="像素算术运算"></a>像素算术运算</h1><h2 id="add"><a href="#add" class="headerlink" title="add"></a>add</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cv2.add()</span><br><span class="line">    参数：</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        img2:图片对象<span class="number">2</span></span><br><span class="line">        mask:<span class="literal">None</span> （掩膜，一般用灰度图做掩膜，img1和img2相加后，和掩膜与运算，从而达到掩盖部分区域的目的）</span><br><span class="line">        dtype:-<span class="number">1</span></span><br><span class="line"></span><br><span class="line">注意：图像相加时应该用cv2.add(img1,img2)代替img1+img2  </span><br><span class="line">        &gt;&gt;&gt; x = np.uint8([<span class="number">250</span>])</span><br><span class="line">        &gt;&gt;&gt; y = np.uint8([<span class="number">10</span>])</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">print</span> cv2.add(x,y) <span class="comment"># 250+10 = 260 =&gt; 255  #相加，opencv超过255的截取为255</span></span><br><span class="line">        [[<span class="number">255</span>]]</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">print</span> x+y          <span class="comment"># 250+10 = 260 % 256 = 4  #相加，np超过255的会取模运算 （uint8只能表示0-255，所以取模）</span></span><br><span class="line">        [<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="addWeight"><a href="#addWeight" class="headerlink" title="addWeight()"></a>addWeight()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cv2.addWeighted() 两张图片相加，分别给予不同权重，实现图片融合和透明背景等效果</span><br><span class="line">    参数：</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        alpha:img1的权重</span><br><span class="line">        img2:图片对象<span class="number">2</span></span><br><span class="line">        beta:img1的权重</span><br><span class="line">        gamma：常量值，图像相加后再加上常量值</span><br><span class="line">        dtype：返回图像的数据类型，默认为-<span class="number">1</span>，和img1一样</span><br><span class="line">    (img1*alpha+img2*beta+gamma)</span><br><span class="line">    </span><br><span class="line">    cv.addWeighted(img,<span class="number">0.5</span>,img2,<span class="number">0.9</span>,<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="图像位运算"><a href="#图像位运算" class="headerlink" title="图像位运算"></a>图像位运算</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cv2.btwise_and(): 与运算</span><br><span class="line">    参数：</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        img2:图片对象<span class="number">2</span></span><br><span class="line">        mask:掩膜</span><br><span class="line">    cv2.bitwise_or()：或运算</span><br><span class="line">    参数：</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        img2:图片对象<span class="number">2</span></span><br><span class="line">        mask:掩膜</span><br><span class="line">    cv2.bitwise_not(): 非运算</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        mask:掩膜</span><br><span class="line">    cv2.bitwise_xor():异或运算，相同为<span class="number">1</span>，不同为<span class="number">0</span>（<span class="number">1</span>^<span class="number">1</span>=<span class="number">0</span>,<span class="number">1</span>^<span class="number">0</span>=<span class="number">1</span>）</span><br><span class="line">        img1:图片对象<span class="number">1</span></span><br><span class="line">        img2:图片对象<span class="number">2</span></span><br><span class="line">        mask:掩膜</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">im1 = cv2.imread(<span class="string">r&#x27;D:/img/comic/014.jpg&#x27;</span>)</span><br><span class="line">im2 = cv2.imread(<span class="string">r&#x27;D:/img/comic/star.jpg&#x27;</span>)</span><br><span class="line">rows,cols = im1.shape[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line"><span class="comment"># 插入区域选取</span></span><br><span class="line">roi = im2[<span class="number">0</span>:rows,<span class="number">0</span>:cols]</span><br><span class="line">im1_gray = cv2.cvtColor(im1, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># 获得插入图片的前景图，二值化函数见下面</span></span><br><span class="line">ret,im1_thres = cv2.threshold(im1_gray, <span class="number">200</span>, <span class="number">255</span>, cv2.THRESH_BINARY_INV)</span><br><span class="line">im1_fg = cv2.add(im1,im1,mask=im1_thres)</span><br><span class="line"><span class="comment"># 获取原来对应区域的背景,即在将要插入的背景图处创建一个对应的空缺</span></span><br><span class="line">im1_thres_inv = cv2.bitwise_not(im1_thres)</span><br><span class="line">roi_bg = cv2.add(roi, roi, mask=im1_thres_inv)</span><br><span class="line"><span class="comment"># 前景和背景进行合并，然后对原图区域进行替换</span></span><br><span class="line">im_add = cv2.add(im1_fg, roi_bg)</span><br><span class="line">im2[<span class="number">0</span>:rows,<span class="number">0</span>:rows] = im_add</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看结果</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;action&#x27;</span>,im1)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;dest&#x27;</span>, im2)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;frontpg&#x27;</span>, im1_fg)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;backpage&#x27;</span>, roi_bg)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;assembly&#x27;</span>, im_add)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;result&#x27;</span>, im2)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br><span class="line"><span class="built_in">print</span>(rows,cols)</span><br></pre></td></tr></table></figure>
+
+<h1 id="图像颜色空间转换"><a href="#图像颜色空间转换" class="headerlink" title="图像颜色空间转换"></a>图像颜色空间转换</h1><h2 id="cv2-cvtColor"><a href="#cv2-cvtColor" class="headerlink" title="cv2.cvtColor()"></a>cv2.cvtColor()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cv2.cvtColor()</span><br><span class="line">    参数：</span><br><span class="line">        img: 图像对象</span><br><span class="line">        code：</span><br><span class="line">            cv2.COLOR_RGB2GRAY: RGB转换到灰度模式</span><br><span class="line">            cv2.COLOR_RGB2HSV： RGB转换到HSV模式（hue,saturation,Value）</span><br><span class="line">cv2.inRange()</span><br><span class="line">    参数：</span><br><span class="line">        img: 图像对象/array</span><br><span class="line">        lowerb: 低边界array，  如lower_blue = np.array([<span class="number">110</span>,<span class="number">50</span>,<span class="number">50</span>])</span><br><span class="line">        upperb：高边界array， 如 upper_blue = np.array([<span class="number">130</span>,<span class="number">255</span>,<span class="number">255</span>])</span><br><span class="line">    mask = cv2.inRange(hsv, lower_green, upper_green)</span><br></pre></td></tr></table></figure>
+
+<h1 id="性能评价"><a href="#性能评价" class="headerlink" title="性能评价"></a>性能评价</h1><p>cv2.getTickCount()： 获得时钟次数</p>
+<p>cv2.getTickFrequency()：获得时钟频率 （每秒振动次数）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">img = cv2.imread(<span class="string">r&#x27;D:/img/comic/014.jpg&#x27;</span>)</span><br><span class="line">e1 = cv2.getTickCount()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>,<span class="number">49</span>,<span class="number">2</span>):</span><br><span class="line">    img1 = cv2.medianBlur(img,i)</span><br><span class="line">e2 = cv2.getTickCount()</span><br><span class="line">t = (e2 - e1)/cv2.getTickFrequency()</span><br><span class="line"><span class="built_in">print</span>(t)</span><br></pre></td></tr></table></figure>
+
+<h1 id="绑定trackbar"><a href="#绑定trackbar" class="headerlink" title="绑定trackbar"></a>绑定trackbar</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cv2.createTrackbar() 为窗口添加trackbar</span><br><span class="line">参数：</span><br><span class="line">    trackbarname: trackbar的名字</span><br><span class="line">    winname: 窗口的名字</span><br><span class="line">    value: trackbar创建时的值</span><br><span class="line">    count：trackbar能设置的最大值，最小值总为<span class="number">0</span></span><br><span class="line">    onChange：trackbar值发生变化时的回调函数，trackbar的值作为参数传给onchange</span><br><span class="line">    </span><br><span class="line">cv2.getTrackbarPos() 获取某个窗口中trackbar的值</span><br><span class="line">参数：</span><br><span class="line">    trackbarname: trackbar的名字</span><br><span class="line">    winname: 窗口的名字</span><br></pre></td></tr></table></figure>
+
+<h1 id="图像阈值化-二值化"><a href="#图像阈值化-二值化" class="headerlink" title="图像阈值化(二值化)"></a>图像阈值化(二值化)</h1><h2 id="一、图像二值化"><a href="#一、图像二值化" class="headerlink" title="一、图像二值化"></a>一、图像二值化</h2><p>定义：图像的二值化，就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的只有黑和白的视觉效果。</p>
+<p>灰度值0：黑，灰度值255：白</p>
+<p>   一幅图像包括目标物体、背景还有噪声，要想从多值的数字图像中直接提取出目标物体，常用的方法就是设定一个阈值T，用T将图像的数据分成两部分：大于T的像素群和小于T的像素群。这是研究灰度变换的最特殊的方法，称为图像的二值化（Binarization）。</p>
+<h2 id="二、threshold"><a href="#二、threshold" class="headerlink" title="二、threshold"></a>二、threshold</h2><p>cv2.threshold(img, threshold, maxval,type)</p>
+<p>其中：</p>
+<p>threshold是设定的阈值<br>maxval是当灰度值大于（或小于）阈值时将该灰度值赋成的值<br>type规定的是当前二值化的方式<br>破折线为将被阈值化的值；虚线为阈值  </p>
+<p>返回两个值<br>    ret:阈值<br>    img：阈值化处理后的图像</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.THRESH_BINARY</td>
+<td>大于阈值的部分被置为255，小于部分被置为0</td>
+</tr>
+<tr>
+<td>cv2.THRESH_BINARY_INV</td>
+<td>大于阈值部分被置为0，小于部分被置为255</td>
+</tr>
+<tr>
+<td>cv2.THRESH_TRUNC</td>
+<td>大于阈值部分被置为threshold，小于部分保持原样</td>
+</tr>
+<tr>
+<td>cv2.THRESH_TOZERO</td>
+<td>小于阈值部分被置为0，大于部分保持不变</td>
+</tr>
+<tr>
+<td>cv2.THRESH_TOZERO_INV</td>
+<td>大于阈值部分被置为0，小于部分保持不变</td>
+</tr>
+</tbody></table>
+<h2 id="三-adaptiveThreshold"><a href="#三-adaptiveThreshold" class="headerlink" title="三. adaptiveThreshold"></a>三. adaptiveThreshold</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cv2.adaptiveThreshold() 自适应阈值处理，图像不同部位采用不同的阈值进行处理</span><br><span class="line">参数：</span><br><span class="line">    img: 图像对象，8-bit单通道图</span><br><span class="line">    maxValue:最大值</span><br><span class="line">    adaptiveMethod: 自适应方法</span><br><span class="line">        cv2.ADAPTIVE_THRESH_MEAN_C     ：阈值为周围像素的平均值</span><br><span class="line">        cv2.ADAPTIVE_THRESH_GAUSSIAN_C : 阈值为周围像素的高斯均值（按权重）</span><br><span class="line">    threshType:</span><br><span class="line">        cv2.THRESH_BINARY:     小于阈值的像素置为0，大于阈值的置为maxValuel</span><br><span class="line">        cv2.THRESH_BINARY_INV:  小于阈值的像素置为maxValue，大于阈值的置为0</span><br><span class="line">    blocksize: 计算阈值时，自适应的窗口大小,必须为奇数 （如3：表示附近3个像素范围内的像素点，进行计算阈值）</span><br><span class="line">    C： 常数值，通过自适应方法计算的值，减去该常数值</span><br></pre></td></tr></table></figure>
+
+<h2 id="四-奥斯二值化（Otsu’s-Binarization）"><a href="#四-奥斯二值化（Otsu’s-Binarization）" class="headerlink" title="四. 奥斯二值化（Otsu’s Binarization）"></a>四. 奥斯二值化（Otsu’s Binarization）</h2><p>　　　　对于一些双峰图像，奥斯二值化能找到两峰之间的像素值作为阈值，并将其返回。适用于双峰图像的阈值化，或者通过去噪而产生的双峰图像。</p>
+<p>　官网使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;noisy2.png&#x27;</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># global thresholding</span></span><br><span class="line">ret1,th1 = cv2.threshold(img,<span class="number">127</span>,<span class="number">255</span>,cv2.THRESH_BINARY)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Otsu&#x27;s thresholding</span></span><br><span class="line">ret2,th2 = cv2.threshold(img,<span class="number">0</span>,<span class="number">255</span>,cv2.THRESH_BINARY+cv2.THRESH_OTSU)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Otsu&#x27;s thresholding after Gaussian filtering</span></span><br><span class="line">blur = cv2.GaussianBlur(img,(<span class="number">5</span>,<span class="number">5</span>),<span class="number">0</span>)</span><br><span class="line">ret3,th3 = cv2.threshold(blur,<span class="number">0</span>,<span class="number">255</span>,cv2.THRESH_BINARY+cv2.THRESH_OTSU)</span><br><span class="line"></span><br><span class="line"><span class="comment"># plot all the images and their histograms</span></span><br><span class="line">images = [img, <span class="number">0</span>, th1,</span><br><span class="line">          img, <span class="number">0</span>, th2,</span><br><span class="line">          blur, <span class="number">0</span>, th3]</span><br><span class="line">titles = [<span class="string">&#x27;Original Noisy Image&#x27;</span>,<span class="string">&#x27;Histogram&#x27;</span>,<span class="string">&#x27;Global Thresholding (v=127)&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;Original Noisy Image&#x27;</span>,<span class="string">&#x27;Histogram&#x27;</span>,<span class="string">&quot;Otsu&#x27;s Thresholding&quot;</span>,</span><br><span class="line">          <span class="string">&#x27;Gaussian filtered Image&#x27;</span>,<span class="string">&#x27;Histogram&#x27;</span>,<span class="string">&quot;Otsu&#x27;s Thresholding&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">3</span>):</span><br><span class="line">    plt.subplot(<span class="number">3</span>,<span class="number">3</span>,i*<span class="number">3</span>+<span class="number">1</span>),plt.imshow(images[i*<span class="number">3</span>],<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">    plt.title(titles[i*<span class="number">3</span>]), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(<span class="number">3</span>,<span class="number">3</span>,i*<span class="number">3</span>+<span class="number">2</span>),plt.hist(images[i*<span class="number">3</span>].ravel(),<span class="number">256</span>)</span><br><span class="line">    plt.title(titles[i*<span class="number">3</span>+<span class="number">1</span>]), plt.xticks([]), plt.yticks([])</span><br><span class="line">    plt.subplot(<span class="number">3</span>,<span class="number">3</span>,i*<span class="number">3</span>+<span class="number">3</span>),plt.imshow(images[i*<span class="number">3</span>+<span class="number">2</span>],<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line">    plt.title(titles[i*<span class="number">3</span>+<span class="number">2</span>]), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="img"><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190601224852098-1757221396.png" alt="img"></p>
+<h1 id="图像形状变换"><a href="#图像形状变换" class="headerlink" title="图像形状变换"></a>图像形状变换</h1><h2 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cv2.resize() 放大和缩小图像</span><br><span class="line">    参数：</span><br><span class="line">        src: 输入图像对象</span><br><span class="line">        dsize：输出矩阵/图像的大小，为<span class="number">0</span>时计算方式如下：dsize = Size(<span class="built_in">round</span>(fx*src.cols),<span class="built_in">round</span>(fy*src.rows))</span><br><span class="line">        fx: 水平轴的缩放因子，为<span class="number">0</span>时计算方式：  (double)dsize.width/src.cols</span><br><span class="line">        fy: 垂直轴的缩放因子，为<span class="number">0</span>时计算方式：  (double)dsize.heigh/src.rows</span><br><span class="line">        interpolation：插值算法</span><br><span class="line">            cv2.INTER_NEAREST : 最近邻插值法</span><br><span class="line">            cv2.INTER_LINEAR   默认值，双线性插值法</span><br><span class="line">            cv2.INTER_AREA        基于局部像素的重采样（resampling using pixel area relation）。对于图像抽取（image decimation）来说，这可能是一个更好的方法。但如果是放大图像时，它和最近邻法的效果类似。</span><br><span class="line">            cv2.INTER_CUBIC        基于4x4像素邻域的<span class="number">3</span>次插值法</span><br><span class="line">            cv2.INTER_LANCZOS4     基于8x8像素邻域的Lanczos插值</span><br><span class="line">                     </span><br><span class="line">    cv2.INTER_AREA 适合于图像缩小， cv2.INTER_CUBIC (slow) &amp; cv2.INTER_LINEAR 适合于图像放大</span><br></pre></td></tr></table></figure>
+
+<h2 id="warpAffine-仿射变换"><a href="#warpAffine-仿射变换" class="headerlink" title="warpAffine()   仿射变换"></a>warpAffine()   仿射变换</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cv2.warpAffine()   仿射变换（从二维坐标到二维坐标之间的线性变换，且保持二维图形的“平直性”和“平行性”。仿射变换可以通过一系列的原子变换的复合来实现，包括平移，缩放，翻转，旋转和剪切）</span><br><span class="line">    参数：</span><br><span class="line">        img: 图像对象</span><br><span class="line">        M：<span class="number">2</span>*<span class="number">3</span> transformation matrix (转变矩阵)</span><br><span class="line">        dsize：输出矩阵的大小,注意格式为（cols，rows）  即width对应cols，height对应rows</span><br><span class="line">        flags：可选，插值算法标识符，有默认值INTER_LINEAR，</span><br><span class="line">               如果插值算法为WARP_INVERSE_MAP, warpAffine函数使用如下矩阵进行图像转dst(x,y)=src(M11*x+M12*y+M13,M21*x+M22*y+M23)</span><br><span class="line">        borderMode：可选， 边界像素模式，有默认值BORDER_CONSTANT </span><br><span class="line">        borderValue:可选，边界取值，有默认值Scalar()即<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>常用插值算法：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602091005036-227493627.png" alt="img"></p>
+<p>　　　仿射变换的本质：即一个矩阵A和向量B共同组成的转变矩阵，和原图像坐标相乘来得到新图像的坐标，从而实现图像移动，旋转等。如下矩阵A和向量B组成的转变矩阵M，用来对原图像的坐标（x,y）进行转变，得到新的坐标向量T</p>
+<p>　矩阵A和向量B</p>
+<p><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092346111-65750210.png" alt="img"></p>
+<p>　　　　仿射变换（矩阵计算）：变换前坐标（x,y）</p>
+<p><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092700612-1331464134.png" alt="img"></p>
+<p>　　　　变换结果：变换后坐标<code>（a00*x+a01 *y+b00, a10*x+a11*y+b10）</code></p>
+<p><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190602092727342-320819378.png" alt="img"></p>
+<h2 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h2><p>官网使用示例：向右平移100，向下平移50</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;messi5.jpg&#x27;</span>,<span class="number">0</span>)</span><br><span class="line">rows,cols = img.shape</span><br><span class="line"></span><br><span class="line">M = np.float32([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">100</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">50</span>]])</span><br><span class="line">dst = cv2.warpAffine(img,M,(cols,rows))</span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">&#x27;img&#x27;</span>,dst)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<h2 id="放大和缩小"><a href="#放大和缩小" class="headerlink" title="放大和缩小"></a>放大和缩小</h2><p>放大和缩小指相对于原坐标（x,y）,变换为了<code>（a*x, b*y）</code>,即水平方向放大了a倍，水平方向放大了b倍，其对应的转变矩阵如下：</p>
+<p><img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607111439230-653546455.png" alt="img"></p>
+<h2 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h2><p>将（x,y），以坐标原点为中心，顺时针方向旋转α得到(x1,y1)， 有如下关系x1 = xcosα-ysinα, y1 =xsinα+ycosα; 因此可以构建对应的转变矩阵如下：<img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607104028901-605422183.png" alt="img"></p>
+<p>opencv将其扩展到，任意点center为中心进行顺时针旋转α，放大scale倍的，转变矩阵如下：</p>
+<p>　　　　　　　　　　　　<img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607104933761-1590038994.png" alt="img"></p>
+<p>通过getRotationMatrix2D()能得到转变矩阵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cv2.getRotationMatrix2D()  返回<span class="number">2</span>*<span class="number">3</span>的转变矩阵（浮点型）</span><br><span class="line"> 参数：</span><br><span class="line">     center：旋转的中心点坐标</span><br><span class="line">     angle：旋转角度，单位为度数，证书表示逆时针旋转</span><br><span class="line">     scale：同方向的放大倍数</span><br></pre></td></tr></table></figure>
+
+<h2 id="仿射变换矩阵的计算"><a href="#仿射变换矩阵的计算" class="headerlink" title="仿射变换矩阵的计算"></a>仿射变换矩阵的计算</h2><p>　　　　通过上述的平移，缩放，旋转的组合变换即实现了仿射变换，上述多个变换的变换矩阵相乘即能得到组合变换的变换矩阵。同时该变换矩阵中涉及到六个未知数（2*3的矩阵），通过变换前后对应三组坐标，也可以求出变换矩阵，opencv提供了函数getAffineTransform()来计算变化矩阵</p>
+<ol>
+<li><p>矩阵相乘：将平移，旋转和缩放的变换矩阵相乘，最后即为仿射变换矩阵</p>
+</li>
+<li><p>getAffineTransform()：根据变换前后三组坐标计算变换矩阵</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　　　cv2.getAffineTransform()  返回2*3的转变矩阵</span><br><span class="line">    　 参数：</span><br><span class="line">       　　 src：原图像中的三组坐标，如np.float32([[50,50],[200,50],[50,200]])</span><br><span class="line">        　　dst: 转换后的对应三组坐标，如np.float32([[10,100],[200,50],[100,250]])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&#x27;drawing.png&#x27;</span>)</span><br><span class="line">rows,cols,ch = img.shape</span><br><span class="line"></span><br><span class="line">pts1 = np.float32([[<span class="number">50</span>,<span class="number">50</span>],[<span class="number">200</span>,<span class="number">50</span>],[<span class="number">50</span>,<span class="number">200</span>]])</span><br><span class="line">pts2 = np.float32([[<span class="number">10</span>,<span class="number">100</span>],[<span class="number">200</span>,<span class="number">50</span>],[<span class="number">100</span>,<span class="number">250</span>]])</span><br><span class="line"></span><br><span class="line">M = cv2.getAffineTransform(pts1,pts2)</span><br><span class="line"></span><br><span class="line">dst = cv2.warpAffine(img,M,(cols,rows))</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">121</span>),plt.imshow(img),plt.title(<span class="string">&#x27;Input&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">122</span>),plt.imshow(dst),plt.title(<span class="string">&#x27;Output&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="透视变换-persperctive-transformation"><a href="#透视变换-persperctive-transformation" class="headerlink" title="透视变换(persperctive transformation)"></a>透视变换(persperctive transformation)</h2><p>　　　　仿射变换都是在二维空间的变换，透视变换（投影变换）是在三维空间中发生了旋转。需要前后四组坐标来计算对应的转变矩阵，opencv提供了函数getPerspectiveTransform()来计算转变矩阵，cv2.warpPerspective()函数来进行透视变换。其对应参数如下：　</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">　　　　　cv2.getPerspectiveTransform()   返回<span class="number">3</span>*<span class="number">3</span>的转变矩阵</span><br><span class="line">参数：    </span><br><span class="line">    src：原图像中的四组坐标，如 np.float32([[<span class="number">56</span>,<span class="number">65</span>],[<span class="number">368</span>,<span class="number">52</span>],[<span class="number">28</span>,<span class="number">387</span>],[<span class="number">389</span>,<span class="number">390</span>]])</span><br><span class="line">    dst: 转换后的对应四组坐标，如np.float32([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">300</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">300</span>],[<span class="number">300</span>,<span class="number">300</span>]])</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">cv2.warpPerspective()</span><br><span class="line">参数：    </span><br><span class="line">    src: 图像对象</span><br><span class="line">    M：<span class="number">3</span>*<span class="number">3</span> transformation matrix (转变矩阵)</span><br><span class="line">    dsize：输出矩阵的大小，注意格式为（cols，rows）  即width对应cols，height对应rows</span><br><span class="line">    flags：可选，插值算法标识符，有默认值INTER_LINEAR，</span><br><span class="line">           如果插值算法为WARP_INVERSE_MAP, warpAffine函数使用如下矩阵进行图像转dst(x,y)=src(M11*x+M12*y+M13,M21*x+M22*y+M23)</span><br><span class="line">    borderMode：可选， 边界像素模式，有默认值BORDER_CONSTANT </span><br><span class="line">    borderValue:可选，边界取值，有默认值Scalar()即<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">&#x27;sudokusmall.png&#x27;</span>)</span><br><span class="line">rows,cols,ch = img.shape</span><br><span class="line"></span><br><span class="line">pts1 = np.float32([[<span class="number">56</span>,<span class="number">65</span>],[<span class="number">368</span>,<span class="number">52</span>],[<span class="number">28</span>,<span class="number">387</span>],[<span class="number">389</span>,<span class="number">390</span>]])</span><br><span class="line">pts2 = np.float32([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">300</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">300</span>],[<span class="number">300</span>,<span class="number">300</span>]])</span><br><span class="line"></span><br><span class="line">M = cv2.getPerspectiveTransform(pts1,pts2)</span><br><span class="line"></span><br><span class="line">dst = cv2.warpPerspective(img,M,(<span class="number">300</span>,<span class="number">300</span>))</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">121</span>),plt.imshow(img),plt.title(<span class="string">&#x27;Input&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">122</span>),plt.imshow(dst),plt.title(<span class="string">&#x27;Output&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>　　　<img src="https://img2018.cnblogs.com/blog/1483773/201906/1483773-20190607114939954-1993012118.png" alt="img"></p>
+<p>　　　从上图中可以透视变换的一个应用，如果能找到原图中纸张的四个顶点，将其转换到新图中纸张的四个顶点，能将歪斜的roi区域转正，并进行放大；如在书籍，名片拍照上传后进行识别时，是一个很好的图片预处理方法。</p>
+<p> 　　opencv中还提供了一个函数perspctiveTransform()来对坐标点进行透视变换，对于原图像上的一点，通过perspctiveTransform()能计算出透视变换后图片上该点的坐标，其对应参数如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cv2.perspectiveTransform(src, matrix)</span><br><span class="line"></span><br><span class="line">参数： </span><br><span class="line">    src：坐标点矩阵，注意其格式. 如src=np.array([[589, 91],[1355, 91],[1355, 219],[589, 219]], np.float32).reshape(-1, 1, 2), 表示四个坐标点，size为(4, -1, 2)</span><br><span class="line">    matrix：getPerspectiveTransform()得到的透视变换矩阵 返回值：变换后的坐标点，格式和src相同</span><br></pre></td></tr></table></figure>
+
+<p>　　若变换前坐标点src(x, y),变换后坐标点为dst(X, Y)， 其内部计算过程如下</p>
+<p><img src="https://img2020.cnblogs.com/blog/1483773/202102/1483773-20210210175616751-623661270.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#matrix</span><br><span class="line">matrix = np.float32([[ 8.06350904e-01 -1.67497791e-02 -4.34096149e+01]</span><br><span class="line"> [ 2.85178118e-02  8.29440456e-01 -6.26063898e+01]</span><br><span class="line"> [ 2.41877972e-05  1.99790270e-05  1.00000000e+00]])</span><br><span class="line"></span><br><span class="line">rect = np.array([[589, 91], [1355, 91], [1355, 219], [589, 219]], np.float32)</span><br><span class="line">rect = rect.reshape(-1, 1, 2)</span><br><span class="line">newRect = cv2.perspectiveTransform(rect, matrix)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test(rect, matrix):</span><br><span class="line">    rect_fill = np.ones((4, 3), dtype=np.float32)</span><br><span class="line">    rect_fill[:, :2] = rect</span><br><span class="line">    mid_rect = np.dot(matrix, rect_fill.T)</span><br><span class="line">    mid_rect = mid_rect.T</span><br><span class="line">    mid_rect[:, :2] = mid_rect[:, :2]/mid_rect[:, 2:]</span><br><span class="line">    print(&quot;TEST&quot;, mid_rect)</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -392,6 +540,9 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/opencv/" rel="tag"># opencv</a>
+          </div>
 
         
 
@@ -416,7 +567,6 @@
 
 
 
-    <div class="comments" id="SOHUCS"></div>
 </div>
   </main>
 
@@ -438,14 +588,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">155k</span>
+    <span title="站点总字数">174k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:21</span>
+    <span title="站点阅读时长">2:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -488,8 +638,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

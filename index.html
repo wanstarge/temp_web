@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -243,6 +243,767 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/20/15-28-45/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/20/15-28-45/" class="post-title-link" itemprop="url">js基础语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-20 15:28:45" itemprop="dateCreated datePublished" datetime="2021-08-20T15:28:45+08:00">2021-08-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-01 22:40:22" itemprop="dateModified" datetime="2021-09-01T22:40:22+08:00">2021-09-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="lt-script-gt-元素"><a href="#lt-script-gt-元素" class="headerlink" title="&lt;script&gt;元素"></a>&lt;script&gt;元素</h2><ul>
+<li>async: 可以保证脚本立刻被下载，同时不影响其他资源的加载</li>
+<li>defer: 表示脚本延迟到文档完全解析和显示后再执行</li>
+</ul>
+<h2 id="解决XHTML不兼容问题"><a href="#解决XHTML不兼容问题" class="headerlink" title="解决XHTML不兼容问题"></a>解决XHTML不兼容问题</h2><p>可以将js代码放入如下代码块中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;![CDATA[</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//]]&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lt-noscript-gt-元素"><a href="#lt-noscript-gt-元素" class="headerlink" title="&lt;noscript&gt;元素"></a>&lt;noscript&gt;元素</h2><p>用以提示不支持或者js被禁用的用户，比如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        此页面有js程序未显示出，可能无法正常实用，请打开js开关或更换支持js的浏览器</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><ul>
+<li>添加var后，其所定义的变量会成为包含他的函数的局部变量，若要在函数内定义<strong>全局变量</strong>可以去掉var</li>
+<li>var有声明提升的效果</li>
+<li>声明的全局变量会成为window对象的属性，var name;就会有window.name</li>
+</ul>
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><ul>
+<li>let声明的是块作用域，是函数作用域的子集</li>
+<li>let不允许在同一个块中进行多次声明</li>
+<li>let不会有声明提升效果，未定义就是未定义</li>
+<li>同时let声明的全局变量不会成为window对象的属性</li>
+<li>无法用条件语句检测是否某个变量是否已经被let声明过</li>
+<li>for循环中使用let可以避免变量渗透出去</li>
+</ul>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ul>
+<li>不允许修改其所赋的值</li>
+<li>不允许重复声明</li>
+<li>作用域也是块</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">var</span>; <span class="comment">//可以显示变量的数据类型</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新定义声明的未赋值的值默认为<span class="literal">undefined</span>，而未定义的变量则会直接报错</span><br><span class="line"><span class="keyword">let</span> age=<span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p><strong>实质上是一个空对象指针，需要保存对象时建议用NULL进行初始化</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> car=<span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h3><p>布尔类型与其他数据类型间的转换</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>转换为true的值</th>
+<th>转换为false的值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String</td>
+<td>非空</td>
+<td>“”</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>非零数值</td>
+<td>0, NaN</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>任意对象</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>N/A  (不存在)</td>
+<td>undefined</td>
+</tr>
+</tbody></table>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><ul>
+<li>十进制可直接写出</li>
+<li>八进制需要数字的第一位为0</li>
+<li>十六进制需要数字的前面加上0x</li>
+</ul>
+<h4 id="浮点值"><a href="#浮点值" class="headerlink" title="浮点值"></a>浮点值</h4><ul>
+<li>形如a.b的形式称为浮点值</li>
+<li>也有科学计数法1e7，表示1x10<sup>7</sup></li>
+<li>精确值可达17位小数</li>
+<li>无穷用Infinity表示</li>
+<li>用isFinite()来进行判断是否为无穷</li>
+</ul>
+<h4 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h4><ul>
+<li>不是数值，运算过程出错会出现这个值</li>
+<li>可以使用isNaN()来判断是否不是数值，假如是数值则返回false</li>
+</ul>
+<h4 id="数值转换"><a href="#数值转换" class="headerlink" title="数值转换"></a>数值转换</h4><p><strong>Number()</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>对应结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>布尔值</td>
+<td>true为1，false为0</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>直接返回</td>
+</tr>
+<tr>
+<td>null</td>
+<td>返回0</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>空字符串返回0，非空返回NaN<br />包含数字的按照正常的转换习惯进行转换<br />会省略前面的零</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>则会调用valueof()方法并按照上述规则进行转换返回</td>
+</tr>
+</tbody></table>
+<p><strong>parseInt(str,base)</strong></p>
+<p>碰到不是数值字符或者正负号直接结束读取</p>
+<p><strong>parseFlaot()</strong></p>
+<p>解析到非数值字符或第二个小数点时停止读取</p>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><ul>
+<li>长度可以通过text.length来进行获取</li>
+<li>\xnn和\xnnnn分别表示ascii和unicode字符</li>
+<li>满足字符串之间的相加</li>
+</ul>
+<p><strong>toString()</strong></p>
+<ul>
+<li>num.toString(8)将数字转换为八进制字符串</li>
+<li>其他类型直接返回相应的值对应的字符串</li>
+</ul>
+<p><strong>模板字面量</strong></p>
+<ul>
+<li>保留换行，并且允许跨行定义字符串</li>
+</ul>
+<p><strong>字符串插值</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/17/21-56-52/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/17/21-56-52/" class="post-title-link" itemprop="url">html小知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-17 21:56:52 / 修改时间：22:00:00" itemprop="dateCreated datePublished" datetime="2021-08-17T21:56:52+08:00">2021-08-17</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>429</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <table>
+<thead>
+<tr>
+<th>显示结果</th>
+<th align="left">描述</th>
+<th align="left">实体名称</th>
+<th align="left">实体编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td align="left">空格</td>
+<td align="left">&amp;nbsp;</td>
+<td align="left">&amp;#160;</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td align="left">小于号</td>
+<td align="left">&amp;lt;</td>
+<td align="left">&amp;#60;</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td align="left">大于号</td>
+<td align="left">&amp;gt;</td>
+<td align="left">&amp;#62;</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td align="left">和号</td>
+<td align="left">&amp;amp;</td>
+<td align="left">&amp;#38;</td>
+</tr>
+<tr>
+<td>“</td>
+<td align="left">引号</td>
+<td align="left">&amp;quot;</td>
+<td align="left">&amp;#34;</td>
+</tr>
+<tr>
+<td>‘</td>
+<td align="left">撇号</td>
+<td align="left">&amp;apos; (IE不支持)</td>
+<td align="left">&amp;#39;</td>
+</tr>
+<tr>
+<td>￠</td>
+<td align="left">分（cent）</td>
+<td align="left">&amp;cent;</td>
+<td align="left">&amp;#162;</td>
+</tr>
+<tr>
+<td>£</td>
+<td align="left">镑（pound）</td>
+<td align="left">&amp;pound;</td>
+<td align="left">&amp;#163;</td>
+</tr>
+<tr>
+<td>¥</td>
+<td align="left">元（yen）</td>
+<td align="left">&amp;yen;</td>
+<td align="left">&amp;#165;</td>
+</tr>
+<tr>
+<td>€</td>
+<td align="left">欧元（euro）</td>
+<td align="left">&amp;euro;</td>
+<td align="left">&amp;#8364;</td>
+</tr>
+<tr>
+<td>§</td>
+<td align="left">小节</td>
+<td align="left">&amp;sect;</td>
+<td align="left">&amp;#167;</td>
+</tr>
+<tr>
+<td>©</td>
+<td align="left">版权（copyright）</td>
+<td align="left">&amp;copy;</td>
+<td align="left">&amp;#169;</td>
+</tr>
+<tr>
+<td>®</td>
+<td align="left">注册商标</td>
+<td align="left">&amp;reg;</td>
+<td align="left">&amp;#174;</td>
+</tr>
+<tr>
+<td>™</td>
+<td align="left">商标</td>
+<td align="left">&amp;trade;</td>
+<td align="left">&amp;#8482;</td>
+</tr>
+<tr>
+<td>×</td>
+<td align="left">乘号</td>
+<td align="left">&amp;times;</td>
+<td align="left">&amp;#215;</td>
+</tr>
+<tr>
+<td>÷</td>
+<td align="left">除号</td>
+<td align="left">&amp;divide;</td>
+<td align="left">&amp;#247;</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/16/11-45-08/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/16/11-45-08/" class="post-title-link" itemprop="url">pyinputplus</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-16 11:45:08 / 修改时间：16:02:47" itemprop="dateCreated datePublished" datetime="2021-08-16T11:45:08+08:00">2021-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>431</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">inputStr() <span class="comment"># 类似于内置的input函数</span></span><br><span class="line">inputNum() <span class="comment"># 确保返回的数是整数或者小数，取决于输入的是否有小数点</span></span><br><span class="line">	- <span class="built_in">min</span></span><br><span class="line">    - <span class="built_in">max</span></span><br><span class="line">    - greaterthan</span><br><span class="line">    - lessthan</span><br><span class="line">    - blank=<span class="literal">True</span>可以输入空格</span><br><span class="line">    - limit=<span class="number">2</span></span><br><span class="line">    - timeout=<span class="number">10</span></span><br><span class="line">    - default=<span class="number">0</span></span><br><span class="line">    - allowRegexes</span><br><span class="line">    - blockRegexes</span><br><span class="line">inputChoice() <span class="comment">#确保输入提供的选项之一</span></span><br><span class="line">inputMenu() <span class="comment"># 类似于Choice但提供一个菜单</span></span><br><span class="line">inputDatetime() <span class="comment">#确保输入日期和时间</span></span><br><span class="line">inputYesNo() <span class="comment">#确保输入yes和no响应</span></span><br><span class="line">inputEmail() <span class="comment">#确保输入有效的邮件地址</span></span><br><span class="line">inputBool() <span class="comment"># 和yesno类似，但接受true或false并返回一个bool值</span></span><br><span class="line">inputFilepath() <span class="comment"># 确保输入有效的文件路径和文件名，并检查是否存在</span></span><br><span class="line">inputPassword() <span class="comment"># 输入时显示为*，保护隐私</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/14/12-28-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/14/12-28-06/" class="post-title-link" itemprop="url">latex基本语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-14 12:28:06 / 修改时间：12:28:37" itemprop="dateCreated datePublished" datetime="2021-08-14T12:28:06+08:00">2021-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/latex/" itemprop="url" rel="index"><span itemprop="name">latex</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>0</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/13/18-39-12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Ivan">
+      <meta itemprop="description" content="一起分享交流，互相学习">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万星阁">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/13/18-39-12/" class="post-title-link" itemprop="url">Emmet使用语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-13 18:39:12 / 修改时间：18:59:27" itemprop="dateCreated datePublished" datetime="2021-08-13T18:39:12+08:00">2021-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1：html初始结构"><a href="#1：html初始结构" class="headerlink" title="1：html初始结构"></a>1：html初始结构</h1><p>下图中的结构，偷懒的都会直接一个！=&gt; Tab 解决，这样可以快速生成基础的结构，同时防止手写时忘记某个代码块，输入错误的代码。</p>
+<p>默认生成的是html5的模板</p>
+<h1 id="2：id（-）-class（-）"><a href="#2：id（-）-class（-）" class="headerlink" title="2：id（#）,class（.）"></a>2：id（#）,class（.）</h1><ul>
+<li><p><strong>div#test</strong></p>
+</li>
+<li><p>```html</p>
+<div id="test"></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **div.test**</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">  &lt;div class=&quot;test&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="3：子节点（-gt-），兄弟节点（-），上级节点（-）"><a href="#3：子节点（-gt-），兄弟节点（-），上级节点（-）" class="headerlink" title="3：子节点（&gt;），兄弟节点（+），上级节点（^）"></a>3：子节点（&gt;），兄弟节点（+），上级节点（^）</h1><ul>
+<li><p><strong>div&gt;ul&gt;li&gt;p</strong></p>
+</li>
+<li><p>```html</p>
+<div>
+   <ul>
+     <li>
+       <p></p>
+     </li>
+   </ul>
+ </div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **div+ul+p**</span><br><span class="line"></span><br><span class="line">- ```htnl</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">  &lt;ul&gt;&lt;/ul&gt;</span><br><span class="line">  &lt;p&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>div&gt;ul&gt;li^div</strong> (这里的<code>^</code>是接在<code>li</code>后面所以在<code>li</code>的上一级，与<code>ul</code>成了兄弟关系,当然两个^^就是上上级）</p>
+</li>
+<li><p>```html</p>
+<div>
+   <ul>
+     <li></li>
+   </ul>
+   <div></div>
+ </div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 4：重复（*）</span><br><span class="line"></span><br><span class="line">- div\*5（\***号后面添加数字表示重复的元素个数**）</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="5：分组（-）"><a href="#5：分组（-）" class="headerlink" title="5：分组（()）"></a>5：分组（()）</h1><ul>
+<li><p>div&gt;(ul&gt;li&gt;a)+div&gt;p<br>（<strong>括号里面的内容为一个代码块，表示与括号内部嵌套和外面的的层级无关</strong>）</p>
+</li>
+<li><p>```html</p>
+<div>
+   <ul>
+     <li><a href=""></a></li>
+   </ul>
+   <div>
+     <p></p>
+   </div>
+ </div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 解释：这里如果不加括号的话,`a+div`这样div就是和a是兄弟关系了，会包含在li里面</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">     &lt;ul&gt;</span><br><span class="line">       &lt;li&gt;</span><br><span class="line">         &lt;a href=&quot;&quot;&gt;&lt;/a&gt;</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">           &lt;p&gt;&lt;/p&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">       &lt;/li&gt;</span><br><span class="line">     &lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="6：属性（-attr-）"><a href="#6：属性（-attr-）" class="headerlink" title="6：属性（[attr]）"></a>6：属性（[attr]）</h1><ul>
+<li><p>a[href=’###’ name=‘xiaoA’] （<strong>中括号内填写属性键值对的形式，并且空格隔开</strong>）</p>
+</li>
+<li><p>```html<br><a href="###" name="xiaoA"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 7: 编号（$）</span><br><span class="line"></span><br><span class="line">- ul&gt;li.test$\*3 （**$代表一位数，后面更上\*数字就代表从1递增到填写的数字**）</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">     &lt;li class=&quot;test1&quot;&gt;&lt;/li&gt;</span><br><span class="line">     &lt;li class=&quot;test2&quot;&gt;&lt;/li&gt;</span><br><span class="line">     &lt;li class=&quot;test3&quot;&gt;&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><p>一个$ 代表一位数，只出现一个的话，就从1开始。如果出现多个，就从0开始,以此类推就可以形成$(1),$$(01),$$$(001)</p>
+</li>
+<li><p>如果想自定义从几开始递增的话就利用：$@+数字*数字<br>例如：ul&gt;li*3.test$@3</p>
+</li>
+<li><p>也可以在 $ 后面增加 @- 来实现倒序排列：<br>命令：ul&gt;li.item$@-*5  得到代码如下</p>
+</li>
+<li><p>```html</p>
+<ul>
+    <li class="item5"></li>
+    <li class="item4"></li>
+    <li class="item3"></li>
+    <li class="item2"></li>
+    <li class="item1"></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 8：文本（&#123;&#125;）</span><br><span class="line"></span><br><span class="line">- ul&gt;li.test$*3&#123;测试$&#125; （**&#123;里面填写内容，可以和$一起组合使用&#125;**）</span><br><span class="line"></span><br><span class="line">- ```html</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li class=&quot;test1&quot;&gt;测试1&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;test2&quot;&gt;测试2&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;test3&quot;&gt;测试3&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="9：隐式标签"><a href="#9：隐式标签" class="headerlink" title="9：隐式标签"></a>9：隐式标签</h1><p>这个标签没有指令，而是部分标签可以不使用输入标签，直接输入指令，即可识别父类标签。</p>
+<p><strong>默认div</strong> 例如：<code>.test</code></p>
+<p><strong>li</strong>： 可在ul 和 ol 中使用 例如：<code>ul&gt;.test$*3</code></p>
+<p><strong>option</strong>：可在select中使用例如：<code>select&gt;.test$*5</code></p>
+<p><strong>tr</strong>：可在 table、tbody、thead 和 tfoot 中使用</p>
+<p><strong>td</strong>：可在 tr 中使用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/20-48-36/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -286,22 +1047,6 @@
         </span>
     </span>
 
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/20-48-36/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/20-48-36/" class="cy_cmt_count" data-xid="2021/08/10/20-48-36/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
   
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
@@ -405,22 +1150,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/20-17-45/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/20-17-45/" class="cy_cmt_count" data-xid="2021/08/10/20-17-45/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -516,22 +1245,6 @@
         </span>
     </span>
 
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/18-45-49/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/18-45-49/" class="cy_cmt_count" data-xid="2021/08/10/18-45-49/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
   
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
@@ -635,22 +1348,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/18-35-35/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/18-35-35/" class="cy_cmt_count" data-xid="2021/08/10/18-35-35/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -753,22 +1450,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/18-31-51/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/18-31-51/" class="cy_cmt_count" data-xid="2021/08/10/18-31-51/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -819,592 +1500,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/18-23-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ivan">
-      <meta itemprop="description" content="一起分享交流，互相学习">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="万星阁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/10/18-23-17/" class="post-title-link" itemprop="url">linux-FTP服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-10 18:23:17" itemprop="dateCreated datePublished" datetime="2021-08-10T18:23:17+08:00">2021-08-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-12 09:50:17" itemprop="dateModified" datetime="2021-08-12T09:50:17+08:00">2021-08-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/18-23-17/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/18-23-17/" class="cy_cmt_count" data-xid="2021/08/10/18-23-17/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>510</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>FTP服务属于传输协议的应用层;21被认为是FTP服务的标准端口，20用以传输数据流，21用以控制数据流。vsftpd是许多linux默认的FTP服务软件包</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/10/18-23-17/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/17-58-20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ivan">
-      <meta itemprop="description" content="一起分享交流，互相学习">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="万星阁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/10/17-58-20/" class="post-title-link" itemprop="url">ssh服务</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-10 17:58:20" itemprop="dateCreated datePublished" datetime="2021-08-10T17:58:20+08:00">2021-08-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-11 17:29:33" itemprop="dateModified" datetime="2021-08-11T17:29:33+08:00">2021-08-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/17-58-20/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/17-58-20/" class="cy_cmt_count" data-xid="2021/08/10/17-58-20/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>ssh服务端管理命令，将来应该会有用，先放着</strong> </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/10/17-58-20/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/17-29-32/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ivan">
-      <meta itemprop="description" content="一起分享交流，互相学习">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="万星阁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/10/17-29-32/" class="post-title-link" itemprop="url">ubuntu中文件组成</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-10 17:29:32" itemprop="dateCreated datePublished" datetime="2021-08-10T17:29:32+08:00">2021-08-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-12 09:51:31" itemprop="dateModified" datetime="2021-08-12T09:51:31+08:00">2021-08-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/17-29-32/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/17-29-32/" class="cy_cmt_count" data-xid="2021/08/10/17-29-32/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>记载linux中一些特殊的文件夹</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/10/17-29-32/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/17-17-30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ivan">
-      <meta itemprop="description" content="一起分享交流，互相学习">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="万星阁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/10/17-17-30/" class="post-title-link" itemprop="url">c++基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-10 17:17:30" itemprop="dateCreated datePublished" datetime="2021-08-10T17:17:30+08:00">2021-08-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-12 09:49:45" itemprop="dateModified" datetime="2021-08-12T09:49:45+08:00">2021-08-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/17-17-30/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/17-17-30/" class="cy_cmt_count" data-xid="2021/08/10/17-17-30/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>懒得整了，先放着，以后有兴趣再来</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/10/17-17-30/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wanstarge.github.io/2021/08/10/13-26-53/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Ivan">
-      <meta itemprop="description" content="一起分享交流，互相学习">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="万星阁">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/10/13-26-53/" class="post-title-link" itemprop="url">c基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-08-10 13:26:53 / 修改时间：17:19:50" itemprop="dateCreated datePublished" datetime="2021-08-10T13:26:53+08:00">2021-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/08/10/13-26-53/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://wanstarge.github.io/2021/08/10/13-26-53/" class="cy_cmt_count" data-xid="2021/08/10/13-26-53/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>先鸽着，以后整</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/10/13-26-53/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1428,14 +1525,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">155k</span>
+    <span title="站点总字数">174k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:21</span>
+    <span title="站点阅读时长">2:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1478,8 +1575,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvAP9xPh","appkey":"ba3beb0b3694c01c061c4c426ac72f1d"}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>
